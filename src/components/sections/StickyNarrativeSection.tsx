@@ -38,7 +38,7 @@ const StickyNarrativeSection = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            const blocks = gsap.utils.toArray(".narrative-block");
+            const blocks = gsap.utils.toArray(".narrative-block") as HTMLElement[];
 
             // Sync visual steps with text scroll
             blocks.forEach((block: HTMLElement, i: number) => {

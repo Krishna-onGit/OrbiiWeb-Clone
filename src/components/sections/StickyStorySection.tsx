@@ -149,7 +149,7 @@ const StickyStorySection = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            const blocks = gsap.utils.toArray(".story-block");
+            const blocks = gsap.utils.toArray(".story-block") as HTMLElement[];
 
             blocks.forEach((block: HTMLElement, i: number) => {
                 ScrollTrigger.create({
