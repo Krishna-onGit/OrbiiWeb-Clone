@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Check, Database, Cpu, BarChart3, ArrowRight, ShieldCheck, FileText, Activity } from "lucide-react";
+import { Check, Database, Cpu, BarChart3, ArrowRight, ShieldCheck, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -41,7 +41,7 @@ const StickyNarrativeSection = () => {
             const blocks = gsap.utils.toArray(".narrative-block");
 
             // Sync visual steps with text scroll
-            blocks.forEach((block: any, i: number) => {
+            blocks.forEach((block: HTMLElement, i: number) => {
                 ScrollTrigger.create({
                     trigger: block,
                     start: "top center",

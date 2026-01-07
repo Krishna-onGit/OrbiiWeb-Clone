@@ -11,7 +11,7 @@ const LogoStrip = () => {
         <section className="py-20 border-y border-white/5 bg-[#0A0B1A]">
             <div className="section-container">
                 <p className="text-center text-white/40 mb-10 font-medium tracking-widest uppercase text-xs">
-                    Trusted by the world's most innovative teams
+                    Trusted by the world&apos;s most innovative teams
                 </p>
 
                 <div className="relative overflow-hidden flex gap-12 group">

@@ -41,7 +41,7 @@ const Testimonials = () => {
                         >
                             <Quote className="text-primary/20 absolute top-8 right-8 w-12 h-12" />
                             <p className="text-xl text-white/90 mb-8 italic leading-relaxed">
-                                "{t.quote}"
+                                "&quot;{t.quote}&quot;"
                             </p>
                             <div>
                                 <div className="font-bold text-lg">{t.author}</div>

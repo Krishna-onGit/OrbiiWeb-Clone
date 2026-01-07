@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Zap, Shield, BarChart3, Cpu, Database, Network } from "lucide-react";
+import { Zap, BarChart3, Cpu, Database, Network } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -151,7 +151,7 @@ const StickyStorySection = () => {
         const ctx = gsap.context(() => {
             const blocks = gsap.utils.toArray(".story-block");
 
-            blocks.forEach((block: any, i: number) => {
+            blocks.forEach((block: HTMLElement, i: number) => {
                 ScrollTrigger.create({
                     trigger: block,
                     start: "top center",
@@ -187,7 +187,7 @@ const StickyStorySection = () => {
     }, []);
 
     useEffect(() => {
-        const handleIndexChange = (e: any) => setReactIndex(e.detail);
+        const handleIndexChange = (e: Event) => setReactIndex((e as CustomEvent).detail);
         window.addEventListener("scroll-index-change", handleIndexChange);
         return () => window.removeEventListener("scroll-index-change", handleIndexChange);
     }, []);

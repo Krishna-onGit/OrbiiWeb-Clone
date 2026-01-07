@@ -64,8 +64,6 @@ const StatsIntelligence = () => {
     const [inView, setInView] = useState(false);
 
     useEffect(() => {
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
         const ctx = gsap.context(() => {
             // Heading animation
             gsap.fromTo(".stats-heading",
@@ -128,7 +126,7 @@ const StatsIntelligence = () => {
                 {/* Testimonial */}
                 <div className="mt-20 max-w-2xl mx-auto text-center">
                     <blockquote className="text-xl md:text-2xl text-secondary/80 leading-relaxed italic mb-6">
-                        "Orbii's decisioning engine reduced our underwriting time by 90% while improving accuracy."
+                        &quot;Orbii&apos;s decisioning engine reduced our underwriting time by 90% while improving accuracy.&quot;
                     </blockquote>
                     <p className="text-sm text-secondary/40 font-bold">— Head of Credit, Fortune 500 Fintech</p>
                 </div>
