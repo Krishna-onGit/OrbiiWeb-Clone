@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #080E0C;
+  --foreground: #E2E8E4;
+  --brand: #B4FF39;
+  --brand-muted: rgba(180, 255, 57, 0.1);
+
+  /* Semantic Text Colors - HIGH CONTRAST */
+  --text-primary: #FFFFFF;
+  /* Pure white for headings */
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  /* Body text - very readable */
+  --text-muted: rgba(255, 255, 255, 0.55);
+  /* Subtle text */
+  --text-inactive: rgba(255, 255, 255, 0.20);
+  /* Inactive/disabled */
+
+  /* Accent Colors - BRIGHT */
+  --accent-primary: #B4FF39;
+  /* Primary neon green */
+  --accent-secondary: #CDFF73;
+  /* Brighter green for badges */
+  --accent-bg: rgba(180, 255, 57, 0.15);
+  /* Badge backgrounds - more visible */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Vertical Beams / Aurora Effect */
+.bg-beams {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-beams::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(180, 255, 57, 0.05) 0%, transparent 70%),
+    linear-gradient(90deg,
+      transparent 10%,
+      rgba(180, 255, 57, 0.01) 15%,
+      transparent 20%,
+      rgba(180, 255, 57, 0.015) 45%,
+      transparent 50%,
+      rgba(180, 255, 57, 0.01) 80%,
+      transparent 85%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-2 bg-brand text-black font-black text-[11px] uppercase tracking-[0.15em] rounded-full hover:opacity-90 transition-all active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-2 border border-white/10 text-white font-black text-[11px] uppercase tracking-[0.15em] rounded-full hover:bg-white/5 transition-all;
+  }
+
+  .section-container {
+    @apply max-w-[1100px] mx-auto px-6;
+  }
+
+  .heading-hero {
+    @apply text-[40px] md:text-[76px] font-bold leading-[1.05] tracking-tight;
+  }
+
+  .text-sub {
+    @apply text-lg md:text-[22px] text-secondary leading-[1.6];
+  }
+
+  .glass-card {
+    @apply bg-black/40 border border-white/[0.08] rounded-2xl backdrop-blur-xl;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080E0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(180, 255, 57, 0.1);
+  border-radius: 10px;
+}
