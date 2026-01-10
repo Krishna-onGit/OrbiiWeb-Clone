@@ -3,16 +3,16 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Database, Shield, Zap, Globe } from "lucide-react";
+import { Calculator, ShieldCheck, HeartPulse, PieChart, Network } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const nodes = [
-    { icon: Database, label: "Ledger", x: 20, y: 30 },
-    { icon: Shield, label: "Risk Engine", x: 50, y: 20 },
-    { icon: Zap, label: "Decisioning", x: 80, y: 35 },
-    { icon: Globe, label: "Multi-Jurisdiction", x: 35, y: 70 },
-    { icon: Database, label: "Capital Flow", x: 65, y: 75 },
+    { icon: Calculator, label: "Actuarial Engine", x: 20, y: 30 },
+    { icon: ShieldCheck, label: "Underwriting", x: 50, y: 20 },
+    { icon: HeartPulse, label: "Claims Processing", x: 80, y: 35 },
+    { icon: Network, label: "Distribution", x: 35, y: 70 },
+    { icon: PieChart, label: "Reinsurance", x: 65, y: 75 },
 ];
 
 const InfraSection = () => {
@@ -47,13 +47,13 @@ const InfraSection = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-32 relative bg-background border-t border-white/[0.03]">
+        <section ref={sectionRef} className="py-24 relative overflow-hidden border-t border-white/[0.03]">
             <div className="section-container">
                 {/* Heading */}
                 <div className="infra-heading text-center mb-20">
-                    <span className="text-[11px] font-black uppercase tracking-[0.3em] text-brand mb-4 block">Core Infrastructure</span>
+                    <span className="text-[11px] font-black uppercase tracking-[0.3em] text-brand mb-4 block">Insurance Core</span>
                     <h2 className="text-4xl md:text-6xl font-bold text-white max-w-4xl mx-auto leading-tight">
-                        Modular credit infrastructure that adapts to your complexity
+                        Modular insurance infrastructure that adapts to your risk profile
                     </h2>
                 </div>
 

@@ -3,8 +3,10 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { MoveRight } from "lucide-react";
+import Link from "next/link";
+import { ROUTES } from "@/config/routes";
+
 import Hero from "@/components/sections/Hero";
 import InfraSection from "@/components/sections/InfraSection";
 import StickyNarrativeSection from "@/components/sections/StickyNarrativeSection";
@@ -12,7 +14,6 @@ import BusinessGrid from "@/components/sections/BusinessGrid";
 import LaunchTimeline from "@/components/sections/LaunchTimeline";
 import StatsIntelligence from "@/components/sections/StatsIntelligence";
 import DevSection from "@/components/sections/DevSection";
-import { MoveRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,40 +48,27 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-background selection:bg-brand selection:text-black">
-      <Navbar />
-
+    <>
       <Hero />
-
       <InfraSection />
-
       <StickyNarrativeSection />
-
       <BusinessGrid />
-
       <LaunchTimeline />
-
       <StatsIntelligence />
-
       <DevSection />
-
-      {/* Unified Footer CTA */}
       <section ref={ctaRef} className="py-32 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-orbii-glow opacity-50 -z-10" />
         <div className="section-container text-center">
           <h2 className="cta-heading heading-hero text-4xl md:text-6xl mb-10 max-w-4xl mx-auto">
-            The infrastructure for <br /> modern B2B lending
+            The future of <br /> Intelligent Insurance
           </h2>
           <div className="cta-buttons flex flex-col sm:flex-row justify-center items-center gap-6">
-            <button className="btn-primary !px-10 !py-4">Start Now</button>
-            <button className="btn-ghost flex items-center gap-2 !px-10 !py-4">
-              Chat with us <MoveRight size={18} />
-            </button>
+            <Link href={ROUTES.insurance.health} className="btn-primary !px-10 !py-4">Start Now</Link>
+            <Link href={ROUTES.calculators.hub} className="btn-ghost flex items-center gap-2 !px-10 !py-4">
+              View Calculators <MoveRight size={18} />
+            </Link>
           </div>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }

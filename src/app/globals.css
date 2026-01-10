@@ -102,3 +102,65 @@ body {
   background: rgba(180, 255, 57, 0.1);
   border-radius: 10px;
 }
+
+/* Spotlight Hover Effect */
+.spotlight-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-effect::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(var(--spotlight-size, 400px) circle at var(--spotlight-x, 0) var(--spotlight-y, 0),
+      rgba(var(--spotlight-color, 255, 255, 255), var(--spotlight-intensity, 0.15)),
+      transparent 80%);
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.spotlight-active::before {
+  opacity: 1;
+}
+
+
+/* Base Styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 100 !important;
+  letter-spacing: -0.02em;
+}
+
+.font-thin {
+  font-weight: 100 !important;
+}
+
+/* Responsive Container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Additional Branding */
+.text-brand {
+  color: var(--brand);
+}
+
+.bg-brand {
+  background-color: var(--brand);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

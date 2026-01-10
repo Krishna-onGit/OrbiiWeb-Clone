@@ -3,15 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TrendingUp, Users, FileCheck, Clock } from "lucide-react";
+import { TrendingUp, Users, ShieldCheck, Clock } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-    { value: 99.2, suffix: "%", label: "Accuracy Rate", icon: TrendingUp },
-    { value: 2.4, suffix: "M+", label: "Decisions Made", icon: FileCheck },
-    { value: 24, suffix: "ms", label: "Avg Latency", icon: Clock },
-    { value: 150, suffix: "+", label: "Enterprise Clients", icon: Users },
+    { value: 99.1, suffix: "%", label: "Claim Settlement", icon: ShieldCheck },
+    { value: 27, suffix: "M+", label: "Customers Trusted", icon: Users },
+    { value: 15, suffix: "K+", label: "Network Hospitals", icon: TrendingUp },
+    { value: 1, suffix: "Hr", label: "Avg. Approval", icon: Clock },
 ];
 
 // Counter component for animating numbers
@@ -97,13 +97,13 @@ const StatsIntelligence = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-32 relative bg-background border-t border-white/[0.03]">
+        <section ref={sectionRef} className="py-32 relative border-t border-white/[0.03]">
             <div className="section-container">
                 {/* Heading */}
                 <div className="stats-heading text-center mb-20">
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand mb-4 block">Intelligence</span>
-                    <h2 className="heading-hero text-4xl md:text-6xl max-w-4xl mx-auto">
-                        Empowering Decisions with Better Intelligence
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand mb-4 block">Our Impact</span>
+                    <h2 className="heading-hero text-4xl md:text-6xl max-w-4xl mx-auto text-white">
+                        Trusted by millions for financial security
                     </h2>
                 </div>
 
@@ -126,9 +126,9 @@ const StatsIntelligence = () => {
                 {/* Testimonial */}
                 <div className="mt-20 max-w-2xl mx-auto text-center">
                     <blockquote className="text-xl md:text-2xl text-secondary/80 leading-relaxed italic mb-6">
-                        &quot;Orbii&apos;s decisioning engine reduced our underwriting time by 90% while improving accuracy.&quot;
+                        &quot;Vioratech&apos;s instant policy issuance and transparent claim process gave our family the peace of mind we never had before.&quot;
                     </blockquote>
-                    <p className="text-sm text-secondary/40 font-bold">— Head of Credit, Fortune 500 Fintech</p>
+                    <p className="text-sm text-brand font-bold">— Rahul Sharma, Policyholder since 2022</p>
                 </div>
             </div>
         </section>

@@ -3,14 +3,14 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Rocket, Settings, Zap, CheckCircle2 } from "lucide-react";
+import { Search, Scale, FileCheck, CheckCircle2 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
-    { icon: Settings, title: "Configure", description: "Set up your credit product in our dashboard. Define terms, rates, and eligibility." },
-    { icon: Zap, title: "Integrate", description: "Connect via our API. Embed credit workflows directly into your product." },
-    { icon: Rocket, title: "Launch", description: "Go live in days, not months. Scale with confidence." },
+    { icon: Search, title: "Select Product", description: "Choose from Health, Life, Car, or Investment plans tailored to your needs." },
+    { icon: Scale, title: "Compare Quotes", description: "Get real-time quotes from top-rated insurers and compare benefits instantly." },
+    { icon: FileCheck, title: "Instant Policy", description: "Complete digital KYC and get your policy issued in less than 60 seconds." },
 ];
 
 const LaunchTimeline = () => {
@@ -45,13 +45,13 @@ const LaunchTimeline = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-32 relative bg-background border-t border-white/[0.03]">
+        <section ref={sectionRef} className="py-32 relative border-t border-white/[0.03]">
             <div className="section-container">
                 {/* Heading */}
                 <div className="launch-heading text-center mb-20">
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand mb-4 block">How It Works</span>
-                    <h2 className="heading-hero text-4xl md:text-6xl max-w-4xl mx-auto">
-                        Launch lending faster and easier than ever
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand mb-4 block">Process</span>
+                    <h2 className="heading-hero text-4xl md:text-6xl max-w-4xl mx-auto text-white">
+                        Get insured in three simple steps
                     </h2>
                 </div>
 
@@ -74,16 +74,16 @@ const LaunchTimeline = () => {
                                     <step.icon size={26} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">{step.title}</h3>
-                                <p className="text-sm text-secondary/60 leading-relaxed">{step.description}</p>
+                                <p className="text-sm text-white/40 leading-relaxed">{step.description}</p>
                             </div>
                         </div>
                     ))}
                 </div>
 
                 {/* Bottom Check */}
-                <div className="mt-16 flex justify-center items-center gap-3 text-secondary/40">
+                <div className="mt-16 flex justify-center items-center gap-3 text-white/20">
                     <CheckCircle2 size={18} className="text-brand" />
-                    <span className="text-sm font-medium">Average integration time: 3 days</span>
+                    <span className="text-sm font-medium text-brand">Average issuance time: 58 seconds</span>
                 </div>
             </div>
         </section>

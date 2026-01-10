@@ -2,7 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { MoveRight, Play } from "lucide-react";
+import { MoveRight, ShieldCheck } from "lucide-react";
+import Spline from "@splinetool/react-spline";
+import Link from "next/link";
+import { ROUTES } from "@/config/routes";
 
 const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -32,79 +35,80 @@ const Hero = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative pt-32 pb-20 overflow-hidden bg-beams min-h-screen flex flex-col items-center">
-            {/* Background Aurora */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-orbii-glow -z-10" />
+        <section ref={containerRef} className="relative h-screen min-h-[600px] overflow-hidden flex flex-col items-center justify-center pt-16 pb-8">
+            {/* 3D Spline Background */}
+            <div className="absolute inset-0 -z-10 h-full w-full">
+                <Spline
+                    scene="https://prod.spline.design/Qh7B3uJXfzvTIqol/scene.splinecode"
+                    className="w-full h-full"
+                />
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+            </div>
 
-            <div className="section-container text-center relative z-10">
+
+            <div className="section-container text-center relative z-10 w-full flex flex-col items-center">
                 {/* Badge */}
-                <div ref={badgeRef} className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-[13px] font-bold tracking-wide mb-10">
-                    <span>Pre-seed</span>
+                <div ref={badgeRef} className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand/10 border border-brand/20 text-brand text-[11px] font-bold tracking-wide mb-4">
+                    <span>Life</span>
                     <span className="opacity-30">·</span>
-                    <span>Seed</span>
+                    <span>Health</span>
                     <span className="opacity-30">·</span>
-                    <span>Fintech</span>
+                    <span>General</span>
                 </div>
 
                 {/* Title */}
-                <h1 ref={titleRef} className="heading-hero mb-8 max-w-4xl mx-auto">
-                    The infrastructure for <br /> Modern B2B Lending
+                <h1 ref={titleRef} className="text-3xl md:text-5xl lg:text-6xl font-black mb-3 max-w-4xl mx-auto !leading-[1.1] text-white">
+                    The future of <br /> Intelligent Insurance
                 </h1>
 
                 {/* Subheading */}
-                <p ref={subRef} className="text-sub max-w-2xl mx-auto mb-12">
-                    Orbii provides modular credit infrastructure that helps you <br className="hidden md:block" />
-                    deploy, manage and scale complex credit products.
+                <p ref={subRef} className="text-sub max-w-2xl mx-auto mb-6 text-xs md:text-sm opacity-80">
+                    AI-powered technology for modern risk management. <br className="hidden md:block" />
+                    Protect your future with data-driven insights and smart coverage.
                 </p>
 
-                {/* Primary CTA */}
-                <div ref={ctaRef} className="flex justify-center mb-16">
-                    <button className="btn-primary flex items-center gap-3 !px-8 !py-4 text-base">
-                        Chat with us <MoveRight size={18} />
-                    </button>
+                <div ref={ctaRef} className="flex justify-center mb-8">
+                    <Link href={ROUTES.insurance.index} className="btn-primary flex items-center gap-3 !px-6 !py-3 text-sm uppercase">
+                        Explore all Insurance <MoveRight size={16} />
+                    </Link>
                 </div>
 
                 {/* Hero Sub-nav */}
-                <div ref={navRef} className="flex flex-wrap justify-center items-center gap-x-10 gap-y-4 mb-20 text-sm font-bold uppercase tracking-widest text-secondary/60">
-                    <span className="hover:text-brand cursor-pointer transition-colors">Infrastructure</span>
-                    <span className="hover:text-brand cursor-pointer transition-colors">Intelligence</span>
-                    <span className="hover:text-brand cursor-pointer transition-colors">Decisioning</span>
-                    <span className="hover:text-brand cursor-pointer transition-colors">Launch</span>
+                <div ref={navRef} className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mb-8 text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-secondary/60">
+                    <Link href={ROUTES.insurance.term} className="hover:text-brand cursor-pointer transition-colors">Digital Life</Link>
+                    <Link href={ROUTES.insurance.health} className="hover:text-brand cursor-pointer transition-colors">Health Care</Link>
+                    <Link href={ROUTES.insurance.car} className="hover:text-brand cursor-pointer transition-colors">Motor Protection</Link>
+                    <Link href={ROUTES.insurance.investment} className="hover:text-brand cursor-pointer transition-colors">Investments</Link>
                 </div>
 
                 {/* Abstract Dashboard Visual */}
-                <div ref={visualRef} className="max-w-4xl mx-auto w-full group relative">
+                <div ref={visualRef} className="max-w-3xl mx-auto w-full group relative mb-2">
                     <div className="absolute -inset-1 bg-gradient-to-r from-brand/20 to-transparent blur opacity-25 group-hover:opacity-40 transition" />
-                    <div className="relative glass-card bg-black/60 aspect-video md:aspect-[21/9] p-6 md:p-10 flex border-white/[0.08]">
-                        {/* Left Side: Pie Chart Placeholder */}
-                        <div className="flex-1 flex flex-col justify-center items-start text-left space-y-6">
-                            <div className="w-48 h-48 rounded-full border-[16px] border-brand/10 relative flex items-center justify-center">
-                                <div className="absolute inset-x-0 h-[16px] bg-brand -rotate-45" />
-                                <div className="text-2xl font-bold">74%</div>
+                    <div className="relative glass-card bg-black/60 h-40 md:h-56 p-4 md:p-6 flex border-white/[0.08]">
+                        {/* Left Side: Claim Settlement */}
+                        <div className="flex-1 flex flex-col justify-center items-start text-left">
+                            <div className="w-24 h-24 md:w-36 md:h-36 rounded-full border-[10px] md:border-[14px] border-brand/10 relative flex flex-col items-center justify-center">
+                                <ShieldCheck size={28} className="text-brand mb-1 md:mb-2" strokeWidth={2.5} />
+                                <div className="text-xl md:text-2xl font-bold leading-none">99%</div>
+                                <div className="absolute -bottom-3 bg-black px-3 py-1 rounded-full border border-white/10 text-[8px] uppercase tracking-widest text-brand whitespace-nowrap">Claims Settled</div>
                             </div>
                         </div>
 
                         {/* Right Side: Data List */}
-                        <div className="flex-1 flex flex-col justify-center space-y-6 text-left">
+                        <div className="flex-1 flex flex-col justify-center space-y-3 md:space-y-4 text-left">
                             {[
-                                { label: "Revenue Efficiency", val: "84%" },
-                                { label: "Asset Performance", val: "92%" },
-                                { label: "Yield (Gross) IRR", val: "22%" },
-                                { label: "Delinquency Rate", val: "1.4%" }
+                                { label: "Insurance Coverage", val: "₹1 Crore+" },
+                                { label: "Monthly Premium", val: "From ₹499" },
+                                { label: "Hospital Network", val: "10,000+" },
+                                { label: "Tax Benefit (80C)", val: "Up to ₹1.5L" }
                             ].map((item, i) => (
-                                <div key={i} className="flex items-center justify-between border-b border-white/5 pb-2">
-                                    <span className="text-sm font-medium text-secondary">{item.label}</span>
-                                    <span className="text-sm font-bold text-foreground">{item.val}</span>
+                                <div key={i} className="flex items-center justify-between border-b border-white/5 pb-1 md:pb-2">
+                                    <span className="text-[10px] md:text-xs font-medium text-secondary">{item.label}</span>
+                                    <span className="text-[10px] md:text-xs font-bold text-foreground">{item.val}</span>
                                 </div>
                             ))}
                         </div>
 
-                        {/* Floating Play Button Over the Visual */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                            <div className="w-16 h-16 rounded-full bg-brand flex items-center justify-center shadow-[0_0_30px_rgba(180,255,57,0.4)] cursor-pointer hover:scale-110 transition-transform">
-                                <Play fill="black" size={24} className="ml-1" />
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
