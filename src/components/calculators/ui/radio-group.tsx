@@ -6,13 +6,18 @@ const RadioGroupContext = React.createContext<{
     onValueChange?: (value: string) => void
 }>({})
 
+interface RadioGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+    value?: string;
+    onValueChange?: (value: string) => void;
+}
+
 export const RadioGroup = ({
     className,
     value,
     onValueChange,
     children,
     ...props
-}: any) => {
+}: RadioGroupProps) => {
     return (
         <RadioGroupContext.Provider value={{ value, onValueChange }}>
             <div className={cn("grid gap-2", className)} {...props}>
@@ -22,10 +27,14 @@ export const RadioGroup = ({
     )
 }
 
+interface RadioGroupItemProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    value: string;
+}
+
 export const RadioGroupItem = React.forwardRef<
     HTMLInputElement,
-    any
->(({ className, value, id, ...props }, ref) => {
+    RadioGroupItemProps
+>(({ className, value, ...props }, ref) => {
     const context = React.useContext(RadioGroupContext)
     const checked = context.value === value
 

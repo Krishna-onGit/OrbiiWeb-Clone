@@ -87,7 +87,7 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
             <div>
               <h1 className="text-white mb-3">Income Tax Calculator</h1>
               <p className="text-white/70 text-lg max-w-3xl">
-                Calculate your income tax liability under both old and new tax regimes. Make informed decisions 
+                Calculate your income tax liability under both old and new tax regimes. Make informed decisions
                 about which regime offers better tax savings for your income level.
               </p>
             </div>
@@ -127,7 +127,7 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
                   <Label className="text-white mb-3 block">
                     Tax Regime
                   </Label>
-                  <RadioGroup value={regime} onValueChange={(value) => setRegime(value as 'old' | 'new')}>
+                  <RadioGroup value={regime} onValueChange={(value: string) => setRegime(value as 'old' | 'new')}>
                     <div className="glass-card rounded-lg p-4 mb-3">
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="new" id="new" className="border-white/20" />
@@ -171,7 +171,7 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
                   </div>
                 )}
 
-                <Button 
+                <Button
                   onClick={handleCalculate}
                   className="w-full btn-glow"
                 >
@@ -245,7 +245,7 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
               <div className="space-y-6">
                 <div className="glass-card rounded-lg p-8 border border-[#39FF14]/20">
                   <h3 className="text-white mb-6">Your Tax Summary</h3>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <p className="text-white/60 text-sm mb-2">Total Tax Liability</p>
@@ -296,7 +296,7 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
                           </span>
                         </div>
                         <div className="h-3 bg-white/5 rounded-full overflow-hidden">
-                          <div 
+                          <div
                             className="h-full bg-[#39FF14]"
                             style={{ width: `${(results.totalTax / parseFloat(annualIncome)) * 100}%` }}
                           />
@@ -349,12 +349,12 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
             <section>
               <h2 className="text-white mb-4">What is an Income Tax Calculator?</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                An Income Tax Calculator is a tool that helps you estimate your tax liability based on your annual 
-                income and applicable deductions. It considers both the old and new tax regimes introduced by the 
+                An Income Tax Calculator is a tool that helps you estimate your tax liability based on your annual
+                income and applicable deductions. It considers both the old and new tax regimes introduced by the
                 Government of India, helping you choose the most beneficial option.
               </p>
               <p className="text-white/70 leading-relaxed">
-                The calculator applies the latest tax slabs, rates, and exemptions to provide accurate tax estimates, 
+                The calculator applies the latest tax slabs, rates, and exemptions to provide accurate tax estimates,
                 enabling better financial planning and tax optimization.
               </p>
             </section>
@@ -418,8 +418,8 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
                     Which tax regime should I choose?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    If you have significant deductions (80C, home loan, health insurance), the old regime might be 
-                    better. If you have minimal deductions, the new regime's lower rates could save more tax.
+                    If you have significant deductions (80C, home loan, health insurance), the old regime might be
+                    better. If you have minimal deductions, the new regime&apos;s lower rates could save more tax.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
@@ -428,7 +428,7 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
                     What is standard deduction?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Standard deduction of ₹50,000 is available to all salaried individuals in both regimes. It reduces 
+                    Standard deduction of ₹50,000 is available to all salaried individuals in both regimes. It reduces
                     your taxable income automatically without requiring any investment or expenditure proof.
                   </p>
                 </div>
@@ -438,7 +438,7 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
                     What is health and education cess?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    A 4% cess is added to your calculated tax amount. This cess funds health and education initiatives 
+                    A 4% cess is added to your calculated tax amount. This cess funds health and education initiatives
                     by the government and is mandatory for all taxpayers.
                   </p>
                 </div>
@@ -461,7 +461,7 @@ export default function IncomeTaxCalculatorPage({ onBack }: IncomeTaxCalculatorP
                 View Tax-Saving Plans
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button 
+              <Button
                 onClick={onBack}
                 className="bg-white/5 text-white hover:bg-white/10 border border-white/10"
               >

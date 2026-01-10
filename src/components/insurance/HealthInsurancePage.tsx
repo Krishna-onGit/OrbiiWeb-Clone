@@ -1,4 +1,4 @@
-import { ArrowLeft, Heart, Shield, TrendingUp, Stethoscope, Users, Activity, Plus, Calculator, Download, FileText, AlertCircle, CheckCircle, HelpCircle, DollarSign, Hourglass, BarChart3, Clock, PiggyBank, Smile, TrendingDown, UserCheck, Award, PhoneCall, BookOpen, Zap, Target, ChevronRight, Star, Building2, CreditCard, ClipboardCheck, FileCheck, Percent, IndianRupee, Calendar, Phone, Mail, MapPin, Briefcase, Baby, Home as HomeIcon, Plane, Ambulance, TestTube, Siren, Hospital, Pill, Eye, Glasses, Ear, BrainCircuit, HeartPulse, Laptop } from 'lucide-react';
+import { ArrowLeft, Heart, Shield, Activity, Users, CheckCircle, Clock, Stethoscope, FileText, AlertCircle, Calculator, Award, Zap, Building2, TrendingUp, Baby, Briefcase, Plane, Hospital, Calendar, Ambulance, HeartPulse, Home as HomeIcon, Pill, FileCheck, Phone, TrendingDown, DollarSign, BookOpen, Target, IndianRupee, Percent, CreditCard, Hourglass, BarChart3, PiggyBank, Smile, ChevronRight, Siren, ClipboardCheck, Mail, HelpCircle, Star, Eye } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
@@ -14,6 +14,7 @@ interface HealthInsurancePageProps {
 }
 
 export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthInsurancePageProps) {
+  const [activeTab, setActiveTab] = useState('overview');
   const [calculatorInputs, setCalculatorInputs] = useState({
     age: '',
     members: '',
@@ -21,9 +22,6 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
     city: '',
     preExisting: 'no'
   });
-
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-  const [showComparison, setShowComparison] = useState(false);
 
   // Comprehensive Health Insurance Types with detailed info
   const healthTypes = [
@@ -319,7 +317,7 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
       category: 'Premium & Renewals',
       faqs: [
         {
-          question: 'Why does health insurance premium increase every year?',
+          question: 'Health insurance premiums increase due to age, medical inflation, claim history, and more. Why does health insurance premium increase every year?',
           answer: 'Health insurance premiums increase due to: (1) AGE: Premium increases as you age. Risk of illnesses increases with age, hence higher premium. Age bands: 18-25 (lowest), 26-35 (moderate), 36-45 (higher), 46-60 (high), 60+ (highest). (2) MEDICAL INFLATION: Healthcare costs rise 14-15% annually in India. Hospital charges, doctor fees, medicine costs, diagnostic test prices all increase. (3) CLAIM HISTORY: If you filed high claims in previous years, premium may increase at renewal. Insurers adjust pricing based on claims experience. (4) ZONE CHANGES: If you move from Tier 3 city to metro, premium increases due to higher hospital costs. (5) SUM INSURED INCREASE: Increasing coverage from ₹5L to ₹10L increases premium proportionally. (6) ADD-ONS: Adding riders like maternity, critical illness increases premium. HOW TO MANAGE: Buy young (lowest rates), choose long-term policies (locked rates), maintain good health (lower claims = discounts), compare insurers annually, increase deductible to lower premium.'
         },
         {
@@ -498,7 +496,7 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
               <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl p-6 sm:p-8">
                 <div className="text-center mb-6">
                   <h2 className="text-white text-2xl sm:text-3xl font-thin mb-2">Get Your Health Insurance Quote</h2>
-                  <p className="text-white/60 text-sm sm:text-base font-thin">Fill details and get instant premium estimates from top insurers</p>
+                  <p className="text-white/60 mb-6">&quot;Waiting Period&quot; isn&apos;t just one thing. It&apos;s composed of three types:</p>
                 </div>
 
                 <div className="space-y-4 mb-6">
@@ -1301,7 +1299,7 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 shrink-0" strokeWidth={2} />
-                      <span>Doctor's prescriptions and treatment notes</span>
+                      <span>Doctor&apos;s prescriptions and treatment notes</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 shrink-0" strokeWidth={2} />
@@ -1386,7 +1384,7 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
                     <item.icon className="w-6 h-6 text-red-400" strokeWidth={1.5} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-white font-thin mb-2">{item.reason}</h3>
+                    <h3 className="text-xl text-white font-semibold mb-2">&quot;No Claim Bonus&quot; (NCB)</h3>
                     <p className="text-white/60 font-thin text-sm leading-relaxed mb-3">{item.description}</p>
                   </div>
                 </div>
@@ -1860,7 +1858,7 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
               </div>
               <div className="text-center">
                 <div className="text-2xl font-thin text-white mb-1">10,000+</div>
-                <div className="text-white/60 font-thin text-xs">Network Hospitals</div>
+                <h3 className="font-semibold text-white">What&apos;s a Network Hospital?</h3>
               </div>
             </div>
           </div>

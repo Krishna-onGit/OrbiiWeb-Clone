@@ -1,4 +1,4 @@
-import { ArrowLeft, Calculator, TrendingUp, DollarSign, Clock, AlertCircle, CheckCircle2, Building2, Shield, PiggyBank } from 'lucide-react';
+import { ArrowLeft, Calculator, TrendingUp, DollarSign, Clock, AlertCircle, CheckCircle2, Building2, Shield } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -12,7 +12,17 @@ export default function NPSCalculatorPage({ onBack }: NPSCalculatorPageProps) {
   const [monthlyContribution, setMonthlyContribution] = useState('5000');
   const [expectedReturn, setExpectedReturn] = useState('10');
   const [annuityReturn, setAnnuityReturn] = useState('6');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    maturityAmount: number;
+    totalInvested: number;
+    totalReturns: number;
+    yearsToRetirement: number;
+    minAnnuityAmount: number;
+    maxLumpsum: number;
+    monthlyPension: number;
+    annualPension: number;
+    annualTaxBenefit: number;
+  } | null>(null);
 
   const calculateNPS = () => {
     const age = parseFloat(currentAge);
@@ -63,14 +73,14 @@ export default function NPSCalculatorPage({ onBack }: NPSCalculatorPageProps) {
       {/* Header */}
       <div className="border-b border-white/10">
         <div className="container-custom py-8">
-          <button 
+          <button
             onClick={onBack}
             className="mb-6 text-[#39FF14] hover:text-[#2ee610] flex items-center gap-2 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Calculators
           </button>
-          
+
           <div className="flex items-start gap-4">
             <div className="p-3 glass-card rounded-lg">
               <Building2 className="w-8 h-8 text-[#39FF14]" />
@@ -146,7 +156,7 @@ export default function NPSCalculatorPage({ onBack }: NPSCalculatorPageProps) {
                   <p className="text-white/50 text-xs mt-1">Typical annuity returns: 5-7%</p>
                 </div>
 
-                <Button 
+                <Button
                   onClick={calculateNPS}
                   className="w-full bg-[#39FF14] hover:bg-[#2ee610] text-black font-semibold"
                 >
@@ -159,7 +169,7 @@ export default function NPSCalculatorPage({ onBack }: NPSCalculatorPageProps) {
             {result && (
               <div className="glass-card rounded-2xl p-8">
                 <h3 className="text-2xl font-bold mb-6 text-white">Your NPS Projection at Age 60</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-white/10">
                     <span className="text-white/70">Investment Period</span>
@@ -183,7 +193,7 @@ export default function NPSCalculatorPage({ onBack }: NPSCalculatorPageProps) {
 
                   <div className="mt-6 p-4 bg-white/5 rounded-xl">
                     <p className="text-white/60 text-sm mb-3">Withdrawal Options at Maturity:</p>
-                    
+
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
                         <span className="text-white/70">Max Lumpsum (60%)</span>
@@ -232,12 +242,12 @@ export default function NPSCalculatorPage({ onBack }: NPSCalculatorPageProps) {
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white">About National Pension Scheme (NPS)</h3>
               <p className="text-white/70 leading-relaxed mb-4">
-                NPS is a government-sponsored pension scheme designed to provide retirement income to Indian citizens. 
-                It's a voluntary, long-term investment where contributions are invested in diversified portfolios of 
+                NPS is a government-sponsored pension scheme designed to provide retirement income to Indian citizens.
+                It&apos;s a voluntary, long-term investment where contributions are invested in diversified portfolios of
                 equity, corporate bonds, and government securities.
               </p>
               <p className="text-white/70 leading-relaxed">
-                One of the key advantages of NPS is the additional tax benefit of ₹50,000 under Section 80CCD(1B), 
+                One of the key advantages of NPS is the additional tax benefit of ₹50,000 under Section 80CCD(1B),
                 over and above the ₹1.5 lakh limit under Section 80C, making it highly tax-efficient.
               </p>
             </div>
@@ -246,7 +256,7 @@ export default function NPSCalculatorPage({ onBack }: NPSCalculatorPageProps) {
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
                 <Calculator className="w-6 h-6 text-[#39FF14]" />
-                How It's Calculated
+                How It&apos;s Calculated
               </h3>
               <div className="space-y-4">
                 <div>

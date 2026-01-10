@@ -2,13 +2,26 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { ChevronDown } from "lucide-react"
 
-const Accordion = ({ children, className, ...props }: any) => (
+interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode;
+    className?: string;
+    type?: string;
+    collapsible?: boolean;
+}
+
+const Accordion = ({ children, className, type, collapsible, ...props }: AccordionProps) => (
     <div className={cn("space-y-2", className)} {...props}>
         {children}
     </div>
 )
 
-const AccordionItem = ({ children, className, value, ...props }: any) => {
+interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode;
+    className?: string;
+    value?: string;
+}
+
+const AccordionItem = ({ children, className, value, ...props }: AccordionItemProps) => {
     const [isOpen, setIsOpen] = React.useState(false)
 
     return (
@@ -23,9 +36,16 @@ const AccordionItem = ({ children, className, value, ...props }: any) => {
     )
 }
 
-const AccordionTrigger = ({ children, className, isOpen, setIsOpen, ...props }: any) => (
+interface AccordionTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    children: React.ReactNode;
+    className?: string;
+    isOpen?: boolean;
+    setIsOpen?: (isOpen: boolean) => void;
+}
+
+const AccordionTrigger = ({ children, className, isOpen, setIsOpen, ...props }: AccordionTriggerProps) => (
     <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen && setIsOpen(!isOpen)}
         className={cn(
             "flex w-full items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
             className
@@ -39,7 +59,13 @@ const AccordionTrigger = ({ children, className, isOpen, setIsOpen, ...props }: 
     </button>
 )
 
-const AccordionContent = ({ children, className, isOpen, ...props }: any) => (
+interface AccordionContentProps extends React.HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode;
+    className?: string;
+    isOpen?: boolean;
+}
+
+const AccordionContent = ({ children, className, isOpen, ...props }: AccordionContentProps) => (
     <div
         className={cn(
             "overflow-hidden text-sm transition-all",

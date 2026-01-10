@@ -19,7 +19,7 @@ export default function InsuranceDetailPage({ product, onBack }: InsuranceDetail
   const [calculatorValues, setCalculatorValues] = useState<Record<string, string>>({});
 
   // Icon mapping
-  const iconMap: Record<string, any> = {
+  const iconMap: Record<string, React.ElementType> = {
     Shield, TrendingUp, Users, IndianRupee, Target, Heart, Baby, HomeIcon, Briefcase, Building2,
     Clock, Award, HelpCircle, AlertCircle, Zap, ShieldCheck, Activity, Smartphone, Laptop,
     Globe, Calendar, Ambulance, Hospital, Plane, Pill, Eye, HeartPulse, Siren, Stethoscope,
@@ -226,7 +226,7 @@ export default function InsuranceDetailPage({ product, onBack }: InsuranceDetail
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl text-white mb-4">Ready to Get Protected?</h2>
           <p className="text-white/60 text-lg mb-8">
-            Compare plans from India's top insurers. Get instant quotes online.
+            Compare plans from India&apos;s top insurers. Get instant quotes online.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className={`bg-gradient-to-r ${gradientClasses} hover:opacity-90 text-white h-12 px-8 rounded-xl`}>

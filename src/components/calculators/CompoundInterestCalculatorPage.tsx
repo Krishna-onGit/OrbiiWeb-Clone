@@ -67,7 +67,7 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
             <div>
               <h1 className="text-white mb-3">Compound Interest Calculator</h1>
               <p className="text-white/70 text-lg max-w-3xl">
-                Calculate the power of compound interest on your investments. See how your money grows exponentially 
+                Calculate the power of compound interest on your investments. See how your money grows exponentially
                 over time with regular compounding.
               </p>
             </div>
@@ -155,7 +155,7 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
                   <p className="text-xs text-white/40 mt-1">How often interest is compounded</p>
                 </div>
 
-                <Button 
+                <Button
                   onClick={handleCalculate}
                   className="w-full btn-glow"
                 >
@@ -198,7 +198,7 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
               <div className="space-y-6">
                 <div className="glass-card rounded-lg p-8 border border-[#39FF14]/20">
                   <h3 className="text-white mb-6">Your Investment Growth</h3>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <p className="text-white/60 text-sm mb-2">Maturity Amount</p>
@@ -230,7 +230,7 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
                         </span>
                       </div>
                       <div className="h-3 bg-white/5 rounded-full overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-white/30"
                           style={{ width: `${(results.principalAmount / results.maturityAmount) * 100}%` }}
                         />
@@ -243,7 +243,7 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
                         </span>
                       </div>
                       <div className="h-3 bg-white/5 rounded-full overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-[#39FF14]"
                           style={{ width: `${(results.interestEarned / results.maturityAmount) * 100}%` }}
                         />
@@ -286,14 +286,14 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
             <section>
               <h2 className="text-white mb-4">What is Compound Interest?</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                Compound interest is the addition of interest to the principal sum of a deposit or loan. In other words, 
-                it's interest on interest. This makes your money grow at a faster rate compared to simple interest, 
+                compound interest can turn small, regular investments into massive wealth over time. It&apos;s theposit or loan. In other words,
+                it&apos;s interest on interest. This makes your money grow at a faster rate compared to simple interest,
                 which is calculated only on the principal amount.
               </p>
               <p className="text-white/70 leading-relaxed">
-                Albert Einstein reportedly called compound interest "the eighth wonder of the world," stating that 
-                "he who understands it, earns it; he who doesn't, pays it." This powerful force can work for or 
-                against you depending on whether you're investing or borrowing.
+                Albert Einstein reportedly called compound interest &quot;the eighth wonder of the world,&quot; stating that
+                &quot;he who understands it, earns it; he who doesn&apos;t, pays it.&quot; This powerful force can work for or
+                against you depending on whether you&apos;re investing or borrowing.
               </p>
             </section>
 
@@ -336,28 +336,28 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Exponential Growth</h4>
                   <p className="text-white/60 text-sm">
-                    Unlike simple interest which grows linearly, compound interest grows exponentially, 
+                    Unlike simple interest which grows linearly, compound interest grows exponentially,
                     dramatically increasing your wealth over time.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Time Advantage</h4>
                   <p className="text-white/60 text-sm">
-                    Starting early gives you a massive advantage. Even small amounts invested early can 
+                    Starting early gives you a massive advantage. Even small amounts invested early can
                     outperform larger amounts invested later.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Passive Wealth Building</h4>
                   <p className="text-white/60 text-sm">
-                    Once invested, your money works for you automatically, generating returns on both 
+                    Once invested, your money works for you automatically, generating returns on both
                     principal and accumulated interest.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Frequency Matters</h4>
                   <p className="text-white/60 text-sm">
-                    More frequent compounding (daily vs yearly) increases your returns. Choose investments 
+                    More frequent compounding (daily vs yearly) increases your returns. Choose investments
                     with frequent compounding periods.
                   </p>
                 </div>
@@ -371,10 +371,10 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2 flex items-start gap-2">
                     <HelpCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
-                    What's the difference between simple and compound interest?
+                    What&apos;s the difference between simple and compound interest?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Simple interest is calculated only on the principal amount, while compound interest is calculated 
+                    Simple interest is calculated only on the principal amount, while compound interest is calculated
                     on both the principal and accumulated interest. Compound interest results in higher returns.
                   </p>
                 </div>
@@ -384,7 +384,7 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
                     Which investments offer compound interest?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Fixed deposits, mutual funds, PPF, stocks (through dividend reinvestment), and most savings 
+                    Fixed deposits, mutual funds, PPF, stocks (through dividend reinvestment), and most savings
                     accounts offer compound interest. Mutual funds and stocks offer particularly powerful compounding.
                   </p>
                 </div>
@@ -394,7 +394,7 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
                     How does compounding frequency affect returns?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Higher frequency means more compound periods, leading to slightly higher returns. For example, 
+                    Higher frequency means more compound periods, leading to slightly higher returns. For example,
                     monthly compounding gives better returns than annual compounding at the same interest rate.
                   </p>
                 </div>
@@ -417,7 +417,7 @@ export default function CompoundInterestCalculatorPage({ onBack }: CompoundInter
                 View Investment Plans
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button 
+              <Button
                 onClick={onBack}
                 className="bg-white/5 text-white hover:bg-white/10 border border-white/10"
               >

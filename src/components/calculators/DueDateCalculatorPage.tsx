@@ -223,7 +223,7 @@ export default function DueDateCalculatorPage({ onBack }: DueDateCalculatorPageP
                 <div>
                   <h3 className="font-thin text-white mb-2">Important Information</h3>
                   <ul className="text-sm font-thin text-white/60 space-y-2">
-                    <li>• This calculator uses Naegele's Rule, the standard method for estimating due dates</li>
+                    <li>• This calculator uses Naegele&apos;s Rule, the standard method for estimating due dates</li>
                     <li>• Only about 5% of babies are born on their exact due date</li>
                     <li>• Most babies are born between 37-42 weeks of pregnancy</li>
                     <li>• Your healthcare provider may adjust your due date based on ultrasound measurements</li>

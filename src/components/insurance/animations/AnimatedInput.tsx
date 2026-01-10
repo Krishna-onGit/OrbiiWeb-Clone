@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const AnimatedInput = ({ children, delay = 0 }: any) => {
+interface AnimatedInputProps {
+    children: React.ReactNode;
+    delay?: number;
+}
+
+const AnimatedInput = ({ children, delay = 0 }: AnimatedInputProps) => {
     return (
         <motion.div
             initial={{ opacity: 0, x: -10 }}

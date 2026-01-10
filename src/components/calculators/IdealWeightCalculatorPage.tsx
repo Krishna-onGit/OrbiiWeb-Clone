@@ -23,8 +23,8 @@ export default function IdealWeightCalculatorPage({ onBack }: IdealWeightCalcula
     const h = parseFloat(height);
     if (!h || h <= 0) return;
 
-    let heightInCm = system === 'metric' ? h : h * 2.54;
-    let heightInInches = heightInCm / 2.54;
+    const heightInCm = system === 'metric' ? h : h * 2.54;
+    const heightInInches = heightInCm / 2.54;
 
     // Robinson Formula (1983)
     let robinson = 0;

@@ -53,7 +53,7 @@ export default function InstantProcessingPage({ onBack }: InstantProcessingPageP
               </div>
               <h2 className="text-5xl font-bold mb-6 text-white">Processing Speed Benchmarks</h2>
               <p className="text-xl text-white/60 max-w-4xl mx-auto leading-relaxed">
-                Powered by AI and automation, we've reduced insurance processing from days to seconds.
+                Powered by AI and automation, we&apos;ve reduced insurance processing from days to seconds.
               </p>
             </div>
 
@@ -470,7 +470,7 @@ export default function InstantProcessingPage({ onBack }: InstantProcessingPageP
               <Award className="w-16 h-16 text-[#39FF14] mx-auto mb-6" />
               <h2 className="text-5xl font-bold mb-4 text-white">Experience Instant Processing</h2>
               <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
-                Join 3M+ customers who've experienced lightning-fast insurance operations. Get your quote in 30 seconds.
+                Join 3M+ customers who&apos;ve experienced lightning-fast insurance operations. Get your quote in 30 seconds.
               </p>
               <div className="flex flex-wrap gap-4 justify-center mb-8">
                 <Button className="bg-[#39FF14] hover:bg-[#2ee610] text-black font-semibold px-10 py-7 text-lg">

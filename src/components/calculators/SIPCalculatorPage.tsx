@@ -66,7 +66,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
             <div>
               <h1 className="text-white mb-3">SIP Calculator</h1>
               <p className="text-white/70 text-lg max-w-3xl">
-                Calculate your Systematic Investment Plan (SIP) returns with precision. Plan your wealth creation 
+                Calculate your Systematic Investment Plan (SIP) returns with precision. Plan your wealth creation
                 journey with accurate projections based on compound growth.
               </p>
             </div>
@@ -135,7 +135,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                   <p className="text-xs text-white/40 mt-1">Recommended: 5+ years for equity investments</p>
                 </div>
 
-                <Button 
+                <Button
                   onClick={handleCalculate}
                   className="w-full btn-glow"
                 >
@@ -178,7 +178,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
               <div className="space-y-6">
                 <div className="glass-card rounded-lg p-8 border border-[#39FF14]/20">
                   <h3 className="text-white mb-6">Your Investment Summary</h3>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <p className="text-white/60 text-sm mb-2">Future Value</p>
@@ -210,7 +210,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                         </span>
                       </div>
                       <div className="h-3 bg-white/5 rounded-full overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-white/30"
                           style={{ width: `${(results.totalInvestment / results.futureValue) * 100}%` }}
                         />
@@ -223,7 +223,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                         </span>
                       </div>
                       <div className="h-3 bg-white/5 rounded-full overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-[#39FF14]"
                           style={{ width: `${(results.returns / results.futureValue) * 100}%` }}
                         />
@@ -232,9 +232,9 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                   </div>
                 </div>
 
-                <Button 
+                <Button
                   className="w-full btn-glow"
-                  onClick={() => {/* Navigate to plans */}}
+                  onClick={() => {/* Navigate to plans */ }}
                 >
                   View Investment Plans
                   <ArrowRight className="ml-2 w-4 h-4" />
@@ -261,12 +261,12 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
             <section>
               <h2 className="text-white mb-4">What is a SIP Calculator?</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                A SIP (Systematic Investment Plan) Calculator is a powerful tool that helps you estimate the returns 
-                on your mutual fund investments made through systematic monthly contributions. It uses the power of 
+                A SIP (Systematic Investment Plan) Calculator is a powerful tool that helps you estimate the returns
+                on your mutual fund investments made through systematic monthly contributions. It uses the power of
                 compound interest to project your wealth accumulation over time.
               </p>
               <p className="text-white/70 leading-relaxed">
-                By investing a fixed amount regularly in mutual funds, you benefit from rupee cost averaging and the 
+                By investing a fixed amount regularly in mutual funds, you benefit from rupee cost averaging and the
                 compounding effect, which can significantly grow your wealth over the long term.
               </p>
             </section>
@@ -278,28 +278,28 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Step 1: Enter Monthly Investment</h4>
                   <p className="text-white/60 text-sm">
-                    Decide how much you can invest every month. Even small amounts like ₹1,000-2,000 can grow 
+                    Decide how much you can invest every month. Even small amounts like ₹1,000-2,000 can grow
                     substantially over time through regular investments.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Step 2: Set Expected Return Rate</h4>
                   <p className="text-white/60 text-sm">
-                    Enter your expected annual return rate. Equity mutual funds typically deliver 12-15% returns 
+                    Enter your expected annual return rate. Equity mutual funds typically deliver 12-15% returns
                     over the long term, while debt funds offer 7-9% returns.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Step 3: Choose Time Period</h4>
                   <p className="text-white/60 text-sm">
-                    Select your investment horizon. Longer periods allow compound interest to work its magic, 
+                    Select your investment horizon. Longer periods allow compound interest to work its magic,
                     potentially multiplying your wealth significantly.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Step 4: Calculate & Plan</h4>
                   <p className="text-white/60 text-sm">
-                    Click calculate to see your projected returns. Use these insights to plan your financial goals 
+                    Click calculate to see your projected returns. Use these insights to plan your financial goals
                     and adjust your investment strategy accordingly.
                   </p>
                 </div>
@@ -311,7 +311,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
               <h2 className="text-white mb-4">SIP Calculation Formula</h2>
               <div className="glass-card rounded-lg p-6 bg-white/5">
                 <p className="text-white mb-4 font-mono text-sm">
-                  FV = P × ((({`[1 + r]^n – 1`}) / r) × (1 + r))
+                  FV = P × ((([1 + r]^n – 1) / r) × (1 + r))
                 </p>
                 <div className="space-y-2 text-sm">
                   <div className="flex gap-4">
@@ -341,28 +341,28 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Accurate Planning</h4>
                   <p className="text-white/60 text-sm">
-                    Get precise estimates of your future wealth, helping you plan for specific financial goals 
+                    Get precise estimates of your future wealth, helping you plan for specific financial goals
                     like retirement, education, or home purchase.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Goal-Based Investing</h4>
                   <p className="text-white/60 text-sm">
-                    Calculate how much you need to invest monthly to reach your target corpus, making goal 
+                    Calculate how much you need to invest monthly to reach your target corpus, making goal
                     achievement more systematic.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Compare Scenarios</h4>
                   <p className="text-white/60 text-sm">
-                    Test different investment amounts, time periods, and return rates to find the optimal 
+                    Test different investment amounts, time periods, and return rates to find the optimal
                     strategy for your financial situation.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Time-Saving</h4>
                   <p className="text-white/60 text-sm">
-                    Get instant calculations without complex manual computations, allowing you to make quick, 
+                    Get instant calculations without complex manual computations, allowing you to make quick,
                     informed investment decisions.
                   </p>
                 </div>
@@ -379,7 +379,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                     What is the minimum amount to start a SIP?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Most mutual funds allow SIPs starting from ₹500 per month. However, investing higher amounts 
+                    Most mutual funds allow SIPs starting from ₹500 per month. However, investing higher amounts
                     can help you build wealth faster and reach your financial goals sooner.
                   </p>
                 </div>
@@ -389,7 +389,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                     What is a good expected return rate for SIP?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Historically, equity mutual funds have delivered 12-15% annualized returns over 10+ year periods. 
+                    Historically, equity mutual funds have delivered 12-15% annualized returns over 10+ year periods.
                     Debt funds typically offer 7-9% returns. Use conservative estimates for realistic planning.
                   </p>
                 </div>
@@ -399,7 +399,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                     Can I increase my SIP amount later?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Yes, you can increase your SIP amount through a Step-Up SIP or by starting an additional SIP. 
+                    Yes, you can increase your SIP amount through a Step-Up SIP or by starting an additional SIP.
                     Increasing investments with rising income is a smart strategy for wealth building.
                   </p>
                 </div>
@@ -409,8 +409,8 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                     Is SIP better than lump sum investment?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    SIP offers rupee cost averaging, reducing timing risk by investing regularly regardless of market 
-                    conditions. It's ideal for salaried individuals and those who want to build wealth systematically.
+                    SIP offers rupee cost averaging, reducing timing risk by investing regularly regardless of market
+                    conditions. It&apos;s ideal for salaried individuals and those who want to build wealth systematically.
                   </p>
                 </div>
               </div>
@@ -432,7 +432,7 @@ export default function SIPCalculatorPage({ onBack }: SIPCalculatorPageProps) {
                 View Investment Plans
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button 
+              <Button
                 onClick={onBack}
                 className="bg-white/5 text-white hover:bg-white/10 border border-white/10"
               >

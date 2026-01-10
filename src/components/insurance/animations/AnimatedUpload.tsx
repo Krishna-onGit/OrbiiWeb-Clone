@@ -1,6 +1,11 @@
 import React from 'react';
 
-const AnimatedUpload = ({ children }: any) => {
+interface AnimatedUploadProps {
+    children: React.ReactNode;
+    delay?: number;
+}
+
+const AnimatedUpload = ({ children }: AnimatedUploadProps) => {
     return <div>{children}</div>;
 };
 

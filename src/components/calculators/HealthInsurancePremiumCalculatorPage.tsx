@@ -94,7 +94,7 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
             <div>
               <h1 className="text-white mb-3">Health Insurance Premium Calculator</h1>
               <p className="text-white/70 text-lg max-w-3xl">
-                Estimate your health insurance premium based on age, coverage amount, family size, and medical history. 
+                Estimate your health insurance premium based on age, coverage amount, family size, and medical history.
                 Get instant quotes and plan your healthcare protection.
               </p>
             </div>
@@ -173,20 +173,18 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
                     Pre-existing Conditions
                   </Label>
                   <div className="space-y-3">
-                    <div 
+                    <div
                       onClick={() => setPreExisting('no')}
-                      className={`glass-card rounded-lg p-4 cursor-pointer transition-all ${
-                        preExisting === 'no' ? 'border-2 border-[#39FF14]' : 'border border-white/10'
-                      }`}
+                      className={`glass-card rounded-lg p-4 cursor-pointer transition-all ${preExisting === 'no' ? 'border-2 border-[#39FF14]' : 'border border-white/10'
+                        }`}
                     >
                       <div className="font-semibold text-white">No</div>
                       <div className="text-xs text-white/60">No pre-existing medical conditions</div>
                     </div>
-                    <div 
+                    <div
                       onClick={() => setPreExisting('yes')}
-                      className={`glass-card rounded-lg p-4 cursor-pointer transition-all ${
-                        preExisting === 'yes' ? 'border-2 border-[#39FF14]' : 'border border-white/10'
-                      }`}
+                      className={`glass-card rounded-lg p-4 cursor-pointer transition-all ${preExisting === 'yes' ? 'border-2 border-[#39FF14]' : 'border border-white/10'
+                        }`}
                     >
                       <div className="font-semibold text-white">Yes</div>
                       <div className="text-xs text-white/60">Have pre-existing conditions</div>
@@ -194,7 +192,7 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
                   </div>
                 </div>
 
-                <Button 
+                <Button
                   onClick={handleCalculate}
                   className="w-full btn-glow"
                 >
@@ -237,7 +235,7 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
               <div className="space-y-6">
                 <div className="glass-card rounded-lg p-8 border border-[#39FF14]/20">
                   <h3 className="text-white mb-6">Your Premium Estimate</h3>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <p className="text-white/60 text-sm mb-2">Total Annual Premium (incl. GST)</p>
@@ -298,7 +296,7 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
                 </Button>
 
                 <div className="glass-card rounded-lg p-6 bg-white/5">
-                  <h4 className="text-white mb-3">What's Covered?</h4>
+                  <h4 className="text-white mb-3">What&apos;s Covered?</h4>
                   <ul className="space-y-2 text-sm text-white/70">
                     <li className="flex gap-2">
                       <span className="text-[#39FF14]">✓</span>
@@ -340,12 +338,12 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
             <section>
               <h2 className="text-white mb-4">What is a Health Insurance Premium Calculator?</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                A Health Insurance Premium Calculator helps you estimate the cost of health insurance coverage based on 
-                various factors like age, coverage amount, number of family members, and medical history. It provides 
+                A Health Insurance Premium Calculator helps you estimate the cost of health insurance coverage based on
+                various factors like age, coverage amount, number of family members, and medical history. It provides
                 instant premium quotes to help you plan your healthcare budget.
               </p>
               <p className="text-white/70 leading-relaxed">
-                The calculator considers industry-standard pricing models and regulations to give you accurate estimates, 
+                The calculator considers industry-standard pricing models and regulations to give you accurate estimates,
                 though actual premiums may vary based on insurer-specific underwriting and additional riders.
               </p>
             </section>
@@ -357,28 +355,28 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Age</h4>
                   <p className="text-white/60 text-sm">
-                    Younger individuals pay lower premiums. Premiums increase significantly after age 45-50 due to 
+                    Younger individuals pay lower premiums. Premiums increase significantly after age 45-50 due to
                     higher health risks.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Sum Insured</h4>
                   <p className="text-white/60 text-sm">
-                    Higher coverage amounts result in higher premiums but provide better financial protection against 
+                    Higher coverage amounts result in higher premiums but provide better financial protection against
                     medical expenses.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Pre-existing Conditions</h4>
                   <p className="text-white/60 text-sm">
-                    Existing medical conditions may increase premiums by 20-50% depending on severity and type of 
+                    Existing medical conditions may increase premiums by 20-50% depending on severity and type of
                     condition.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Family Size</h4>
                   <p className="text-white/60 text-sm">
-                    Family floater plans offer better value than individual plans, with discounts for covering multiple 
+                    Family floater plans offer better value than individual plans, with discounts for covering multiple
                     members.
                   </p>
                 </div>
@@ -395,7 +393,7 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
                     What sum insured should I choose?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Aim for at least ₹5-10 lakhs for individuals and ₹10-15 lakhs for families. Consider higher coverage 
+                    Aim for at least ₹5-10 lakhs for individuals and ₹10-15 lakhs for families. Consider higher coverage
                     in metro cities due to expensive medical treatments.
                   </p>
                 </div>
@@ -405,7 +403,7 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
                     Are pre-existing conditions covered?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Most policies cover pre-existing conditions after a waiting period of 2-4 years. Some insurers offer 
+                    Most policies cover pre-existing conditions after a waiting period of 2-4 years. Some insurers offer
                     immediate coverage with higher premiums.
                   </p>
                 </div>
@@ -415,7 +413,7 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
                     Can I get tax benefits?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Yes! Health insurance premiums are eligible for tax deduction under Section 80D - up to ₹25,000 for 
+                    Yes! Health insurance premiums are eligible for tax deduction under Section 80D - up to ₹25,000 for
                     self/family and additional ₹25,000 for parents.
                   </p>
                 </div>
@@ -438,7 +436,7 @@ export default function HealthInsurancePremiumCalculatorPage({ onBack }: HealthI
                 View Health Plans
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button 
+              <Button
                 onClick={onBack}
                 className="bg-white/5 text-white hover:bg-white/10 border border-white/10"
               >

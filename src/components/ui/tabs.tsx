@@ -6,7 +6,15 @@ const TabsContext = React.createContext<{
     onValueChange: (value: string) => void;
 }>({ value: '', onValueChange: () => { } });
 
-const Tabs = ({ defaultValue, value, onValueChange, children, className }: any) => {
+interface TabsProps {
+    defaultValue?: string;
+    value?: string;
+    onValueChange?: (value: string) => void;
+    children: React.ReactNode;
+    className?: string;
+}
+
+const Tabs = ({ defaultValue, value, onValueChange, children, className }: TabsProps) => {
     const [activeValue, setActiveValue] = React.useState(value || defaultValue);
 
     React.useEffect(() => {
@@ -19,19 +27,30 @@ const Tabs = ({ defaultValue, value, onValueChange, children, className }: any) 
     };
 
     return (
-        <TabsContext.Provider value={{ value: activeValue, onValueChange: handleValueChange }}>
+        <TabsContext.Provider value={{ value: activeValue || '', onValueChange: handleValueChange }}>
             <div className={cn("w-full", className)}>{children}</div>
         </TabsContext.Provider>
     );
 };
 
-const TabsList = ({ children, className }: any) => (
+interface TabsListProps {
+    children: React.ReactNode;
+    className?: string;
+}
+
+const TabsList = ({ children, className }: TabsListProps) => (
     <div className={cn("inline-flex h-10 items-center justify-center rounded-lg bg-white/5 p-1 text-white/50", className)}>
         {children}
     </div>
 );
 
-const TabsTrigger = ({ value, children, className }: any) => {
+interface TabsTriggerProps {
+    value: string;
+    children: React.ReactNode;
+    className?: string;
+}
+
+const TabsTrigger = ({ value, children, className }: TabsTriggerProps) => {
     const { value: activeValue, onValueChange } = React.useContext(TabsContext);
     const isActive = activeValue === value;
 
@@ -49,7 +68,13 @@ const TabsTrigger = ({ value, children, className }: any) => {
     );
 };
 
-const TabsContent = ({ value, children, className }: any) => {
+interface TabsContentProps {
+    value: string;
+    children: React.ReactNode;
+    className?: string;
+}
+
+const TabsContent = ({ value, children, className }: TabsContentProps) => {
     const { value: activeValue } = React.useContext(TabsContext);
     if (activeValue !== value) return null;
 

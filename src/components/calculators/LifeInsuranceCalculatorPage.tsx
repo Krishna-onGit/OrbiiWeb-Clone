@@ -1,4 +1,4 @@
-import { ArrowLeft, Calculator, Shield, CheckCircle2, DollarSign, TrendingUp, Heart } from 'lucide-react';
+import { ArrowLeft, Calculator, Shield, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -14,7 +14,16 @@ export default function LifeInsuranceCalculatorPage({ onBack }: LifeInsuranceCal
   const [dependents, setDependents] = useState('3');
   const [yearsOfSupport, setYearsOfSupport] = useState('20');
   const [existingCoverage, setExistingCoverage] = useState('500000');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    totalCoverageNeeded: number;
+    existingCoverage: number;
+    additionalCoverageNeeded: number;
+    estimatedAnnualPremium: number;
+    estimatedMonthlyPremium: number;
+    incomeReplacement: number;
+    loanCoverage: number;
+    futureExpenses: number;
+  } | null>(null);
 
   const calculateInsurance = () => {
     const income = parseFloat(annualIncome);
@@ -25,10 +34,10 @@ export default function LifeInsuranceCalculatorPage({ onBack }: LifeInsuranceCal
 
     // Income replacement method
     const incomeReplacement = income * years;
-    
+
     // Future expenses (education, marriage etc)
     const futureExpenses = deps * 1000000; // 10L per dependent
-    
+
     // Total coverage needed
     const totalCoverageNeeded = incomeReplacement + loans + futureExpenses;
     const additionalCoverageNeeded = Math.max(0, totalCoverageNeeded - existing);
@@ -64,7 +73,7 @@ export default function LifeInsuranceCalculatorPage({ onBack }: LifeInsuranceCal
             <div>
               <h1 className="text-white mb-2">Life Insurance Calculator</h1>
               <p className="text-white/70 text-lg">
-                Calculate adequate life insurance coverage to protect your family's financial future
+                Calculate adequate life insurance coverage to protect your family&apos;s financial future
               </p>
             </div>
           </div>
@@ -173,7 +182,7 @@ export default function LifeInsuranceCalculatorPage({ onBack }: LifeInsuranceCal
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
-                  <p className="text-white/70">Replaces lost income for family's daily expenses</p>
+                  <p className="text-white/70">Replaces lost income for family&apos;s daily expenses</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
@@ -181,11 +190,11 @@ export default function LifeInsuranceCalculatorPage({ onBack }: LifeInsuranceCal
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
-                  <p className="text-white/70">Funds children's education and marriage</p>
+                  <p className="text-white/70">Funds children&apos;s education and marriage</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
-                  <p className="text-white/70">Maintains family's standard of living</p>
+                  <p className="text-white/70">Maintains family&apos;s standard of living</p>
                 </div>
               </div>
             </div>

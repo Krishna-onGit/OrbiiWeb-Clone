@@ -1,4 +1,4 @@
-import { ArrowLeft, Calculator, Car, Shield, CheckCircle2, DollarSign, AlertCircle, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Calculator, Car, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -20,12 +20,21 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
     roadside: false,
     consumables: false
   });
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    idv: number;
+    basePremium: number;
+    addOnCost: number;
+    ncbDiscount: number;
+    subtotal: number;
+    gst: number;
+    totalPremium: number;
+    monthlyPremium: number;
+  } | null>(null);
 
   const calculateCarInsurance = () => {
     const value = parseFloat(carValue);
     const age = parseFloat(carAge);
-    
+
     // Calculate IDV (Insured Declared Value) with depreciation
     let depreciationRate = 0.05;
     if (age <= 1) depreciationRate = 0.05;
@@ -83,14 +92,14 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
       {/* Header */}
       <div className="border-b border-white/10">
         <div className="container-custom py-8">
-          <button 
+          <button
             onClick={onBack}
             className="mb-6 text-[#39FF14] hover:text-[#2ee610] flex items-center gap-2 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Calculators
           </button>
-          
+
           <div className="flex items-start gap-4">
             <div className="p-3 glass-card rounded-lg">
               <Car className="w-8 h-8 text-[#39FF14]" />
@@ -155,21 +164,19 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
                   <div className="flex gap-4">
                     <button
                       onClick={() => setCityType('metro')}
-                      className={`flex-1 px-4 py-2 rounded-lg border ${
-                        cityType === 'metro'
+                      className={`flex-1 px-4 py-2 rounded-lg border ${cityType === 'metro'
                           ? 'bg-[#39FF14] text-black border-[#39FF14]'
                           : 'bg-white/5 text-white border-white/10'
-                      }`}
+                        }`}
                     >
                       Metro City
                     </button>
                     <button
                       onClick={() => setCityType('non-metro')}
-                      className={`flex-1 px-4 py-2 rounded-lg border ${
-                        cityType === 'non-metro'
+                      className={`flex-1 px-4 py-2 rounded-lg border ${cityType === 'non-metro'
                           ? 'bg-[#39FF14] text-black border-[#39FF14]'
                           : 'bg-white/5 text-white border-white/10'
-                      }`}
+                        }`}
                     >
                       Non-Metro
                     </button>
@@ -181,21 +188,19 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
                   <div className="flex gap-4">
                     <button
                       onClick={() => setPolicyType('comprehensive')}
-                      className={`flex-1 px-4 py-2 rounded-lg border ${
-                        policyType === 'comprehensive'
+                      className={`flex-1 px-4 py-2 rounded-lg border ${policyType === 'comprehensive'
                           ? 'bg-[#39FF14] text-black border-[#39FF14]'
                           : 'bg-white/5 text-white border-white/10'
-                      }`}
+                        }`}
                     >
                       Comprehensive
                     </button>
                     <button
                       onClick={() => setPolicyType('third-party')}
-                      className={`flex-1 px-4 py-2 rounded-lg border ${
-                        policyType === 'third-party'
+                      className={`flex-1 px-4 py-2 rounded-lg border ${policyType === 'third-party'
                           ? 'bg-[#39FF14] text-black border-[#39FF14]'
                           : 'bg-white/5 text-white border-white/10'
-                      }`}
+                        }`}
                     >
                       Third Party Only
                     </button>
@@ -210,7 +215,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
                         <input
                           type="checkbox"
                           checked={addOns.zeroDepreciation}
-                          onChange={(e) => setAddOns({...addOns, zeroDepreciation: e.target.checked})}
+                          onChange={(e) => setAddOns({ ...addOns, zeroDepreciation: e.target.checked })}
                           className="w-4 h-4 rounded accent-[#39FF14]"
                         />
                         <span className="text-white/80">Zero Depreciation Cover</span>
@@ -219,7 +224,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
                         <input
                           type="checkbox"
                           checked={addOns.engineProtection}
-                          onChange={(e) => setAddOns({...addOns, engineProtection: e.target.checked})}
+                          onChange={(e) => setAddOns({ ...addOns, engineProtection: e.target.checked })}
                           className="w-4 h-4 rounded accent-[#39FF14]"
                         />
                         <span className="text-white/80">Engine Protection</span>
@@ -228,7 +233,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
                         <input
                           type="checkbox"
                           checked={addOns.returnToInvoice}
-                          onChange={(e) => setAddOns({...addOns, returnToInvoice: e.target.checked})}
+                          onChange={(e) => setAddOns({ ...addOns, returnToInvoice: e.target.checked })}
                           className="w-4 h-4 rounded accent-[#39FF14]"
                         />
                         <span className="text-white/80">Return to Invoice</span>
@@ -237,7 +242,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
                         <input
                           type="checkbox"
                           checked={addOns.roadside}
-                          onChange={(e) => setAddOns({...addOns, roadside: e.target.checked})}
+                          onChange={(e) => setAddOns({ ...addOns, roadside: e.target.checked })}
                           className="w-4 h-4 rounded accent-[#39FF14]"
                         />
                         <span className="text-white/80">Roadside Assistance</span>
@@ -246,7 +251,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
                         <input
                           type="checkbox"
                           checked={addOns.consumables}
-                          onChange={(e) => setAddOns({...addOns, consumables: e.target.checked})}
+                          onChange={(e) => setAddOns({ ...addOns, consumables: e.target.checked })}
                           className="w-4 h-4 rounded accent-[#39FF14]"
                         />
                         <span className="text-white/80">Consumables Cover</span>
@@ -255,7 +260,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
                   </div>
                 )}
 
-                <Button 
+                <Button
                   onClick={calculateCarInsurance}
                   className="w-full bg-[#39FF14] hover:bg-[#2ee610] text-black font-semibold"
                 >
@@ -268,7 +273,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
             {result && (
               <div className="glass-card rounded-2xl p-8">
                 <h3 className="text-2xl font-bold mb-6 text-white">Premium Breakdown</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-white/10">
                     <span className="text-white/70">Insured Declared Value (IDV)</span>
@@ -319,7 +324,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white">About Car Insurance</h3>
               <p className="text-white/70 leading-relaxed mb-4">
-                Car insurance is mandatory in India under the Motor Vehicles Act. It provides financial protection against damages 
+                Car insurance is mandatory in India under the Motor Vehicles Act. It provides financial protection against damages
                 to your vehicle and third-party liabilities arising from accidents.
               </p>
               <p className="text-white/70 leading-relaxed">
@@ -331,7 +336,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
                 <Calculator className="w-6 h-6 text-[#39FF14]" />
-                How It's Calculated
+                How It&apos;s Calculated
               </h3>
               <div className="space-y-4">
                 <div>
@@ -447,7 +452,7 @@ export default function CarInsuranceCalculatorPage({ onBack }: CarInsuranceCalcu
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
                   <span className="text-[#39FF14] font-bold">•</span>
-                  <p className="text-white/70">Don't let policy lapse - continuous coverage maintains NCB</p>
+                  <p className="text-white/70">Don&apos;t let policy lapse - continuous coverage maintains NCB</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#39FF14] font-bold">•</span>

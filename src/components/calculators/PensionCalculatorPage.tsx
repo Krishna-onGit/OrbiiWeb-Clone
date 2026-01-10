@@ -1,4 +1,4 @@
-import { ArrowLeft, Calculator, TrendingUp, DollarSign, Clock, AlertCircle, CheckCircle2, Wallet, PiggyBank, Shield } from 'lucide-react';
+import { ArrowLeft, Calculator, TrendingUp, DollarSign, Clock, AlertCircle, CheckCircle2, Wallet, Shield } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -14,14 +14,23 @@ export default function PensionCalculatorPage({ onBack }: PensionCalculatorPageP
   const [expectedReturn, setExpectedReturn] = useState('10');
   const [inflationRate, setInflationRate] = useState('6');
   const [monthlyPensionNeeded, setMonthlyPensionNeeded] = useState('50000');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    retirementCorpus: number;
+    totalInvested: number;
+    totalReturns: number;
+    monthlyPension: number;
+    corpusNeeded: number;
+    shortfall: number;
+    yearsToRetirement: number;
+    adequacy: string;
+  } | null>(null);
 
   const calculatePension = () => {
     const current = parseFloat(currentAge);
     const retirement = parseFloat(retirementAge);
     const contribution = parseFloat(monthlyContribution);
     const rate = parseFloat(expectedReturn) / 100 / 12;
-    const inflation = parseFloat(inflationRate) / 100 / 12;
+    // Removed unused inflation local variable
     const pensionNeeded = parseFloat(monthlyPensionNeeded);
 
     if (current >= retirement) {
@@ -63,14 +72,14 @@ export default function PensionCalculatorPage({ onBack }: PensionCalculatorPageP
       {/* Header */}
       <div className="border-b border-white/10">
         <div className="container-custom py-8">
-          <button 
+          <button
             onClick={onBack}
             className="mb-6 text-[#39FF14] hover:text-[#2ee610] flex items-center gap-2 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Calculators
           </button>
-          
+
           <div className="flex items-start gap-4">
             <div className="p-3 glass-card rounded-lg">
               <Wallet className="w-8 h-8 text-[#39FF14]" />
@@ -164,7 +173,7 @@ export default function PensionCalculatorPage({ onBack }: PensionCalculatorPageP
                   />
                 </div>
 
-                <Button 
+                <Button
                   onClick={calculatePension}
                   className="w-full bg-[#39FF14] hover:bg-[#2ee610] text-black font-semibold"
                 >
@@ -177,7 +186,7 @@ export default function PensionCalculatorPage({ onBack }: PensionCalculatorPageP
             {result && (
               <div className="glass-card rounded-2xl p-8">
                 <h3 className="text-2xl font-bold mb-6 text-white">Your Retirement Plan</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-white/10">
                     <span className="text-white/70">Years to Retirement</span>
@@ -211,20 +220,20 @@ export default function PensionCalculatorPage({ onBack }: PensionCalculatorPageP
 
                   <div className="flex justify-between items-center">
                     <span className="text-white/70">Plan Adequacy</span>
-                    <span className={`text-xl font-bold ${result.adequacy >= 100 ? 'text-[#39FF14]' : 'text-orange-400'}`}>
+                    <span className={`text-xl font-bold ${parseFloat(result.adequacy) >= 100 ? 'text-[#39FF14]' : 'text-orange-400'}`}>
                       {result.adequacy}%
                     </span>
                   </div>
                 </div>
 
-                {result.adequacy < 100 && (
+                {parseFloat(result.adequacy) < 100 && (
                   <div className="mt-6 p-4 bg-orange-500/10 border border-orange-500/20 rounded-xl">
                     <div className="flex items-start gap-3">
                       <AlertCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-orange-400 font-semibold mb-1">Shortfall Alert</p>
                         <p className="text-white/70 text-sm">
-                          Your current plan has a shortfall of ₹{Math.abs(result.shortfall).toLocaleString('en-IN', { maximumFractionDigits: 0 })}. 
+                          Your current plan has a shortfall of ₹{Math.abs(result.shortfall).toLocaleString('en-IN', { maximumFractionDigits: 0 })}.
                           Consider increasing monthly contributions or investment duration.
                         </p>
                       </div>
@@ -232,7 +241,7 @@ export default function PensionCalculatorPage({ onBack }: PensionCalculatorPageP
                   </div>
                 )}
 
-                {result.adequacy >= 100 && (
+                {parseFloat(result.adequacy) >= 100 && (
                   <div className="mt-6 p-4 bg-[#39FF14]/10 border border-[#39FF14]/20 rounded-xl">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
@@ -255,11 +264,11 @@ export default function PensionCalculatorPage({ onBack }: PensionCalculatorPageP
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white">About Pension Planning</h3>
               <p className="text-white/70 leading-relaxed mb-4">
-                Pension planning is crucial for ensuring financial independence during retirement. This calculator helps you 
+                Pension planning is crucial for ensuring financial independence during retirement. This calculator helps you
                 estimate the corpus you need to build and the monthly pension you can expect based on your savings and investment strategy.
               </p>
               <p className="text-white/70 leading-relaxed">
-                It factors in inflation to give you realistic estimates and helps you determine if your current savings plan 
+                It factors in inflation to give you realistic estimates and helps you determine if your current savings plan
                 is adequate for your retirement goals.
               </p>
             </div>
@@ -268,7 +277,7 @@ export default function PensionCalculatorPage({ onBack }: PensionCalculatorPageP
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
                 <Calculator className="w-6 h-6 text-[#39FF14]" />
-                How It's Calculated
+                How It&apos;s Calculated
               </h3>
               <div className="space-y-4">
                 <div>

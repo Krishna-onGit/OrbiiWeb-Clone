@@ -20,11 +20,11 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
     const w = parseFloat(weight);
     const h = parseFloat(height);
     const a = parseFloat(age);
-    
+
     if (!w || !h || !a || w <= 0 || h <= 0 || a <= 0) return null;
 
-    let heightInCm = system === 'metric' ? h : h * 2.54;
-    let weightInKg = system === 'metric' ? w : w * 0.453592;
+    const heightInCm = system === 'metric' ? h : h * 2.54;
+    const weightInKg = system === 'metric' ? w : w * 0.453592;
 
     // Mifflin-St Jeor Equation (most accurate)
     let mifflinStJeor: number;
@@ -99,7 +99,7 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
             <div>
               <h1 className="text-white mb-3">BMR Calculator</h1>
               <p className="text-white/70 text-lg max-w-3xl">
-                Calculate your Basal Metabolic Rate (BMR) - the number of calories your body burns at complete rest. 
+                Calculate your Basal Metabolic Rate (BMR) - the number of calories your body burns at complete rest.
                 Understand your baseline energy needs for effective weight management.
               </p>
             </div>
@@ -125,21 +125,19 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                   <div className="flex gap-4">
                     <button
                       onClick={() => setSystem('metric')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${
-                        system === 'metric'
+                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${system === 'metric'
                           ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
                           : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
-                      }`}
+                        }`}
                     >
                       Metric
                     </button>
                     <button
                       onClick={() => setSystem('imperial')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${
-                        system === 'imperial'
+                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${system === 'imperial'
                           ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
                           : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
-                      }`}
+                        }`}
                     >
                       Imperial
                     </button>
@@ -152,21 +150,19 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                   <div className="flex gap-4">
                     <button
                       onClick={() => setGender('male')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${
-                        gender === 'male'
+                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${gender === 'male'
                           ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
                           : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
-                      }`}
+                        }`}
                     >
                       Male
                     </button>
                     <button
                       onClick={() => setGender('female')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${
-                        gender === 'female'
+                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${gender === 'female'
                           ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
                           : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
-                      }`}
+                        }`}
                     >
                       Female
                     </button>
@@ -221,7 +217,7 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                   <p className="text-xs text-white/40 mt-1">Your current weight</p>
                 </div>
 
-                <Button 
+                <Button
                   onClick={handleCalculate}
                   className="w-full btn-glow"
                 >
@@ -264,7 +260,7 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
               <div className="space-y-6">
                 <div className="glass-card rounded-lg p-8 border border-[#39FF14]/20">
                   <h3 className="text-white mb-6">Your Basal Metabolic Rate</h3>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <p className="text-white/60 text-sm mb-2">BMR (Mifflin-St Jeor)</p>
@@ -288,7 +284,7 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                 <div className="glass-card rounded-lg p-8">
                   <h3 className="text-white mb-4">Daily Calorie Needs (TDEE)</h3>
                   <p className="text-white/60 text-sm mb-6">Based on your activity level</p>
-                  
+
                   <div className="space-y-4">
                     <div className="p-4 rounded-lg bg-white/5 border border-white/10">
                       <div className="flex justify-between items-center mb-1">
@@ -349,13 +345,13 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
             <section>
               <h2 className="text-white mb-4">What is Basal Metabolic Rate (BMR)?</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                Basal Metabolic Rate (BMR) is the number of calories your body needs to perform basic life-sustaining 
-                functions while at complete rest. These functions include breathing, circulation, nutrient processing, 
+                Basal Metabolic Rate (BMR) is the number of calories your body needs to perform basic life-sustaining
+                functions while at complete rest. These functions include breathing, circulation, nutrient processing,
                 and cell production. Your BMR represents the minimum energy required to keep your body functioning.
               </p>
               <p className="text-white/70 leading-relaxed">
-                BMR accounts for approximately 60-75% of your total daily energy expenditure, making it the largest 
-                component of your calorie burn. Understanding your BMR is crucial for creating effective weight 
+                BMR accounts for approximately 60-75% of your total daily energy expenditure, making it the largest
+                component of your calorie burn. Understanding your BMR is crucial for creating effective weight
                 management strategies and nutrition plans.
               </p>
             </section>
@@ -367,28 +363,28 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Weight Management</h4>
                   <p className="text-white/60 text-sm">
-                    Know your baseline calorie needs to create effective weight loss or weight gain plans 
+                    Know your baseline calorie needs to create effective weight loss or weight gain plans
                     based on scientific principles.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Personalized Nutrition</h4>
                   <p className="text-white/60 text-sm">
-                    Design meal plans tailored to your body's specific energy requirements rather than 
+                    Design meal plans tailored to your body&apos;s specific energy requirements rather than
                     following generic diets.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Fitness Planning</h4>
                   <p className="text-white/60 text-sm">
-                    Optimize your training nutrition by understanding how much energy your body needs at 
+                    Optimize your training nutrition by understanding how much energy your body needs at
                     rest versus during activity.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Health Monitoring</h4>
                   <p className="text-white/60 text-sm">
-                    Track metabolic changes over time as you age, build muscle, or make lifestyle 
+                    Track metabolic changes over time as you age, build muscle, or make lifestyle
                     adjustments.
                   </p>
                 </div>
@@ -402,28 +398,28 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                 <div>
                   <h4 className="text-white mb-2">Body Composition</h4>
                   <p className="text-white/60 text-sm">
-                    Muscle tissue burns more calories than fat tissue. Individuals with higher muscle mass 
+                    Muscle tissue burns more calories than fat tissue. Individuals with higher muscle mass
                     have a higher BMR, even at rest.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-white mb-2">Age</h4>
                   <p className="text-white/60 text-sm">
-                    BMR decreases approximately 2% per decade after age 20 due to muscle loss and hormonal 
+                    BMR decreases approximately 2% per decade after age 20 due to muscle loss and hormonal
                     changes.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-white mb-2">Gender</h4>
                   <p className="text-white/60 text-sm">
-                    Men typically have a higher BMR than women due to greater muscle mass and lower body 
+                    Men typically have a higher BMR than women due to greater muscle mass and lower body
                     fat percentage.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-white mb-2">Genetics</h4>
                   <p className="text-white/60 text-sm">
-                    Some people are born with faster or slower metabolisms, though this typically accounts 
+                    Some people are born with faster or slower metabolisms, though this typically accounts
                     for less variation than other factors.
                   </p>
                 </div>
@@ -437,10 +433,10 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2 flex items-start gap-2">
                     <HelpCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
-                    What's the difference between BMR and TDEE?
+                    What&apos;s the difference between BMR and TDEE?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    BMR is calories burned at complete rest, while TDEE (Total Daily Energy Expenditure) includes 
+                    BMR is calories burned at complete rest, while TDEE (Total Daily Energy Expenditure) includes
                     all activity. TDEE = BMR × activity multiplier. Use TDEE for your daily calorie target.
                   </p>
                 </div>
@@ -450,7 +446,7 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                     Can I increase my BMR?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Yes! Building muscle through strength training is the most effective way to increase BMR. 
+                    Yes! Building muscle through strength training is the most effective way to increase BMR.
                     Each pound of muscle burns approximately 6 calories per day at rest.
                   </p>
                 </div>
@@ -460,7 +456,7 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                     Should I eat below my BMR to lose weight?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    No. Eating below BMR can slow metabolism and cause muscle loss. Instead, eat between BMR and 
+                    No. Eating below BMR can slow metabolism and cause muscle loss. Instead, eat between BMR and
                     TDEE for sustainable weight loss (typically 500 calories below TDEE).
                   </p>
                 </div>
@@ -483,7 +479,7 @@ export default function BMRCalculatorPage({ onBack }: BMRCalculatorPageProps) {
                 View Health Insurance Plans
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button 
+              <Button
                 onClick={onBack}
                 className="bg-white/5 text-white hover:bg-white/10 border border-white/10"
               >

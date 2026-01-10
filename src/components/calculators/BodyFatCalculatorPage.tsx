@@ -24,13 +24,13 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
     const n = parseFloat(neck);
     const wa = parseFloat(waist);
     const hi = parseFloat(hip);
-    
+
     if (!w || !h || !n || !wa || w <= 0 || h <= 0 || n <= 0 || wa <= 0) return null;
     if (gender === 'female' && (!hi || hi <= 0)) return null;
 
     // U.S. Navy Method
     let bodyFatPercentage: number;
-    
+
     if (gender === 'male') {
       bodyFatPercentage = 495 / (1.0324 - 0.19077 * Math.log10(wa - n) + 0.15456 * Math.log10(h)) - 450;
     } else {
@@ -44,7 +44,7 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
     // Determine category
     let category = '';
     let categoryColor = '';
-    
+
     if (gender === 'male') {
       if (bodyFatPercentage < 6) {
         category = 'Essential Fat';
@@ -125,7 +125,7 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
             <div>
               <h1 className="text-white mb-3">Body Fat Calculator</h1>
               <p className="text-white/70 text-lg max-w-3xl">
-                Estimate your body fat percentage using the U.S. Navy method. Track your progress and optimize 
+                Estimate your body fat percentage using the U.S. Navy method. Track your progress and optimize
                 your fitness goals with accurate body composition measurements.
               </p>
             </div>
@@ -151,21 +151,19 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
                   <div className="flex gap-4">
                     <button
                       onClick={() => setGender('male')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${
-                        gender === 'male'
+                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${gender === 'male'
                           ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
                           : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
-                      }`}
+                        }`}
                     >
                       Male
                     </button>
                     <button
                       onClick={() => setGender('female')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${
-                        gender === 'female'
+                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${gender === 'female'
                           ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
                           : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
-                      }`}
+                        }`}
                     >
                       Female
                     </button>
@@ -260,7 +258,7 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
                   </div>
                 )}
 
-                <Button 
+                <Button
                   onClick={handleCalculate}
                   className="w-full btn-glow"
                 >
@@ -303,7 +301,7 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
               <div className="space-y-6">
                 <div className="glass-card rounded-lg p-8 border border-[#39FF14]/20">
                   <h3 className="text-white mb-6">Your Body Composition</h3>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <p className="text-white/60 text-sm mb-2">Body Fat Percentage</p>
@@ -336,7 +334,7 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
                 <div className="glass-card rounded-lg p-8">
                   <h3 className="text-white mb-4">Body Fat Categories</h3>
                   <p className="text-white/60 text-sm mb-6">Reference ranges for {gender === 'male' ? 'men' : 'women'}</p>
-                  
+
                   <div className="space-y-3">
                     {gender === 'male' ? (
                       <>
@@ -434,13 +432,13 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
             <section>
               <h2 className="text-white mb-4">Understanding Body Fat Percentage</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                Body fat percentage is the proportion of fat in your body compared to everything else (bones, muscles, 
-                organs, water, etc.). Unlike BMI, which only considers height and weight, body fat percentage provides 
+                Body fat percentage is the proportion of fat in your body compared to everything else (bones, muscles,
+                organs, water, etc.). Unlike BMI, which only considers height and weight, body fat percentage provides
                 a more accurate picture of your body composition and overall health.
               </p>
               <p className="text-white/70 leading-relaxed">
-                This calculator uses the U.S. Navy method, which estimates body fat based on circumference measurements. 
-                While not as accurate as methods like DEXA scans or hydrostatic weighing, it's a practical and accessible 
+                This calculator uses the U.S. Navy method, which estimates body fat based on circumference measurements.
+                While not as accurate as methods like DEXA scans or hydrostatic weighing, it&apos;s a practical and accessible
                 way to track your body composition over time.
               </p>
             </section>
@@ -452,21 +450,21 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Better Than BMI</h4>
                   <p className="text-white/60 text-sm">
-                    Two people with the same BMI can have vastly different body compositions. Body fat percentage 
+                    Two people with the same BMI can have vastly different body compositions. Body fat percentage
                     distinguishes between muscle and fat.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Health Indicator</h4>
                   <p className="text-white/60 text-sm">
-                    Excess body fat, especially visceral fat, is linked to increased risk of diabetes, heart 
+                    Excess body fat, especially visceral fat, is linked to increased risk of diabetes, heart
                     disease, and other health conditions.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Fitness Progress</h4>
                   <p className="text-white/60 text-sm">
-                    Track real progress beyond the scale. You might be building muscle and losing fat while 
+                    Track real progress beyond the scale. You might be building muscle and losing fat while
                     maintaining the same weight.
                   </p>
                 </div>
@@ -489,17 +487,17 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
                     How accurate is the U.S. Navy method?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    The Navy method is reasonably accurate with an error margin of ±3-4%. For best accuracy, ensure 
+                    The Navy method is reasonably accurate with an error margin of ±3-4%. For best accuracy, ensure
                     measurements are taken consistently at the same time of day using proper technique.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2 flex items-start gap-2">
                     <HelpCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
-                    What's a healthy body fat percentage?
+                    What&apos;s a healthy body fat percentage?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    For men, 10-20% is considered healthy; for women, 18-28%. Athletes typically have lower 
+                    For men, 10-20% is considered healthy; for women, 18-28%. Athletes typically have lower
                     percentages. Essential fat (minimum for health) is 2-5% for men and 10-13% for women.
                   </p>
                 </div>
@@ -509,7 +507,7 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
                     Can I reduce body fat percentage?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Yes! Combine strength training to build muscle with cardio and a caloric deficit to lose fat. 
+                    Yes! Combine strength training to build muscle with cardio and a caloric deficit to lose fat.
                     Aim for 1-2% reduction per month for sustainable results.
                   </p>
                 </div>
@@ -532,7 +530,7 @@ export default function BodyFatCalculatorPage({ onBack }: BodyFatCalculatorPageP
                 View Health Plans
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button 
+              <Button
                 onClick={onBack}
                 className="bg-white/5 text-white hover:bg-white/10 border border-white/10"
               >

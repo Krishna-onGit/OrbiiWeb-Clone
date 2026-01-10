@@ -1,6 +1,12 @@
 import React from 'react';
 
-const GlowingBadge = ({ children, glowColor = "#39FF14", className = "" }: any) => {
+interface GlowingBadgeProps {
+    children: React.ReactNode;
+    glowColor?: string;
+    className?: string;
+}
+
+const GlowingBadge = ({ children, glowColor = "#39FF14", className = "" }: GlowingBadgeProps) => {
     return (
         <div
             className={className}

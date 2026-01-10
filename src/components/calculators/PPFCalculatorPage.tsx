@@ -10,7 +10,15 @@ interface PPFCalculatorPageProps {
 export default function PPFCalculatorPage({ onBack }: PPFCalculatorPageProps) {
   const [yearlyInvestment, setYearlyInvestment] = useState('150000');
   const [tenure, setTenure] = useState('15');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    maturityAmount: number;
+    totalInvested: number;
+    totalInterest: number;
+    annualTaxSaved: number;
+    totalTaxSaved: number;
+    tenure: number;
+    currentRate: number;
+  } | null>(null);
 
   const calculatePPF = () => {
     const P = parseFloat(yearlyInvestment);
@@ -43,14 +51,14 @@ export default function PPFCalculatorPage({ onBack }: PPFCalculatorPageProps) {
       {/* Header */}
       <div className="border-b border-white/10">
         <div className="container-custom py-8">
-          <button 
+          <button
             onClick={onBack}
             className="mb-6 text-[#39FF14] hover:text-[#2ee610] flex items-center gap-2 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Calculators
           </button>
-          
+
           <div className="flex items-start gap-4">
             <div className="p-3 glass-card rounded-lg">
               <Building2 className="w-8 h-8 text-[#39FF14]" />
@@ -108,7 +116,7 @@ export default function PPFCalculatorPage({ onBack }: PPFCalculatorPageProps) {
                   <p className="text-white/50 text-xs mt-2">Government-set rate, revised quarterly</p>
                 </div>
 
-                <Button 
+                <Button
                   onClick={calculatePPF}
                   className="w-full bg-[#39FF14] hover:bg-[#2ee610] text-black font-semibold"
                 >
@@ -121,7 +129,7 @@ export default function PPFCalculatorPage({ onBack }: PPFCalculatorPageProps) {
             {result && (
               <div className="glass-card rounded-2xl p-8">
                 <h3 className="text-2xl font-bold mb-6 text-white">Your PPF Projection</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-white/10">
                     <span className="text-white/70">Investment Period</span>
@@ -175,11 +183,11 @@ export default function PPFCalculatorPage({ onBack }: PPFCalculatorPageProps) {
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white">About Public Provident Fund (PPF)</h3>
               <p className="text-white/70 leading-relaxed mb-4">
-                PPF is a government-backed long-term savings scheme offering attractive interest rates and complete tax exemption 
-                under EEE (Exempt-Exempt-Exempt) status. It's one of the safest investment options with no market risks.
+                PPF is a government-backed long-term savings scheme offering attractive interest rates and complete tax exemption
+                under EEE (Exempt-Exempt-Exempt) status. It&apos;s one of the safest investment options with no market risks.
               </p>
               <p className="text-white/70 leading-relaxed">
-                The scheme has a mandatory lock-in period of 15 years, which can be extended in blocks of 5 years. It's ideal 
+                The scheme has a mandatory lock-in period of 15 years, which can be extended in blocks of 5 years. It&apos;s ideal
                 for building a retirement corpus with guaranteed returns and tax benefits.
               </p>
             </div>
@@ -188,7 +196,7 @@ export default function PPFCalculatorPage({ onBack }: PPFCalculatorPageProps) {
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
                 <Calculator className="w-6 h-6 text-[#39FF14]" />
-                How It's Calculated
+                How It&apos;s Calculated
               </h3>
               <div className="space-y-4">
                 <div>
@@ -203,7 +211,7 @@ export default function PPFCalculatorPage({ onBack }: PPFCalculatorPageProps) {
 
                 <div>
                   <p className="text-white/60 text-sm">
-                    <strong className="text-white">Note:</strong> Interest is compounded annually and calculated monthly on the lowest 
+                    <strong className="text-white">Note:</strong> Interest is compounded annually and calculated monthly on the lowest
                     balance between the 5th and last day of each month.
                   </p>
                 </div>
@@ -228,7 +236,7 @@ export default function PPFCalculatorPage({ onBack }: PPFCalculatorPageProps) {
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
-                  <p className="text-white/70">Children's education or marriage planning</p>
+                  <p className="text-white/70">Children&apos;s education or marriage planning</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />

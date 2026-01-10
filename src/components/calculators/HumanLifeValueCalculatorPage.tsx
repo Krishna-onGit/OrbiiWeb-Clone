@@ -1,4 +1,4 @@
-import { ArrowLeft, Calculator, Heart, Shield, TrendingUp, CheckCircle2, DollarSign } from 'lucide-react';
+import { ArrowLeft, Calculator, Heart, Shield, TrendingUp, DollarSign } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -16,7 +16,14 @@ export default function HumanLifeValueCalculatorPage({ onBack }: HumanLifeValueC
   const [expectedReturn, setExpectedReturn] = useState('8');
   const [existingInsurance, setExistingInsurance] = useState('1000000');
   const [existingSavings, setExistingSavings] = useState('500000');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    humanLifeValue: number;
+    existingCoverage: number;
+    insuranceNeeded: number;
+    coverageAdequacy: number;
+    yearsToRetirement: number;
+    annualNetIncome: number;
+  } | null>(null);
 
   const calculateHLV = () => {
     const age = parseFloat(currentAge);
@@ -34,7 +41,7 @@ export default function HumanLifeValueCalculatorPage({ onBack }: HumanLifeValueC
     // Calculate present value of future earnings
     // PV = NetIncome × [(1 - (1 + g)^n / (1 + r)^n) / (r - g)]
     const realReturn = ((1 + returnRate) / (1 + inflRate)) - 1;
-    
+
     let humanLifeValue;
     if (Math.abs(realReturn) < 0.0001) {
       // If real return is approximately 0
@@ -159,7 +166,7 @@ export default function HumanLifeValueCalculatorPage({ onBack }: HumanLifeValueC
                     <div className="mt-6 p-4 bg-orange-500/10 border border-orange-500/20 rounded-xl">
                       <p className="text-orange-400 font-semibold mb-1">Coverage Gap Alert</p>
                       <p className="text-white/70 text-sm">
-                        Your current coverage is insufficient. Consider additional term insurance to protect your family's financial future.
+                        Your current coverage is insufficient. Consider additional term insurance to protect your family&apos;s financial future.
                       </p>
                     </div>
                   )}
@@ -170,8 +177,8 @@ export default function HumanLifeValueCalculatorPage({ onBack }: HumanLifeValueC
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white">What is Human Life Value?</h3>
               <p className="text-white/70 leading-relaxed mb-4">
-                Human Life Value (HLV) represents the present value of all future income that you would earn until retirement. 
-                It's a scientific method to determine how much life insurance your family needs.
+                Human Life Value (HLV) represents the present value of all future income that you would earn until retirement.
+                It&apos;s a scientific method to determine how much life insurance your family needs.
               </p>
               <p className="text-white/70 leading-relaxed">
                 This calculation considers your income, expenses, inflation, and investment returns to arrive at the ideal coverage amount.

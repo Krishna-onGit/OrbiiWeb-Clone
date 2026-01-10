@@ -642,9 +642,9 @@ export default function TermInsurancePage({ onBack, onSelectProduct }: TermInsur
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center mb-4">
                 <Baby className="w-6 h-6 text-blue-400" />
               </div>
-              <h3 className="text-white text-xl mb-3">Children's Future</h3>
+              <h3 className="text-white text-xl mb-3">Children&apos;s Future</h3>
               <p className="text-white/60 text-sm">
-                Engineering/Medical ₹20-40L + MBA ₹25L + Marriage ₹15L = ₹60-80L needed. Insurance ensures children's dreams fulfilled despite absence of breadwinner.
+                Engineering/Medical ₹20-40L + MBA ₹25L + Marriage ₹15L = ₹60-80L needed. Insurance ensures children&apos;s dreams fulfilled despite absence of breadwinner.
               </p>
             </div>
 

@@ -1,4 +1,4 @@
-import { ArrowLeft, Activity, Baby, Scale, Heart, LucideIcon } from 'lucide-react';
+import { ArrowLeft, LucideIcon } from 'lucide-react';
 import { Button } from '../ui/button';
 
 interface GenericHealthCalculatorPageProps {
@@ -49,7 +49,7 @@ export default function GenericHealthCalculatorPage({
           </div>
           <h2 className="text-2xl font-thin mb-4">Calculator Coming Soon</h2>
           <p className="text-white/60 font-thin mb-8 max-w-md mx-auto">
-            We're working on bringing you this comprehensive health calculator.
+            We&apos;re working on bringing you this comprehensive health calculator.
             Check back soon for full functionality!
           </p>
           <Button

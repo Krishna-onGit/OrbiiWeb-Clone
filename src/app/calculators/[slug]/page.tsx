@@ -2,10 +2,10 @@
 
 import { useParams, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { Suspense } from "react";
+import React, { ComponentType, Suspense } from "react";
 import { ROUTES } from "@/config/routes";
 
-const calculatorMap: Record<string, any> = {
+const calculatorMap: Record<string, ComponentType<{ onBack: () => void }>> = {
     'sip': dynamic(() => import("@/components/calculators/SIPCalculatorPage")),
     'compound-interest': dynamic(() => import("@/components/calculators/CompoundInterestCalculatorPage")),
     'pension': dynamic(() => import("@/components/calculators/PensionCalculatorPage")),

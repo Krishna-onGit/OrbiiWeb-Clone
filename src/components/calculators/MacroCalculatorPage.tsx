@@ -21,7 +21,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
     const w = parseFloat(weight);
     const h = parseFloat(height);
     const a = parseFloat(age);
-    
+
     if (!w || !h || !a || w <= 0 || h <= 0 || a <= 0) return null;
 
     // Calculate BMR
@@ -109,7 +109,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
             <div>
               <h1 className="text-white mb-3">Macro Calculator</h1>
               <p className="text-white/70 text-lg max-w-3xl">
-                Calculate your optimal macronutrient distribution - protein, carbohydrates, and fats. 
+                Calculate your optimal macronutrient distribution - protein, carbohydrates, and fats.
                 Get personalized recommendations based on your goals and activity level.
               </p>
             </div>
@@ -135,21 +135,19 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                   <div className="flex gap-4">
                     <button
                       onClick={() => setGender('male')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${
-                        gender === 'male'
-                          ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
-                          : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
-                      }`}
+                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${gender === 'male'
+                        ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
+                        : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
+                        }`}
                     >
                       Male
                     </button>
                     <button
                       onClick={() => setGender('female')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${
-                        gender === 'female'
-                          ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
-                          : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
-                      }`}
+                      className={`flex-1 py-2 px-4 rounded-lg font-thin transition-all ${gender === 'female'
+                        ? 'bg-[#39FF14]/20 text-[#39FF14] border border-[#39FF14]/30'
+                        : 'bg-white/5 text-white/60 border border-white/10 hover:bg-white/10'
+                        }`}
                     >
                       Female
                     </button>
@@ -219,7 +217,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                   </select>
                 </div>
 
-                <Button 
+                <Button
                   onClick={handleCalculate}
                   className="w-full btn-glow"
                 >
@@ -262,7 +260,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
               <div className="space-y-6">
                 <div className="glass-card rounded-lg p-8 border border-[#39FF14]/20">
                   <h3 className="text-white mb-6">Your Daily Macros</h3>
-                  
+
                   <div className="space-y-6">
                     <div>
                       <p className="text-white/60 text-sm mb-2">Daily Calories</p>
@@ -293,19 +291,19 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                     <div className="pt-4">
                       <p className="text-white/60 text-sm mb-3">Calorie Distribution</p>
                       <div className="h-8 bg-white/5 rounded-full overflow-hidden flex">
-                        <div 
+                        <div
                           className="bg-[#39FF14] flex items-center justify-center text-xs text-black font-semibold"
                           style={{ width: `${results.proteinPercent}%` }}
                         >
                           {results.proteinPercent > 15 && 'P'}
                         </div>
-                        <div 
+                        <div
                           className="bg-blue-400 flex items-center justify-center text-xs text-black font-semibold"
                           style={{ width: `${results.carbPercent}%` }}
                         >
                           {results.carbPercent > 15 && 'C'}
                         </div>
-                        <div 
+                        <div
                           className="bg-yellow-400 flex items-center justify-center text-xs text-black font-semibold"
                           style={{ width: `${results.fatPercent}%` }}
                         >
@@ -320,7 +318,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                 <div className="glass-card rounded-lg p-8">
                   <h3 className="text-white mb-4">Sample Meal Distribution</h3>
                   <p className="text-white/60 text-sm mb-6">Divide your macros across meals</p>
-                  
+
                   <div className="space-y-4">
                     <div className="p-4 rounded-lg bg-white/5 border border-white/10">
                       <div className="flex justify-between items-center mb-2">
@@ -382,7 +380,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                 <Activity className="w-16 h-16 text-white/20 mb-4" />
                 <h3 className="text-white mb-2">Ready to Calculate?</h3>
                 <p className="text-white/60">
-                  Enter your details to get personalized macro targets
+                  It's not just about calories; it's about where those calories come from. targets
                 </p>
               </div>
             )}
@@ -398,13 +396,13 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
             <section>
               <h2 className="text-white mb-4">What are Macronutrients?</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                Macronutrients (macros) are the three main nutrients your body needs in large amounts: protein, 
-                carbohydrates, and fats. Each plays a unique role in your health, performance, and body composition. 
+                Macronutrients (macros) are the three main nutrients your body needs in large amounts: protein,
+                carbohydrates, and fats. Each plays a unique role in your health, performance, and body composition.
                 Tracking macros allows for more flexible and precise nutrition planning compared to just counting calories.
               </p>
               <p className="text-white/70 leading-relaxed">
-                Unlike generic calorie counting, macro tracking ensures you're getting the right balance of nutrients 
-                for your specific goals. Whether building muscle, losing fat, or improving athletic performance, 
+                Unlike generic calorie counting, macro tracking ensures you're getting the right balance of nutrients
+                for your specific goals. Whether building muscle, losing fat, or improving athletic performance,
                 your macro distribution matters as much as your total calorie intake.
               </p>
             </section>
@@ -416,8 +414,8 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-[#39FF14] mb-2">Protein (4 calories per gram)</h4>
                   <p className="text-white/60 text-sm mb-3">
-                    Essential for building and repairing muscle tissue, supporting immune function, and maintaining 
-                    satiety. Crucial for anyone looking to build muscle or preserve muscle during fat loss.
+                    Essential for building and repairing muscle tissue, supporting immune function, and maintaining
+                    Whether you're looking to lose fat, build muscle, or maintain your current physique, during fat loss.
                   </p>
                   <p className="text-white/40 text-xs">
                     Sources: Chicken, fish, eggs, dairy, legumes, tofu
@@ -426,7 +424,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-blue-400 mb-2">Carbohydrates (4 calories per gram)</h4>
                   <p className="text-white/60 text-sm mb-3">
-                    Primary energy source for high-intensity exercise and brain function. Replenishes glycogen stores 
+                    Primary energy source for high-intensity exercise and brain function. Replenishes glycogen stores
                     and supports workout performance and recovery.
                   </p>
                   <p className="text-white/40 text-xs">
@@ -436,7 +434,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-yellow-400 mb-2">Fats (9 calories per gram)</h4>
                   <p className="text-white/60 text-sm mb-3">
-                    Critical for hormone production, vitamin absorption, brain health, and cell function. Don't fear 
+                    Critical for hormone production, vitamin absorption, brain health, and cell function. Don&apos;t fear
                     fats - they're essential for optimal health and performance.
                   </p>
                   <p className="text-white/40 text-xs">
@@ -456,7 +454,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                     Do I need to hit my macros exactly?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Aim for ±5g on each macro. Consistency over time matters more than daily perfection. Focus on 
+                    Aim for ±5g on each macro. Consistency over time matters more than daily perfection. Focus on
                     hitting protein targets first, then fill in carbs and fats.
                   </p>
                 </div>
@@ -466,7 +464,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                     Should I adjust macros on rest days?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    You can reduce carbs slightly on rest days while maintaining protein and fats, but keeping macros 
+                    You can reduce carbs slightly on rest days while maintaining protein and fats, but keeping macros
                     consistent daily is perfectly fine and often simpler to follow.
                   </p>
                 </div>
@@ -476,7 +474,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                     How often should I recalculate?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Recalculate every 4-6 weeks or when your weight changes by 5+ kg. As you lose or gain weight, 
+                    Recalculate every 4-6 weeks or when your weight changes by 5+ kg. As you lose or gain weight,
                     your calorie and macro needs will change.
                   </p>
                 </div>
@@ -499,7 +497,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                 View Health Plans
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button 
+              <Button
                 onClick={onBack}
                 className="bg-white/5 text-white hover:bg-white/10 border border-white/10"
               >

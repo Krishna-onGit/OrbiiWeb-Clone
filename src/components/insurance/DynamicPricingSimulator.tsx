@@ -1,12 +1,5 @@
 import { useState } from 'react';
-import {
-  TrendingUp, TrendingDown, Activity, Shield, Clock,
-  AlertCircle, Info, Calculator, BarChart3, Users,
-  Car, Heart, Eye, Zap, CheckCircle, XCircle,
-  ArrowRight, ArrowLeft, Calendar, Gauge, Home, Upload, FileText,
-  MapPin, Briefcase, Moon, Sun, Building, Navigation,
-  Package, Wrench, DollarSign, Award, Phone, Mail, User, Star
-} from 'lucide-react';
+import { Zap, Shield, Activity, TrendingUp, AlertCircle, Car, Gauge, Calculator, ArrowRight, Eye, TrendingDown, Heart, Home, Info, Users, CheckCircle, Calendar, XCircle, Star, Award, ArrowLeft } from 'lucide-react';
 import { Button } from './ui/button';
 import { Slider } from './ui/slider';
 import { Card } from './ui/card';
@@ -14,9 +7,6 @@ import { Badge } from './ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import DynamicPricingInputForm from './DynamicPricingInputForm';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
-import AnimatedBackground from './animations/AnimatedBackground';
-import FloatingParticles from './animations/FloatingParticles';
-import AnimatedCard from './animations/AnimatedCard';
 import { motion } from 'framer-motion';
 
 interface DynamicPricingSimulatorProps {
@@ -128,15 +118,15 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
   const [claimType, setClaimType] = useState(''); // theft, accident, natural-disaster, etc
 
   // File Uploads (storing file names only for simulation)
-  const [medicalReportFile, setMedicalReportFile] = useState(null);
-  const [drivingLicenseFile, setDrivingLicenseFile] = useState(null);
-  const [vehicleRCFile, setVehicleRCFile] = useState(null);
-  const [previousPolicyFile, setPreviousPolicyFile] = useState(null);
-  const [fitnessReportFile, setFitnessReportFile] = useState(null);
-  const [pollutionCertFile, setPollutionCertFile] = useState(null);
-  const [aadhaarCardFile, setAadhaarCardFile] = useState(null);
-  const [panCardFile, setPanCardFile] = useState(null);
-  const [existingPolicyFile, setExistingPolicyFile] = useState(null);
+  const [medicalReportFile, setMedicalReportFile] = useState<string | null>(null);
+  const [drivingLicenseFile, setDrivingLicenseFile] = useState<string | null>(null);
+  const [vehicleRCFile, setVehicleRCFile] = useState<string | null>(null);
+  const [previousPolicyFile, setPreviousPolicyFile] = useState<string | null>(null);
+  const [fitnessReportFile, setFitnessReportFile] = useState<string | null>(null);
+  const [pollutionCertFile, setPollutionCertFile] = useState<string | null>(null);
+  const [aadhaarCardFile, setAadhaarCardFile] = useState<string | null>(null);
+  const [panCardFile, setPanCardFile] = useState<string | null>(null);
+  const [existingPolicyFile, setExistingPolicyFile] = useState<string | null>(null);
 
   // Calculated scores based on detailed inputs
   const calculateHealthScore = () => {
@@ -300,6 +290,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
   const healthScore = calculateHealthScore();
   const drivingScore = calculateDrivingScore();
   const monthlyMileage = calculateMonthlyMileage();
+  const vehicleScore = 85; // Fixed based on vehicle stats
   const locationRisk = calculateLocationRisk();
 
   // Form submission state
@@ -320,7 +311,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
 
   const calculateRiskModifiers = () => {
     const base = calculateBasePremium();
-    let modifiers = {
+    const modifiers = {
       healthFactor: 0,
       drivingFactor: 0,
       usageFactor: 0,
@@ -685,7 +676,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                   Your Personalized Insurance Premium
                 </h1>
                 <p className="text-xl text-white/60 mb-8">
-                  Based on your inputs, here's your calculated insurance premium with a detailed breakdown
+                  Based on your inputs, here&apos;s your calculated insurance premium with a detailed breakdown
                   of all risk factors and how they impact your final price.
                 </p>
                 <div className="flex gap-4 justify-center flex-wrap">
@@ -715,7 +706,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                   {/* Final Premium Card */}
                   <Card className="p-8 glass-card border border-white/20 bg-white/5">
                     <div className="text-center mb-6">
-                      <p className="text-white/60 mb-2">Your Simulated Premium</p>
+                      <p className="text-white/60 mb-2">Here&apos;s how these factors influence your price:</p>
                       <div className="text-5xl mb-2 text-white font-medium">
                         ₹{finalPremium.toLocaleString('en-IN')}
                       </div>
@@ -1651,6 +1642,8 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                   Understanding the technology and data behind modern insurance pricing
                 </p>
               </div>
+              <p className="text-white/60 mb-4">Your data privacy is our top priority. For this <span className="text-white">Simulator</span>, no data is stored or transmitted. It runs entirely on your device for demonstration purposes.</p>
+              <p className="text-white/60">In a real-world scenario (the &quot;Product&quot;), we would use bank-grade encryption and strictly adhere to data protection regulations. We would only use data you explicitly consent to share to calculate your score.</p>
 
               <Tabs defaultValue="personalization" className="w-full">
                 <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 glass-card border border-white/20">
@@ -1933,9 +1926,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                     How is my premium calculated?
                   </AccordionTrigger>
                   <AccordionContent className="text-white/70">
-                    Your premium is calculated using a combination of demographic factors (age, location),
-                    behavioral data (driving habits, health metrics), usage patterns (mileage, time of day),
-                    and contextual risk factors (weather, crime rates). Each factor is weighted based on
+                    Your premium is calculated using a combination of demographic factors (age, location), behavioral data (driving habits, health metrics), usage patterns (mileage, time of day), and contextual risk factors (weather, crime rates). Each factor is weighted based on
                     actuarial data and adjusted dynamically based on your ongoing behavior.
                   </AccordionContent>
                 </AccordionItem>

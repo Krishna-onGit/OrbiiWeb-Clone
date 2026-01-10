@@ -28,7 +28,7 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
     },
     {
       icon: Baby,
-      title: 'Children\'s Education',
+      title: 'Children&apos;s Education',
       amount: '₹25-40 Lakhs',
       description: 'Engineering, Medical, MBA education costs for 2 children over 15-20 years'
     },
@@ -42,7 +42,7 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
       icon: Users,
       title: 'Marriage & Life Goals',
       amount: '₹20-30 Lakhs',
-      description: 'Daughter\'s marriage, emergency fund, and other life milestones'
+      description: 'Daughter&apos;s marriage, emergency fund, and other life milestones'
     }
   ];
 
@@ -106,12 +106,12 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
     },
     {
       title: 'Loan Protection',
-      description: 'Outstanding home/car/personal loans paid off immediately. Family doesn\'t lose assets.',
+      description: 'Outstanding home/car/personal loans paid off immediately. Family doesn&apos;t lose assets.',
       icon: Building2
     },
     {
-      title: 'Children\'s Future',
-      description: 'Education, marriage, and life goals secured. Children don\'t compromise dreams.',
+      title: 'Children&apos;s Future',
+      description: 'Education, marriage, and life goals secured. Children don&apos;t compromise dreams.',
       icon: Baby
     },
     {
@@ -173,7 +173,7 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
       criteria: 'Smoking Status',
       details: 'Non-smokers get 30-40% lower premium than smokers',
       icon: AlertTriangle,
-      important: 'Don\'t hide tobacco use - claims can be rejected'
+      important: 'Don&apos;t hide tobacco use - claims can be rejected'
     }
   ];
 
@@ -555,10 +555,10 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
             {/* Left Column - Content */}
             <div>
               <p className="text-white/70 text-lg sm:text-xl md:text-2xl font-thin mb-4">
-                Complete Family Protection at Just ₹25/day. Secure Your Family's Future.
+                Complete Family Protection at Just ₹25/day. Secure Your Family&apos;s Future.
               </p>
               <p className="text-white/50 text-sm sm:text-base font-thin mb-8">
-                ₹1 Crore coverage covers home loan, children's education, income replacement - everything your family needs.
+                ₹1 Crore coverage covers home loan, children&apos;s education, income replacement - everything your family needs.
               </p>
 
               <div className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-green-500/10 border border-green-500/20 mb-12">
@@ -770,7 +770,7 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl text-white mb-4">Why Your Family Needs ₹1 Crore</h2>
-            <p className="text-white/60">Breakdown of how ₹1 Crore covers your family's complete financial needs</p>
+            <p className="text-white/60">Breakdown of how ₹1 Crore covers your family&apos;s complete financial needs</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -793,7 +793,7 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
           <div className="p-6 rounded-2xl border border-green-500/20 bg-green-500/5 text-center">
             <p className="text-white/70 mb-2">Total Family Financial Need</p>
             <p className="text-4xl text-green-400 mb-2">₹1.15 - ₹1.80 Crore</p>
-            <p className="text-sm text-white/50">₹1 Crore term insurance covers 60-90% of your family's financial needs</p>
+            <p className="text-sm text-white/50">₹1 Crore term insurance covers 60-90% of your family&apos;s financial needs</p>
           </div>
         </div>
       </section>
@@ -1129,7 +1129,7 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl text-white mb-4">5 Common Mistakes to Avoid</h2>
-            <p className="text-white/60">Don't make these costly errors when buying term insurance</p>
+            <p className="text-white/60">Don&apos;t make these costly errors when buying term insurance</p>
           </div>
 
           <div className="space-y-6">
@@ -1224,7 +1224,7 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl text-white mb-4">Compare Top ₹1 Crore Term Insurance Providers</h2>
-            <p className="text-white/60">Choose insurer with highest claim settlement ratio for your family's security</p>
+            <p className="text-white/60">Choose insurer with highest claim settlement ratio for your family&apos;s security</p>
           </div>
 
           <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md">
@@ -1264,7 +1264,7 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
           <div className="mt-8 p-6 rounded-2xl border border-blue-500/20 bg-blue-500/5 text-center">
             <Info className="w-12 h-12 text-blue-400 mx-auto mb-4" />
             <h3 className="text-xl text-white mb-2">How to Choose Best Insurer?</h3>
-            <p className="text-white/60 text-sm">Choose insurer with CSR above 98% + good settlement time. Don't choose based on premium alone - ₹500-1,000 extra is worth it for peace of mind.</p>
+            <p className="text-white/60 text-sm">Choose insurer with CSR above 98% + good settlement time. Don&apos;t choose based on premium alone - ₹500-1,000 extra is worth it for peace of mind.</p>
           </div>
         </div>
       </section>

@@ -960,7 +960,7 @@ export default function InvestmentPage({ onBack, onSelectProduct }: InvestmentPa
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl text-white mb-4">Investment Plan Myths vs Reality</h2>
-            <p className="text-white/60">Don't let these misconceptions stop you from building wealth</p>
+            <p className="text-white/60">Don&apos;t let these misconceptions stop you from building wealth</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

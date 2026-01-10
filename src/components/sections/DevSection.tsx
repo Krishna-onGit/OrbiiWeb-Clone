@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Target, Zap, MessageSquare, Fingerprint } from "lucide-react";
+import NextImage from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -102,9 +103,11 @@ const DevSection = () => {
                         </div>
                         <div className="relative overflow-hidden">
                             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-60" />
-                            <img
+                            <NextImage
                                 src="/images/viroaTech_ai_img.png"
                                 alt="Vioratech AI Analysis Interface"
+                                width={1200}
+                                height={800}
                                 className="ai-platform-img w-full h-auto object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-1000"
                             />
                         </div>

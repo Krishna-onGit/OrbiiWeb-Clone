@@ -239,11 +239,11 @@ export default function SmartProtectionPage({ onBack }: SmartProtectionPageProps
                       </li>
                       <li className="flex items-start gap-2">
                         <div className="w-1 h-1 bg-[#39FF14] rounded-full mt-2.5 flex-shrink-0"></div>
-                        <span>Senior parents' healthcare requirements</span>
+                        <span>Senior parents&apos; healthcare requirements</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <div className="w-1 h-1 bg-[#39FF14] rounded-full mt-2.5 flex-shrink-0"></div>
-                        <span>Children's future education planning</span>
+                        <span>Children&apos;s future education planning</span>
                       </li>
                     </ul>
                   </div>
@@ -451,7 +451,7 @@ export default function SmartProtectionPage({ onBack }: SmartProtectionPageProps
               </div>
               <h2 className="text-5xl font-bold mb-6 text-white">Explainable AI Decisions</h2>
               <p className="text-xl text-white/60 max-w-4xl mx-auto leading-relaxed">
-                Every recommendation comes with clear explanations of why it's right for you. No black box algorithms.
+                Every recommendation comes with clear explanations of why it&apos;s right for you. No black box algorithms.
               </p>
             </div>
 
@@ -460,7 +460,7 @@ export default function SmartProtectionPage({ onBack }: SmartProtectionPageProps
                 <MessageSquare className="w-12 h-12 text-[#39FF14] mb-6" />
                 <h3 className="text-xl font-bold mb-3 text-white">Plain English Explanations</h3>
                 <p className="text-white/60">
-                  Every coverage recommendation includes a detailed explanation in simple language about why it's suited for your situation.
+                  Every coverage recommendation includes a detailed explanation in simple language about why it&apos;s suited for your situation.
                 </p>
               </div>
 

@@ -1,4 +1,4 @@
-import { ArrowLeft, Calculator, Receipt, CheckCircle2, DollarSign, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Calculator, Receipt, CheckCircle2, DollarSign } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -11,7 +11,15 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
   const [amount, setAmount] = useState('10000');
   const [gstRate, setGstRate] = useState('18');
   const [calculationType, setCalculationType] = useState<'exclusive' | 'inclusive'>('exclusive');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    netAmount: number;
+    gstAmount: number;
+    totalAmount: number;
+    cgst: number;
+    sgst: number;
+    igst: number;
+    gstRate: number;
+  } | null>(null);
 
   const calculateGST = () => {
     const baseAmount = parseFloat(amount);
@@ -53,14 +61,14 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
       {/* Header */}
       <div className="border-b border-white/10">
         <div className="container-custom py-8">
-          <button 
+          <button
             onClick={onBack}
             className="mb-6 text-[#39FF14] hover:text-[#2ee610] flex items-center gap-2 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Calculators
           </button>
-          
+
           <div className="flex items-start gap-4">
             <div className="p-3 glass-card rounded-lg">
               <Receipt className="w-8 h-8 text-[#39FF14]" />
@@ -91,11 +99,10 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
                   <div className="flex gap-4">
                     <button
                       onClick={() => setCalculationType('exclusive')}
-                      className={`flex-1 px-4 py-3 rounded-lg border ${
-                        calculationType === 'exclusive'
+                      className={`flex-1 px-4 py-3 rounded-lg border ${calculationType === 'exclusive'
                           ? 'bg-[#39FF14] text-black border-[#39FF14]'
                           : 'bg-white/5 text-white border-white/10'
-                      }`}
+                        }`}
                     >
                       <div>
                         <p className="font-semibold">GST Exclusive</p>
@@ -104,11 +111,10 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
                     </button>
                     <button
                       onClick={() => setCalculationType('inclusive')}
-                      className={`flex-1 px-4 py-3 rounded-lg border ${
-                        calculationType === 'inclusive'
+                      className={`flex-1 px-4 py-3 rounded-lg border ${calculationType === 'inclusive'
                           ? 'bg-[#39FF14] text-black border-[#39FF14]'
                           : 'bg-white/5 text-white border-white/10'
-                      }`}
+                        }`}
                     >
                       <div>
                         <p className="font-semibold">GST Inclusive</p>
@@ -130,8 +136,8 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
                     placeholder="10000"
                   />
                   <p className="text-white/50 text-xs mt-1">
-                    {calculationType === 'exclusive' 
-                      ? 'Enter base amount (GST will be added)' 
+                    {calculationType === 'exclusive'
+                      ? 'Enter base amount (GST will be added)'
                       : 'Enter total amount (GST will be calculated)'
                     }
                   </p>
@@ -144,11 +150,10 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
                       <button
                         key={rate}
                         onClick={() => setGstRate(rate)}
-                        className={`px-3 py-2 rounded-lg border ${
-                          gstRate === rate
+                        className={`px-3 py-2 rounded-lg border ${gstRate === rate
                             ? 'bg-[#39FF14] text-black border-[#39FF14]'
                             : 'bg-white/5 text-white border-white/10'
-                        }`}
+                          }`}
                       >
                         {rate}%
                       </button>
@@ -165,7 +170,7 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
                   <p className="text-white/50 text-xs">Common rates: 5%, 12%, 18%, 28% or enter custom rate</p>
                 </div>
 
-                <Button 
+                <Button
                   onClick={calculateGST}
                   className="w-full bg-[#39FF14] hover:bg-[#2ee610] text-black font-semibold"
                 >
@@ -178,7 +183,7 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
             {result && (
               <div className="glass-card rounded-2xl p-8">
                 <h3 className="text-2xl font-bold mb-6 text-white">GST Breakdown</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-white/10">
                     <span className="text-white/70">Net Amount (Taxable Value)</span>
@@ -198,16 +203,16 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
                   {/* GST Component Breakdown */}
                   <div className="mt-6 p-6 bg-white/5 rounded-xl space-y-4">
                     <p className="text-white font-semibold mb-3">GST Components:</p>
-                    
+
                     <div>
                       <p className="text-white/60 text-sm mb-2">For Intra-State Transaction:</p>
                       <div className="space-y-2 ml-4">
                         <div className="flex justify-between">
-                          <span className="text-white/70">CGST ({result.gstRate/2}%)</span>
+                          <span className="text-white/70">CGST ({result.gstRate / 2}%)</span>
                           <span className="text-white">₹{result.cgst.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-white/70">SGST ({result.gstRate/2}%)</span>
+                          <span className="text-white/70">SGST ({result.gstRate / 2}%)</span>
                           <span className="text-white">₹{result.sgst.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</span>
                         </div>
                       </div>
@@ -232,11 +237,11 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white">About GST</h3>
               <p className="text-white/70 leading-relaxed mb-4">
-                Goods and Services Tax (GST) is an indirect tax levied on the supply of goods and services in India. 
+                Goods and Services Tax (GST) is an indirect tax levied on the supply of goods and services in India.
                 It replaced multiple cascading taxes with a unified tax system.
               </p>
               <p className="text-white/70 leading-relaxed">
-                GST is collected at every point of sale and is destination-based, meaning it's consumed at the point 
+                GST is collected at every point of sale and is destination-based, meaning it&apos;s consumed at the point
                 of consumption, not origin.
               </p>
             </div>
@@ -245,7 +250,7 @@ export default function GSTCalculatorPage({ onBack }: GSTCalculatorPageProps) {
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
                 <Calculator className="w-6 h-6 text-[#39FF14]" />
-                How It's Calculated
+                How It&apos;s Calculated
               </h3>
               <div className="space-y-4">
                 <div>

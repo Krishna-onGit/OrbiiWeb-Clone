@@ -12,7 +12,15 @@ export default function ULIPCalculatorPage({ onBack }: ULIPCalculatorPageProps) 
   const [policyTerm, setPolicyTerm] = useState('15');
   const [expectedReturn, setExpectedReturn] = useState('10');
   const [sumAssured, setSumAssured] = useState('500000');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    maturityValue: number;
+    totalInvested: number;
+    totalCharges: number;
+    netInvested: number;
+    totalReturns: number;
+    sumAssured: number;
+    policyTerm: number;
+  } | null>(null);
 
   const calculateULIP = () => {
     const P = parseFloat(premiumAmount);
@@ -132,7 +140,7 @@ export default function ULIPCalculatorPage({ onBack }: ULIPCalculatorPageProps) 
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white">About ULIP</h3>
               <p className="text-white/70 leading-relaxed mb-4">
-                ULIP (Unit Linked Insurance Plan) is a unique product combining life insurance and investment. 
+                ULIP (Unit Linked Insurance Plan) is a unique product combining life insurance and investment.
                 Part of your premium provides life cover while the rest is invested in equity, debt, or balanced funds.
               </p>
               <p className="text-white/70 leading-relaxed">

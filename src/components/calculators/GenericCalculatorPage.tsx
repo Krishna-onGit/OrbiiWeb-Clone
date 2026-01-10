@@ -9,26 +9,26 @@ interface GenericCalculatorPageProps {
   comingSoon?: boolean;
 }
 
-export default function GenericCalculatorPage({ 
-  onBack, 
-  title, 
-  description, 
+export default function GenericCalculatorPage({
+  onBack,
+  title,
+  description,
   icon: Icon,
-  comingSoon = true 
+  comingSoon = true
 }: GenericCalculatorPageProps) {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <div className="border-b border-white/10">
         <div className="container-custom py-8">
-          <button 
+          <button
             onClick={onBack}
             className="mb-6 text-[#39FF14] hover:text-[#2ee610] flex items-center gap-2 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Calculators
           </button>
-          
+
           <div className="flex items-start gap-4">
             <div className="p-3 glass-card rounded-lg">
               <Icon className="w-8 h-8 text-[#39FF14]" />
@@ -52,10 +52,10 @@ export default function GenericCalculatorPage({
               </div>
               <h2 className="text-3xl font-bold mb-4 text-white">Coming Soon</h2>
               <p className="text-white/70 text-lg mb-8">
-                We're working on building a comprehensive {title.toLowerCase()} with detailed calculations, 
+                We&apos;re working on building a comprehensive {title.toLowerCase()} with detailed calculations,
                 formulas, use cases, and expert guidance.
               </p>
-              
+
               <div className="space-y-4 text-left max-w-md mx-auto mb-8">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#39FF14] flex-shrink-0 mt-0.5" />
@@ -75,7 +75,7 @@ export default function GenericCalculatorPage({
                 </div>
               </div>
 
-              <Button 
+              <Button
                 onClick={onBack}
                 className="bg-[#39FF14] hover:bg-[#2ee610] text-black font-semibold px-8"
               >

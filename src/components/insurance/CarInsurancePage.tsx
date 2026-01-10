@@ -1,4 +1,4 @@
-import { ArrowLeft, Car, Shield, Wrench, Clock, IndianRupee, Calculator, CheckCircle, Bike, Truck, Zap, Users, Award, AlertTriangle, FileText, Phone, TrendingUp, TrendingDown, AlertCircle, HelpCircle, Target, Building2, CreditCard, MapPin, Calendar, Mail, Download, Percent, Activity, DollarSign, Home as HomeIcon } from 'lucide-react';
+import { ArrowLeft, Car, Shield, Wrench, Clock, IndianRupee, Calculator, CheckCircle, Bike, Truck, Zap, Users, Award, AlertTriangle, FileText, Phone, TrendingUp, TrendingDown, AlertCircle, HelpCircle, Building2, MapPin, Percent, Activity, DollarSign } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
@@ -465,7 +465,7 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
               <div className="p-4 rounded-xl border border-cyan-500/20 bg-cyan-500/5">
                 <h3 className="text-white text-lg mb-2 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-cyan-400" />
-                  What's Covered
+                  What&apos;s Covered
                 </h3>
                 <ul className="space-y-2 text-sm text-white/60">
                   <li>• Accidental damage to your vehicle</li>
@@ -479,7 +479,7 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
               <div className="p-4 rounded-xl border border-red-500/20 bg-red-500/5">
                 <h3 className="text-white text-lg mb-2 flex items-center gap-2">
                   <AlertCircle className="w-5 h-5 text-red-400" />
-                  What's NOT Covered
+                  What&apos;s NOT Covered
                 </h3>
                 <ul className="space-y-2 text-sm text-white/60">
                   <li>• Mechanical/electrical breakdown</li>
@@ -1744,7 +1744,7 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
                       <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-white text-sm font-thin">Normal Wear & Tear</p>
-                        <p className="text-white/60 text-xs">Depreciation, tire wear, brake pad wear, routine maintenance</p>
+                        <p className="text-white/60 mb-2">We provide add-ons like Zero Depreciation, Engine Protect, Roadside Assistance, and more to enhance your policy&apos;s coverage.</p>
                       </div>
                     </div>
                   </div>
@@ -2105,6 +2105,6 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
           </div>
         </section>
       </main>
-    </div>
+    </div >
   );
 }

@@ -1,4 +1,4 @@
-import { ArrowLeft, Shield, Heart, Car, Home, Plane, Users, Baby, PiggyBank, Briefcase, CheckCircle, Umbrella, TrendingUp, Lock, Award, Globe, Building } from 'lucide-react';
+import { ArrowLeft, Shield, CheckCircle, Zap, Car, AlertTriangle, CloudRain, Flame, Users, Gavel, XCircle, HelpCircle, FileText, ShieldAlert, Award, Clock, Umbrella, Heart, Home, Plane, PiggyBank, Baby, Briefcase, Lock, TrendingUp } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface FullCoveragePageProps {
@@ -98,7 +98,7 @@ export default function FullCoveragePage({ onBack }: FullCoveragePageProps) {
               </div>
               <h3 className="text-2xl font-bold mb-4">Term Life Insurance</h3>
               <p className="text-white/70 mb-6">
-                Pure life protection with high coverage amounts at affordable premiums to secure your family's future.
+                Pure life protection with high coverage amounts at affordable premiums to secure your family&apos;s future.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2">
@@ -251,7 +251,7 @@ export default function FullCoveragePage({ onBack }: FullCoveragePageProps) {
               </div>
               <h3 className="text-lg font-semibold mb-2">Child Plans</h3>
               <p className="text-white/60 text-sm">
-                Secure your child's education and future with dedicated savings plans.
+                Secure your child&apos;s education and future with dedicated savings plans.
               </p>
             </div>
 

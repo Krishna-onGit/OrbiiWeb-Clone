@@ -1,4 +1,4 @@
-import { Calculator, TrendingUp, PiggyBank, Shield, FileText, Briefcase, Home, Car, Bike, Plane, Heart, IndianRupee, Receipt, Building2, Wallet, Clock, Activity, Baby, Scale } from 'lucide-react';
+
 
 export type CalculatorCategory = 'investment' | 'insurance' | 'tax' | 'health';
 
@@ -109,7 +109,7 @@ export const calculators: CalculatorInfo[] = [
     icon: 'Building2',
     route: '/calculators/ppf'
   },
-  
+
   // Insurance (9 calculators)
   {
     id: 'health-insurance',
@@ -183,7 +183,7 @@ export const calculators: CalculatorInfo[] = [
     icon: 'Heart',
     route: '/calculators/critical-illness'
   },
-  
+
   // Tax & Financial Planning (4 calculators)
   {
     id: 'income-tax',
@@ -217,7 +217,7 @@ export const calculators: CalculatorInfo[] = [
     icon: 'Briefcase',
     route: '/calculators/gratuity'
   },
-  
+
   // Health & Wellness (11 calculators)
   {
     id: 'bmi',

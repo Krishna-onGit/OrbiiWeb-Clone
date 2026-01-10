@@ -1,4 +1,4 @@
-import { ArrowLeft, Shield, Brain, Zap, BarChart3, TrendingUp, Lock, CheckCircle, Users, Activity, FileText, Eye, Gauge, AlertCircle, Clock, DollarSign, Database, Cpu, LineChart, Settings, Target, Layers, GitBranch, RefreshCw, Award, Sparkles, Network, Calculator, PieChart, TrendingDown, Repeat, Scale, BookOpen, ListChecks, WandSparkles, ChartLine, Bot } from 'lucide-react';
+import { ArrowLeft, Shield, Brain, Zap, BarChart3, Lock, CheckCircle, Activity, FileText, Gauge, AlertCircle, Clock, DollarSign, Calculator, PieChart, Repeat, Scale, Bot, Target, RefreshCw, Settings, TrendingUp, Eye, Database } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface ActuarialTechPageProps {
@@ -38,7 +38,7 @@ export default function ActuarialTechPage({ onBack }: ActuarialTechPageProps) {
               <span className="text-[#39FF14]"> Actuarial Intelligence</span> in Insurance
             </h1>
             <p className="text-2xl text-white/70 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Actuaries don't just calculate premiums. They define risk appetite, pricing discipline, capital efficiency, and long-term profitability.
+              Actuaries don&apos;t just calculate premiums. They define risk appetite, pricing discipline, capital efficiency, and long-term profitability.
             </p>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function ActuarialTechPage({ onBack }: ActuarialTechPageProps) {
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-white/40 rounded-full mt-2.5 flex-shrink-0"></div>
-                    <span className="text-white/70 text-lg">Actuarial insights don't flow directly into underwriting or claims</span>
+                    <span className="text-white/70 text-lg">Actuarial insights don&apos;t flow directly into underwriting or claims</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-white/40 rounded-full mt-2.5 flex-shrink-0"></div>

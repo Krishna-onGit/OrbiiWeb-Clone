@@ -181,24 +181,24 @@ interface InputFormProps {
   setClaimType: (val: string) => void;
 
   // Files
-  medicalReportFile: any;
-  setMedicalReportFile: (val: any) => void;
-  drivingLicenseFile: any;
-  setDrivingLicenseFile: (val: any) => void;
-  vehicleRCFile: any;
-  setVehicleRCFile: (val: any) => void;
-  previousPolicyFile: any;
-  setPreviousPolicyFile: (val: any) => void;
-  fitnessReportFile: any;
-  setFitnessReportFile: (val: any) => void;
-  pollutionCertFile: any;
-  setPollutionCertFile: (val: any) => void;
-  aadhaarCardFile: any;
-  setAadhaarCardFile: (val: any) => void;
-  panCardFile: any;
-  setPanCardFile: (val: any) => void;
-  existingPolicyFile: any;
-  setExistingPolicyFile: (val: any) => void;
+  medicalReportFile: string | null;
+  setMedicalReportFile: (val: string | null) => void;
+  drivingLicenseFile: string | null;
+  setDrivingLicenseFile: (val: string | null) => void;
+  vehicleRCFile: string | null;
+  setVehicleRCFile: (val: string | null) => void;
+  previousPolicyFile: string | null;
+  setPreviousPolicyFile: (val: string | null) => void;
+  fitnessReportFile: string | null;
+  setFitnessReportFile: (val: string | null) => void;
+  pollutionCertFile: string | null;
+  setPollutionCertFile: (val: string | null) => void;
+  aadhaarCardFile: string | null;
+  setAadhaarCardFile: (val: string | null) => void;
+  panCardFile: string | null;
+  setPanCardFile: (val: string | null) => void;
+  existingPolicyFile: string | null;
+  setExistingPolicyFile: (val: string | null) => void;
 
   // Scores
   healthScore: number;
@@ -208,7 +208,7 @@ interface InputFormProps {
 }
 
 export default function DynamicPricingInputForm(props: InputFormProps) {
-  const handleFileUpload = (setter: (val: any) => void) => (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = (setter: (val: string | null) => void) => (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setter(e.target.files[0].name);
     }

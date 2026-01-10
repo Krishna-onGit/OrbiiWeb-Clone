@@ -18,22 +18,22 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
 
     const lmp = new Date(lastPeriodDate);
     const cycle = parseInt(cycleLength) || 28;
-    
+
     // Ovulation typically occurs 14 days before next period
     const ovulationDate = new Date(lmp);
     ovulationDate.setDate(ovulationDate.getDate() + cycle - 14);
-    
+
     // Fertile window: 5 days before ovulation to 1 day after
     const fertileStart = new Date(ovulationDate);
     fertileStart.setDate(fertileStart.getDate() - 5);
-    
+
     const fertileEnd = new Date(ovulationDate);
     fertileEnd.setDate(fertileEnd.getDate() + 1);
-    
+
     // Next period
     const nextPeriod = new Date(lmp);
     nextPeriod.setDate(nextPeriod.getDate() + cycle);
-    
+
     // Calculate next 3 ovulation dates
     const nextOvulations = [];
     for (let i = 1; i <= 3; i++) {
@@ -41,7 +41,7 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
       date.setDate(date.getDate() + (cycle * i));
       nextOvulations.push(date);
     }
-    
+
     return {
       ovulationDate,
       fertileStart,
@@ -59,17 +59,17 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
   const results = showResults ? calculateOvulation() : null;
 
   const formatDate = (date: Date) => {
-    return date.toLocaleDateString('en-US', { 
-      weekday: 'short', 
-      month: 'short', 
+    return date.toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'short',
       day: 'numeric',
       year: 'numeric'
     });
   };
 
   const formatShortDate = (date: Date) => {
-    return date.toLocaleDateString('en-US', { 
-      month: 'short', 
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
       day: 'numeric'
     });
   };
@@ -103,8 +103,8 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
             <div>
               <h1 className="text-white mb-3">Ovulation Calculator</h1>
               <p className="text-white/70 text-lg max-w-3xl">
-                Track your ovulation cycle and identify your most fertile days. Perfect for family planning, 
-                whether you're trying to conceive or want to understand your cycle better.
+                Track your ovulation cycle and identify your most fertile days. Perfect for family planning,
+                whether you&apos;re trying to conceive or want to understand your cycle better.
               </p>
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
                   </p>
                 </div>
 
-                <Button 
+                <Button
                   onClick={handleCalculate}
                   className="w-full btn-glow"
                   disabled={!lastPeriodDate}
@@ -201,7 +201,7 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
                 {/* Ovulation Date */}
                 <div className="glass-card rounded-lg p-8 border border-[#39FF14]/20">
                   <h3 className="text-white mb-6">Your Ovulation Date</h3>
-                  
+
                   <div className="text-center mb-8">
                     <div className="inline-block p-6 rounded-2xl bg-[#39FF14]/10 border border-[#39FF14]/20">
                       <p className="text-white/60 text-sm mb-2">Estimated Ovulation</p>
@@ -234,7 +234,7 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
                 <div className="glass-card rounded-lg p-8">
                   <h3 className="text-white mb-4">Upcoming Ovulation Dates</h3>
                   <p className="text-white/60 text-sm mb-6">Next 3 months (estimated)</p>
-                  
+
                   <div className="space-y-3">
                     {results.nextOvulations.map((date, index) => (
                       <div key={index} className="p-4 rounded-lg bg-white/5 border border-white/10">
@@ -278,13 +278,13 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
             <section>
               <h2 className="text-white mb-4">Understanding Ovulation</h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                Ovulation is the process when a mature egg is released from the ovary, pushed down the fallopian tube, 
-                and made available for fertilization. This typically occurs about 14 days before the start of your next 
+                Ovulation is the process when a mature egg is released from the ovary, pushed down the fallopian tube,
+                and made available for fertilization. This typically occurs about 14 days before the start of your next
                 menstrual period, regardless of cycle length.
               </p>
               <p className="text-white/70 leading-relaxed">
-                The fertile window includes the 5 days before ovulation and the day of ovulation itself. This is because 
-                sperm can survive in the female reproductive tract for up to 5 days, while the egg survives for about 
+                The fertile window includes the 5 days before ovulation and the day of ovulation itself. This is because
+                sperm can survive in the female reproductive tract for up to 5 days, while the egg survives for about
                 12-24 hours after release.
               </p>
             </section>
@@ -296,28 +296,28 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Cervical Mucus Changes</h4>
                   <p className="text-white/60 text-sm">
-                    Becomes clear, stretchy, and slippery (similar to egg whites) during the fertile window, 
+                    Becomes clear, stretchy, and slippery (similar to egg whites) during the fertile window,
                     helping sperm travel to the egg.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Basal Body Temperature</h4>
                   <p className="text-white/60 text-sm">
-                    Slight increase (0.5-1°F) after ovulation occurs. Tracking daily can help confirm ovulation 
+                    Slight increase (0.5-1°F) after ovulation occurs. Tracking daily can help confirm ovulation
                     and predict future cycles.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Ovulation Pain</h4>
                   <p className="text-white/60 text-sm">
-                    Some women experience mild pelvic pain or twinges on one side (mittelschmerz) when the 
+                    Some women experience mild pelvic pain or twinges on one side (mittelschmerz) when the
                     ovary releases an egg.
                   </p>
                 </div>
                 <div className="glass-card rounded-lg p-6">
                   <h4 className="text-white mb-2">Increased Libido</h4>
                   <p className="text-white/60 text-sm">
-                    Many women experience heightened sexual desire during their fertile window, a natural 
+                    Many women experience heightened sexual desire during their fertile window, a natural
                     biological signal.
                   </p>
                 </div>
@@ -331,28 +331,28 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
                 <div>
                   <h4 className="text-white mb-2">Timing is Key</h4>
                   <p className="text-white/60 text-sm">
-                    Have intercourse every 1-2 days during your fertile window. The days leading up to ovulation 
+                    Have intercourse every 1-2 days during your fertile window. The days leading up to ovulation
                     are actually most fertile.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-white mb-2">Track Your Cycle</h4>
                   <p className="text-white/60 text-sm">
-                    Keep a calendar of your periods for at least 3 months to better understand your average cycle 
+                    Keep a calendar of your periods for at least 3 months to better understand your average cycle
                     length and patterns.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-white mb-2">Healthy Lifestyle</h4>
                   <p className="text-white/60 text-sm">
-                    Maintain a healthy weight, reduce stress, avoid smoking and excessive alcohol, and eat a 
+                    Maintain a healthy weight, reduce stress, avoid smoking and excessive alcohol, and eat a
                     balanced diet to optimize fertility.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-white mb-2">Consider Ovulation Tests</h4>
                   <p className="text-white/60 text-sm">
-                    Over-the-counter ovulation predictor kits can detect the LH surge that occurs 24-36 hours 
+                    Over-the-counter ovulation predictor kits can detect the LH surge that occurs 24-36 hours
                     before ovulation.
                   </p>
                 </div>
@@ -369,7 +369,7 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
                     Can I get pregnant outside my fertile window?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    While possible, it's unlikely. Sperm can survive up to 5 days, so intercourse a few days before 
+                    While possible, it&apos;s unlikely. Sperm can survive up to 5 days, so intercourse a few days before
                     ovulation can result in pregnancy. The fertile window provides the highest probability.
                   </p>
                 </div>
@@ -379,7 +379,7 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
                     What if my cycles are irregular?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    Ovulation calculators work best with regular cycles. If yours vary by more than a few days, 
+                    Ovulation calculators work best with regular cycles. If yours vary by more than a few days,
                     consider ovulation tests, basal body temperature tracking, or consult a healthcare provider.
                   </p>
                 </div>
@@ -389,7 +389,7 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
                     How long should I try before seeing a doctor?
                   </h4>
                   <p className="text-white/60 text-sm ml-7">
-                    If under 35, try for one year. If 35 or older, see a doctor after 6 months of trying. Seek 
+                    If under 35, try for one year. If 35 or older, see a doctor after 6 months of trying. Seek
                     help sooner if you have known fertility issues or irregular cycles.
                   </p>
                 </div>
@@ -412,7 +412,7 @@ export default function OvulationCalculatorPage({ onBack }: OvulationCalculatorP
                 View Maternity Plans
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button 
+              <Button
                 onClick={onBack}
                 className="bg-white/5 text-white hover:bg-white/10 border border-white/10"
               >

@@ -1,4 +1,4 @@
-import { ArrowLeft, Calculator, TrendingUp, DollarSign, Clock, CheckCircle2, FileText, Shield, PiggyBank } from 'lucide-react';
+import { ArrowLeft, Calculator, TrendingUp, DollarSign, Clock, CheckCircle2, FileText, Shield } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -13,7 +13,15 @@ export default function FDCalculatorPage({ onBack }: FDCalculatorPageProps) {
   const [tenure, setTenure] = useState('5');
   const [tenureType, setTenureType] = useState<'years' | 'months'>('years');
   const [compoundingFrequency, setCompoundingFrequency] = useState<'monthly' | 'quarterly' | 'halfyearly' | 'yearly'>('quarterly');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<{
+    maturityAmount: number;
+    totalInterest: number;
+    principal: number;
+    tenureInYears: number;
+    tds: number;
+    netAmount: number;
+    tdsApplicable: boolean;
+  } | null>(null);
 
   const calculateFD = () => {
     const P = parseFloat(principal);
@@ -50,14 +58,14 @@ export default function FDCalculatorPage({ onBack }: FDCalculatorPageProps) {
       {/* Header */}
       <div className="border-b border-white/10">
         <div className="container-custom py-8">
-          <button 
+          <button
             onClick={onBack}
             className="mb-6 text-[#39FF14] hover:text-[#2ee610] flex items-center gap-2 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Calculators
           </button>
-          
+
           <div className="flex items-start gap-4">
             <div className="p-3 glass-card rounded-lg">
               <FileText className="w-8 h-8 text-[#39FF14]" />
@@ -132,7 +140,7 @@ export default function FDCalculatorPage({ onBack }: FDCalculatorPageProps) {
                   <label className="block text-sm font-medium mb-2 text-white/80">Compounding Frequency</label>
                   <select
                     value={compoundingFrequency}
-                    onChange={(e) => setCompoundingFrequency(e.target.value as any)}
+                    onChange={(e) => setCompoundingFrequency(e.target.value as 'monthly' | 'quarterly' | 'halfyearly' | 'yearly')}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
                   >
                     <option value="monthly">Monthly</option>
@@ -142,7 +150,7 @@ export default function FDCalculatorPage({ onBack }: FDCalculatorPageProps) {
                   </select>
                 </div>
 
-                <Button 
+                <Button
                   onClick={calculateFD}
                   className="w-full bg-[#39FF14] hover:bg-[#2ee610] text-black font-semibold"
                 >
@@ -155,7 +163,7 @@ export default function FDCalculatorPage({ onBack }: FDCalculatorPageProps) {
             {result && (
               <div className="glass-card rounded-2xl p-8">
                 <h3 className="text-2xl font-bold mb-6 text-white">Maturity Details</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex justify-between items-center pb-4 border-b border-white/10">
                     <span className="text-white/70">Principal Amount</span>
@@ -210,11 +218,11 @@ export default function FDCalculatorPage({ onBack }: FDCalculatorPageProps) {
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white">About Fixed Deposits</h3>
               <p className="text-white/70 leading-relaxed mb-4">
-                A Fixed Deposit (FD) is a safe investment option offered by banks where you deposit a lump sum for a fixed tenure 
-                at a predetermined interest rate. It's one of the most secure investment options with guaranteed returns.
+                A Fixed Deposit (FD) is a safe investment option offered by banks where you deposit a lump sum for a fixed tenure
+                at a predetermined interest rate. It&apos;s one of the most secure investment options with guaranteed returns.
               </p>
               <p className="text-white/70 leading-relaxed">
-                FDs are ideal for risk-averse investors looking for stable and predictable returns. They're covered under deposit 
+                FDs are ideal for risk-averse investors looking for stable and predictable returns. They&apos;re covered under deposit
                 insurance up to ₹5 lakhs per bank per depositor.
               </p>
             </div>
@@ -223,7 +231,7 @@ export default function FDCalculatorPage({ onBack }: FDCalculatorPageProps) {
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
                 <Calculator className="w-6 h-6 text-[#39FF14]" />
-                How It's Calculated
+                How It&apos;s Calculated
               </h3>
               <div className="space-y-4">
                 <div>
