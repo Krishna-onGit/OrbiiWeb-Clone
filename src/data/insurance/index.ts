@@ -6,7 +6,7 @@ import { healthMotorExtension } from "./healthMotorExtension";
 import { motorOtherExtension } from "./motorOtherExtension";
 import { finalExtensionProducts } from "./finalExtension";
 
-export const allProducts: Record<string, any> = {
+export const allProducts: Record<string, { id: string; name: string; slug: string; description: string; features?: string[] }> = {
     ...insuranceProducts,
     ...allAdditionalProducts,
     ...allRemainingProducts,
