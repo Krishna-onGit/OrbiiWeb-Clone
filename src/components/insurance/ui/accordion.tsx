@@ -18,17 +18,16 @@ const Accordion = ({ children, className, type, collapsible, ...props }: Accordi
 interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     className?: string;
-    value?: string;
 }
 
-const AccordionItem = ({ children, className, value, ...props }: AccordionItemProps) => {
+const AccordionItem = ({ children, className, ...props }: AccordionItemProps) => {
     const [isOpen, setIsOpen] = React.useState(false)
 
     return (
         <div className={cn("border-b border-white/10", className)} {...props}>
             {React.Children.map(children, (child) => {
                 if (React.isValidElement(child)) {
-                    return React.cloneElement(child as React.ReactElement<any>, { isOpen, setIsOpen })
+                    return React.cloneElement(child as React.ReactElement<{ isOpen?: boolean; setIsOpen?: (isOpen: boolean) => void }>, { isOpen, setIsOpen })
                 }
                 return child
             })}

@@ -31,10 +31,7 @@ interface RadioGroupItemProps extends React.InputHTMLAttributes<HTMLInputElement
     value: string;
 }
 
-export const RadioGroupItem = React.forwardRef<
-    HTMLInputElement,
-    RadioGroupItemProps
->(({ className, value, ...props }, ref) => {
+export const RadioGroupItem = ({ className, value, ...props }: RadioGroupItemProps) => {
     const context = React.useContext(RadioGroupContext)
     const checked = context.value === value
 
@@ -60,5 +57,4 @@ export const RadioGroupItem = React.forwardRef<
             />
         </div>
     )
-})
-RadioGroupItem.displayName = "RadioGroupItem"
+}

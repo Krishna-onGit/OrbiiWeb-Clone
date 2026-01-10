@@ -20,24 +20,20 @@ interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
 }
 
-const AccordionItem = React.forwardRef<
-    HTMLDivElement,
-    AccordionItemProps
->(({ children, className, ...props }, ref) => {
+const AccordionItem = ({ children, className, ...props }: AccordionItemProps) => {
     const [isOpen, setIsOpen] = React.useState(false)
 
     return (
         <div className={cn("border-b border-white/10", className)} {...props}>
             {React.Children.map(children, (child) => {
                 if (React.isValidElement(child)) {
-                    return React.cloneElement(child as React.ReactElement<any>, { isOpen, setIsOpen })
+                    return React.cloneElement(child as React.ReactElement<{ isOpen?: boolean; setIsOpen?: (isOpen: boolean) => void }>, { isOpen, setIsOpen })
                 }
                 return child
             })}
         </div>
     )
-})
-AccordionItem.displayName = "AccordionItem"
+}
 
 interface AccordionTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
