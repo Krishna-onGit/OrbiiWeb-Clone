@@ -1,7 +1,7 @@
 export interface InsuranceProduct {
   id: string;
   title: string;
-  category: 'life' | 'health' | 'motor' | 'investment' | 'other';
+  category: 'life' | 'health' | 'motor' | 'investment' | 'travel' | 'other';
   subtitle: string;
   description: string;
   icon: string;

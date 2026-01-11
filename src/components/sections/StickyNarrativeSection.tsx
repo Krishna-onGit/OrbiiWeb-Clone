@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Check, Shield, TrendingUp, HeartPulse, ArrowRight, UserCheck, ShieldCheck, FileText, Cpu, Database } from "lucide-react";
+import { Check, Shield, TrendingUp, HeartPulse, ArrowRight, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);

@@ -1,4 +1,4 @@
-import { ArrowLeft, Brain, Target, Shield, TrendingUp, Users, Zap, CheckCircle, Sparkles, Activity, BarChart3, Award, Clock, FileText, Lock, Cpu, Eye, MessageSquare } from 'lucide-react';
+import { ArrowLeft, Brain, Target, Shield, Users, CheckCircle, Activity, BarChart3, Award, Clock, Cpu, Eye, MessageSquare } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface SmartProtectionPageProps {

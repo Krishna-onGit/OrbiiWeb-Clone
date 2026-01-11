@@ -1,4 +1,4 @@
-import { ArrowLeft, TrendingUp, PiggyBank, Shield, Target, IndianRupee, Calculator, CheckCircle, Award, Baby, Clock, DollarSign, Briefcase, Home as HomeIcon, GraduationCap, Users, Plus, Phone, Building2, Percent, FileCheck, HelpCircle, AlertCircle, BarChart3, FileText, Zap } from 'lucide-react';
+import { ArrowLeft, TrendingUp, PiggyBank, Shield, Target, IndianRupee, Calculator, CheckCircle, Award, Baby, Clock, DollarSign, Briefcase, Home as HomeIcon, GraduationCap, Users, Phone, Building2, Percent, HelpCircle, BarChart3, AlertCircle } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
@@ -9,7 +9,7 @@ interface InvestmentPageProps {
   onSelectProduct?: (productId: string) => void;
 }
 
-export default function InvestmentPage({ onBack, onSelectProduct }: InvestmentPageProps) {
+export default function InvestmentPage({ onBack }: InvestmentPageProps) {
   const [calculatorInputs, setCalculatorInputs] = useState({
     monthlyInvestment: '',
     investmentPeriod: '15',

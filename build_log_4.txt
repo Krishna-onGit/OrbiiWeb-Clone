@@ -1,0 +1,64 @@
+﻿
+> orbii-clone@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+node.exe : Failed to compile.
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE $NPM_CLI_JS 
+$args
++   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (Failed   
+  to compile.:String) [],    
+ RemoteException
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+
+./src/components/data/additio
+nalProducts.ts:359:5
+Type error: Type '"travel"' 
+is not assignable to type 
+'"life" | "health" | "motor" 
+| "investment" | "other"'.
+
+[0m [90m 357 |[39m     
+id[33m:[39m [32m'internati
+onal-travel'[39m[33m,[39m
+[0m
+[0m [90m 358 |[39m     
+title[33m:[39m 
+[32m'International Travel In
+surance'[39m[33m,[39m[0m
+[0m[31m[1m>[22m[39m[90m
+ 359 |[39m     
+category[33m:[39m [32m'tra
+vel'[39m[33m,[39m[0m
+[0m [90m     |[39m     
+[31m[1m^[22m[39m[0m
+[0m [90m 360 |[39m     
+subtitle[33m:[39m 
+[32m'Medical Emergency & 
+Trip Protection for Abroad 
+Travel'[39m[33m,[39m[0m
+[0m [90m 361 |[39m     
+description[33m:[39m 
+[32m'Covers medical 
+emergencies, trip 
+cancellation, lost baggage, 
+passport loss when traveling 
+internationally.'[39m[33m,
+[39m[0m
+[0m [90m 362 |[39m     
+icon[33m:[39m [32m'Plane'
+[39m[33m,[39m[0m
+Next.js build worker exited 
+with code: 1 and signal: null

@@ -1,4 +1,4 @@
-import { ArrowLeft, Shield, CheckCircle, Zap, Car, AlertTriangle, CloudRain, Flame, Users, Gavel, XCircle, HelpCircle, FileText, ShieldAlert, Award, Clock, Umbrella, Heart, Home, Plane, PiggyBank, Baby, Briefcase, Lock, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Shield, CheckCircle, Car, Users, Award, Umbrella, Heart, Home, Plane, PiggyBank, Baby, Briefcase, Lock, TrendingUp } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface FullCoveragePageProps {

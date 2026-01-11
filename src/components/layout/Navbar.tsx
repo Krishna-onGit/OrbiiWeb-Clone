@@ -59,7 +59,7 @@ const Navbar = () => {
     const navRef = useRef<HTMLElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
     const lastScrollY = useRef(0);
-    const scrollThreshold = 10;
+
     const router = useRouter();
 
     useEffect(() => {

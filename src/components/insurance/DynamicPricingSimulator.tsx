@@ -57,7 +57,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
   const [diabetesStatus, setDiabetesStatus] = useState('none'); // none, pre-diabetic, type1, type2
   const [alcoholConsumption, setAlcoholConsumption] = useState('moderate'); // none, light, moderate, heavy
   const [lastCheckupMonths, setLastCheckupMonths] = useState(6); // months ago
-  const [familyMedicalHistory, setFamilyMedicalHistory] = useState([]); // array of conditions
+
   const [currentMedications, setCurrentMedications] = useState(0);
   const [mentalHealthStatus, setMentalHealthStatus] = useState('good'); // excellent, good, fair, poor
   const [sleepHoursPerNight, setSleepHoursPerNight] = useState(7);
@@ -290,7 +290,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
   const healthScore = calculateHealthScore();
   const drivingScore = calculateDrivingScore();
   const monthlyMileage = calculateMonthlyMileage();
-  const vehicleScore = 85; // Fixed based on vehicle stats
+
   const locationRisk = calculateLocationRisk();
 
   // Form submission state
@@ -1844,7 +1844,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                         </div>
 
                         <div>
-                          <h5 className="text-base mb-3 text-red-400">What We Don't Do ✗</h5>
+                          <h5 className="text-base mb-3 text-red-400">What We Don&apos;t Do ✗</h5>
                           <div className="space-y-3 text-sm text-white/70">
                             <div className="flex items-start gap-2">
                               <XCircle className="w-4 h-4 text-red-400 mt-0.5" />
@@ -1949,7 +1949,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                   </AccordionTrigger>
                   <AccordionContent className="text-white/70">
                     With dynamic pricing, your premium is reviewed quarterly. Significant changes in your
-                    behavior or risk profile trigger adjustments. You'll always receive advance notification
+                    behavior or risk profile trigger adjustments. You&apos;ll always receive advance notification
                     before any premium change takes effect, giving you time to review and adjust.
                   </AccordionContent>
                 </AccordionItem>
@@ -1982,7 +1982,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                   </AccordionTrigger>
                   <AccordionContent className="text-white/70">
                     You have the right to challenge any automated decision. Contact our customer service team
-                    to request a manual review of your risk assessment. We'll provide a detailed explanation
+                    to request a manual review of your risk assessment. We&apos;ll provide a detailed explanation
                     and allow you to submit additional evidence for consideration.
                   </AccordionContent>
                 </AccordionItem>
@@ -2078,7 +2078,7 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                     However, many insurers cap the maximum increase and provide advance notice. Some policies
                     guarantee that improved behavior can only lower premiums, never raise them mid-term. Most
                     providers cap increases at 15% per quarter and 30% annually to protect customers from sudden
-                    shocks. You'll receive 30-day advance notifications before any premium adjustment, along with
+                    shocks. You&apos;ll receive 30-day advance notifications before any premium adjustment, along with
                     detailed explanations of the factors driving the change. Our AI provides personalized coaching
                     and recommendations to help you maintain or improve your risk score, with real-time alerts when
                     behaviors might negatively impact your premium.
@@ -2106,9 +2106,9 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                     Yes. Personalized pricing is always opt-in. You can choose traditional flat-rate pricing
                     if you prefer not to share behavioral data. Some insurers also offer hybrid models where
                     you share limited data for partial discounts. You can switch between pricing models at any
-                    renewal period without penalties. Our hybrid "Lite" model allows you to share only driving
+                    renewal period without penalties. Our hybrid &quot;Lite&quot; model allows you to share only driving
                     distance and general location data for 10-15% discounts without full telematics tracking.
-                    The "Standard" model includes basic telematics for 15-25% savings, while the "Premium" model
+                    The &quot;Standard&quot; model includes basic telematics for 15-25% savings, while the &quot;Premium&quot; model
                     with comprehensive data sharing can yield 25-40% discounts for low-risk profiles. You maintain
                     full control and can adjust your data-sharing preferences quarterly through your online dashboard.
                   </AccordionContent>
@@ -2148,13 +2148,13 @@ export default function DynamicPricingSimulator({ onBack }: DynamicPricingSimula
                   <AccordionTrigger className="text-white hover:text-[#39FF14]">Will I be penalized for occasional bad behavior?</AccordionTrigger>
                   <AccordionContent className="text-white/80">
                     Most dynamic pricing models look at trends and averages, not isolated incidents. One instance
-                    of hard braking or a late-night drive won't significantly impact your premium. The algorithms
+                    of hard braking or a late-night drive won&apos;t significantly impact your premium. The algorithms
                     focus on consistent patterns over time. Our AI uses a rolling 90-day average for most metrics,
                     filtering out statistical outliers and one-time events. Emergency situations (sudden braking to
                     avoid accidents, late-night hospital visits) are automatically detected and excluded from
                     scoring. The system rewards long-term positive trends rather than punishing occasional lapses.
-                    You'd need consistent negative patterns over 4-6 weeks before seeing meaningful premium impacts.
-                    Additionally, our "Grace Events" feature allows 3 automatic exclusions per quarter for unusual
+                    You&apos;d need consistent negative patterns over 4-6 weeks before seeing meaningful premium impacts.
+                    Additionally, our &quot;Grace Events&quot; feature allows 3 automatic exclusions per quarter for unusual
                     behaviors that you can flag for review.
                   </AccordionContent>
                 </AccordionItem>

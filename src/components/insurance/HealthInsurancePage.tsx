@@ -4,17 +4,17 @@ import { Input } from './ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { Card, CardContent } from './ui/card';
+
 import { Badge } from './ui/badge';
-import { Progress } from './ui/progress';
+
 
 interface HealthInsurancePageProps {
   onBack: () => void;
   onSelectProduct?: (productId: string) => void;
 }
 
-export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthInsurancePageProps) {
-  const [activeTab, setActiveTab] = useState('overview');
+export default function HealthInsurancePage({ onBack }: HealthInsurancePageProps) {
+
   const [calculatorInputs, setCalculatorInputs] = useState({
     age: '',
     members: '',
@@ -830,7 +830,7 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
         <section id="myths-debunked" className="space-y-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-1 h-12 bg-gradient-to-b from-red-500 to-pink-500 rounded-full"></div>
-            <h2 className="text-white text-3xl sm:text-4xl font-thin tracking-wide">"I Don't Need Health Insurance" - Let's Bust This Myth</h2>
+            <h2 className="text-white text-3xl sm:text-4xl font-thin tracking-wide">&quot;I Don&apos;t Need Health Insurance&quot; - Let&apos;s Bust This Myth</h2>
           </div>
 
           <div className="space-y-6">
@@ -844,7 +844,7 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
                       </div>
                       <div className="flex-1">
                         <div className="text-red-400 font-thin text-xs mb-2">MYTH</div>
-                        <h3 className="text-white/90 font-thin italic text-lg">"{item.myth}"</h3>
+                        <h3 className="text-white/90 font-thin italic text-lg">&quot;{item.myth}&quot;</h3>
                       </div>
                     </div>
                     <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20">
@@ -1189,8 +1189,8 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
                     <h4 className="text-white font-thin mb-2">Pro Tips for Cashless Claims</h4>
                     <ul className="space-y-1 text-white/70 font-thin text-sm">
                       <li>• Always carry your health card, policy document, and valid ID</li>
-                      <li>• Save insurer's 24/7 helpline number in your phone</li>
-                      <li>• Download insurance company's mobile app for quick access</li>
+                      <li>• Save insurer&apos;s 24/7 helpline number in your phone</li>
+                      <li>• Download insurance company&apos;s mobile app for quick access</li>
                       <li>• Verify hospital is in network before admission (except emergencies)</li>
                       <li>• For planned surgeries, inform at least 3 days in advance</li>
                     </ul>
@@ -1340,7 +1340,7 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-red-400 shrink-0">✗</span>
-                      <span>Not responding to insurer's queries promptly</span>
+                      <span>Not responding to insurer&apos;s queries promptly</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-red-400 shrink-0">✗</span>
@@ -1833,7 +1833,7 @@ export default function HealthInsurancePage({ onBack, onSelectProduct }: HealthI
           <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-black to-pink-500/20"></div>
           <div className="relative z-10 text-center space-y-6 px-6">
             <h2 className="text-white text-3xl sm:text-4xl font-thin tracking-wide">
-              Ready to Protect Your Family's Health?
+              Ready to Protect Your Family&apos;s Health?
             </h2>
             <p className="text-white/70 font-thin max-w-2xl mx-auto text-lg">
               Get instant quotes from 20+ insurers. Compare plans. Buy online in 5 minutes. Zero paperwork.

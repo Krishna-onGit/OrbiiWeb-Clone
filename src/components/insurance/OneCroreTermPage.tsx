@@ -1,4 +1,4 @@
-import { ArrowLeft, Shield, IndianRupee, Calculator, CheckCircle, AlertCircle, TrendingUp, Users, Award, Phone, Building2, Clock, Target, Heart, Baby, Home as HomeIcon, Briefcase, HelpCircle, DollarSign, FileCheck, Percent, X, Zap, Gift, BookOpen, FileText, BadgeCheck, AlertTriangle, Info, ChevronRight, Star, ThumbsUp, TrendingDown } from 'lucide-react';
+import { ArrowLeft, Shield, IndianRupee, Calculator, CheckCircle, AlertCircle, Users, Award, Phone, Building2, Clock, Target, Heart, Baby, Home as HomeIcon, FileCheck, Percent, X, Zap, Gift, FileText, BadgeCheck, AlertTriangle, Info, ThumbsUp, TrendingDown } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
@@ -9,7 +9,7 @@ interface OneCroreTermPageProps {
   onSelectProduct?: (productId: string) => void;
 }
 
-export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTermPageProps) {
+export default function OneCroreTermPage({ onBack }: OneCroreTermPageProps) {
   const [calculatorInputs, setCalculatorInputs] = useState({
     age: '30',
     gender: 'male',
@@ -911,7 +911,7 @@ export default function OneCroreTermPage({ onBack, onSelectProduct }: OneCroreTe
       <section id="coverage-details" className="py-12 sm:py-16 md:py-20 px-5 sm:px-6 md:px-8 bg-white/5 border-y border-white/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl text-white mb-4">What's Covered & What's Not</h2>
+            <h2 className="text-3xl sm:text-4xl text-white mb-4">What&apos;s Covered & What&apos;s Not</h2>
             <p className="text-white/60">Complete coverage and exclusion details</p>
           </div>
 

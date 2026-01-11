@@ -1,10 +1,9 @@
-import { ArrowLeft, Shield, Umbrella, Users, Heart, TrendingUp, Award, IndianRupee, Calculator, FileText, CheckCircle, AlertCircle, Clock, DollarSign, UserCheck, Baby, Home as HomeIcon, Briefcase, Plus, ChevronRight, Phone, Building2, Percent, Target, Zap, FileCheck, HelpCircle, BarChart3, PiggyBank, Activity, Calendar, TrendingDown, Info, CreditCard, Download, Mail, MapPin, Landmark, Plane, Globe } from 'lucide-react';
+import { ArrowLeft, Shield, Umbrella, Users, Heart, TrendingUp, Award, IndianRupee, Calculator, FileText, CheckCircle, AlertCircle, Clock, UserCheck, Baby, Home as HomeIcon, Briefcase, Plus, Phone, Building2, Percent, FileCheck, HelpCircle, PiggyBank, Activity, Info, Plane, Globe } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 import { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { Progress } from './ui/progress';
+
 
 interface TermInsurancePageProps {
   onBack: () => void;
@@ -1469,7 +1468,7 @@ export default function TermInsurancePage({ onBack, onSelectProduct }: TermInsur
         <section className="relative rounded-2xl overflow-hidden border border-blue-500/30 py-12 sm:py-16">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-black to-purple-500/20"></div>
           <div className="relative z-10 text-center space-y-6 px-6">
-            <h2 className="text-white text-3xl sm:text-4xl font-thin">Secure Your Family's Future Today</h2>
+            <h2 className="text-white text-3xl sm:text-4xl font-thin">Secure Your Family&apos;s Future Today</h2>
             <p className="text-white/70 max-w-2xl mx-auto">
               Get ₹1 Crore coverage starting at just ₹490/month. Compare quotes from top insurers and buy online in minutes. 98.5% claim settlement ratio.
             </p>

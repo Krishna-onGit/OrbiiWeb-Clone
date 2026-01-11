@@ -528,7 +528,7 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
               </div>
               <h3 className="text-white text-xl mb-3">Third-Party Protection</h3>
               <p className="text-white/60 text-sm">
-                Unlimited cover for third-party death/injury. Without insurance, you're personally liable for compensation running into crores.
+                Unlimited cover for third-party death/injury. Without insurance, you&apos;re personally liable for compensation running into crores.
               </p>
             </div>
 
@@ -1266,21 +1266,21 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
         <section id="idv-calculator" className="space-y-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-1 h-12 bg-gradient-to-b from-cyan-500 to-blue-500 rounded-full"></div>
-            <h2 className="text-white text-3xl sm:text-4xl font-thin">IDV Calculator - Calculate Your Car's Insured Declared Value</h2>
+            <h2 className="text-white text-3xl sm:text-4xl font-thin">IDV Calculator - Calculate Your Car&apos;s Insured Declared Value</h2>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 sm:p-8 space-y-6">
             <div className="space-y-4">
               <h3 className="text-white text-2xl font-thin mb-4">What is IDV (Insured Declared Value)?</h3>
               <p className="text-white/70 text-base leading-relaxed">
-                IDV is the maximum amount you'll receive from your insurer if your car is stolen or damaged beyond repair (total loss). It represents the current market value of your vehicle minus depreciation. IDV directly impacts your premium - higher IDV means higher premium but better claim payout.
+                IDV is the maximum amount you&apos;ll receive from your insurer if your car is stolen or damaged beyond repair (total loss). It represents the current market value of your vehicle minus depreciation. IDV directly impacts your premium - higher IDV means higher premium but better claim payout.
               </p>
             </div>
 
             {/* IDV Calculator Form */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
               <div className="space-y-4">
-                <h3 className="text-white text-xl font-thin mb-4">Calculate Your Car's IDV</h3>
+                <h3 className="text-white text-xl font-thin mb-4">Calculate Your Car&apos;s IDV</h3>
 
                 <div>
                   <label className="block text-white/70 text-sm font-thin mb-2">Car Manufacturer *</label>
@@ -1425,7 +1425,7 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
               <div className="p-4 rounded-xl border border-orange-500/20 bg-orange-500/5">
                 <AlertTriangle className="w-6 h-6 text-orange-400 mb-2" />
                 <h4 className="text-white text-sm font-thin mb-1">Choose Wisely</h4>
-                <p className="text-white/60 text-xs">Don't undervalue - affects total loss claims</p>
+                <p className="text-white/60 text-xs">Don&apos;t undervalue - affects total loss claims</p>
               </div>
             </div>
           </div>
@@ -1623,7 +1623,7 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
               <div className="space-y-4">
                 <h3 className="text-white text-xl font-thin flex items-center gap-2">
                   <Shield className="w-6 h-6 text-purple-400" />
-                  What's Covered (Own Damage)
+                  What&apos;s Covered (Own Damage)
                 </h3>
                 <div className="space-y-2">
                   <div className="p-4 rounded-lg border border-green-500/20 bg-green-500/5">
@@ -1719,7 +1719,7 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
 
                   <h3 className="text-white text-xl font-thin flex items-center gap-2 mt-6">
                     <AlertCircle className="w-6 h-6 text-red-400" />
-                    What's NOT Covered
+                    What&apos;s NOT Covered
                   </h3>
                   <div className="p-4 rounded-lg border border-red-500/20 bg-red-500/5">
                     <div className="flex items-start gap-3">
@@ -1836,13 +1836,13 @@ export default function CarInsurancePage({ onBack, onSelectProduct }: CarInsuran
         <section id="car-valuation" className="space-y-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-1 h-12 bg-gradient-to-b from-orange-500 to-red-500 rounded-full"></div>
-            <h2 className="text-white text-3xl sm:text-4xl font-thin">Car Valuation - Know Your Vehicle's True Market Value</h2>
+            <h2 className="text-white text-3xl sm:text-4xl font-thin">Car Valuation - Know Your Vehicle&apos;s True Market Value</h2>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 sm:p-8 space-y-6">
             <div className="space-y-4">
               <p className="text-white/70 text-base leading-relaxed">
-                Car valuation is crucial for insurance as it determines your IDV (Insured Declared Value), which directly impacts premium and claim settlement. An accurate valuation ensures you're neither overpaying premium nor underinsured during claims.
+                Car valuation is crucial for insurance as it determines your IDV (Insured Declared Value), which directly impacts premium and claim settlement. An accurate valuation ensures you&apos;re neither overpaying premium nor underinsured during claims.
               </p>
             </div>
 

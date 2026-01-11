@@ -1,13 +1,13 @@
 import {
-  ArrowLeft, Phone, Calculator, CheckCircle, Shield, TrendingUp, Users, IndianRupee, Target, Heart, Baby,
+  ArrowLeft, Phone, CheckCircle, Shield, TrendingUp, Users, IndianRupee, Target, Heart, Baby,
   Home as HomeIcon, Briefcase, Building2, Clock, Award, HelpCircle, AlertCircle, Zap, ShieldCheck,
   Activity, Smartphone, Laptop, Globe, Calendar, Ambulance, Hospital, Plane, Pill, Eye, HeartPulse, Siren,
   Stethoscope, TestTube, CreditCard, Percent, FileText, Lock, Cloud, Star
 } from 'lucide-react';
 import { Button } from './ui/button';
-import { Input } from './ui/input';
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
-import { useState } from 'react';
+
 import { InsuranceProduct } from '../data/insuranceProducts';
 
 interface InsuranceDetailPageProps {
@@ -16,7 +16,7 @@ interface InsuranceDetailPageProps {
 }
 
 export default function InsuranceDetailPage({ product, onBack }: InsuranceDetailPageProps) {
-  const [calculatorValues, setCalculatorValues] = useState<Record<string, string>>({});
+
 
   // Icon mapping
   const iconMap: Record<string, React.ElementType> = {

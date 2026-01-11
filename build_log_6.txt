@@ -1,0 +1,44 @@
+﻿
+> orbii-clone@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/17) ...
+   Generating static pages (4/17) 
+   Generating static pages (8/17) 
+   Generating static pages (12/17) 
+ Γ£ô Generating static pages (17/17)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+Γöî Γùï /                                    584 kB          734 kB
+Γö£ Γùï /_not-found                          876 B          88.8 kB
+Γö£ Γùï /business/insurers                   9.31 kB         106 kB
+Γö£ Γùï /calculators                         5.28 kB         102 kB
+Γö£ ╞Æ /calculators/[slug]                  2.1 kB           90 kB
+Γö£ Γùï /calculators/insurance               476 B          92.6 kB
+Γö£ Γùï /insurance                           498 B          92.6 kB
+Γö£ Γùï /insurance/car                       21 kB           118 kB
+Γö£ Γùï /insurance/health                    26 kB           125 kB
+Γö£ Γùï /insurance/investment                19.4 kB         116 kB
+Γö£ Γùï /insurance/one-crore-term            18.6 kB         115 kB
+Γö£ Γùï /insurance/other                     16.7 kB         113 kB
+Γö£ ╞Æ /insurance/products/[id]             88.9 kB         188 kB
+Γö£ Γùï /insurance/term                      24.1 kB         121 kB
+Γö£ Γùï /tech/actuarial                      9.35 kB         106 kB
+Γöö Γùï /tools/dynamic-pricing               62.3 kB         159 kB
++ First Load JS shared by all            87.9 kB
+  Γö£ chunks/2117-c98662af95ea4d31.js      31.7 kB
+  Γö£ chunks/fd9d1056-2d7a8d217105eef5.js  53.6 kB
+  Γöö other shared chunks (total)          2.55 kB
+
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+

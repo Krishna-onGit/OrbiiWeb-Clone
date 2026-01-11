@@ -1,4 +1,4 @@
-import { insuranceProducts } from "./insuranceProducts";
+import { InsuranceProduct, insuranceProducts } from "./insuranceProducts";
 import { allAdditionalProducts } from "./additionalProducts";
 import { allRemainingProducts } from "./remainingProducts";
 import { healthInsuranceExtension } from "./healthInsuranceExtension";
@@ -6,7 +6,7 @@ import { healthMotorExtension } from "./healthMotorExtension";
 import { motorOtherExtension } from "./motorOtherExtension";
 import { finalExtensionProducts } from "./finalExtension";
 
-export const allProducts: Record<string, { id: string; name: string; slug: string; description: string; features?: string[] }> = {
+export const allProducts: Record<string, InsuranceProduct> = {
     ...insuranceProducts,
     ...allAdditionalProducts,
     ...allRemainingProducts,

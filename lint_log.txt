@@ -1,0 +1,49 @@
+﻿
+> orbii-clone@0.1.0 lint
+> next lint
+
+node.exe : 
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE $NPM_CLI_JS 
+$args
++   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (:String  
+  ) [], RemoteException
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+./src/components/insurance/Fu
+llCoveragePage.tsx
+1:42  Error: 'Zap' is 
+defined but never used.  @typ
+escript-eslint/no-unused-vars
+
+./src/components/insurance/In
+stantProcessingPage.tsx
+1:26  Error: 'Clock' is 
+defined but never used.  @typ
+escript-eslint/no-unused-vars
+
+./src/components/insurance/Ot
+herInsurancePage.tsx
+5:10  Error: 'useState' is 
+defined but never used.  @typ
+escript-eslint/no-unused-vars
+
+./src/components/layout/Navba
+r.tsx
+62:11  Error: 
+'scrollThreshold' is 
+assigned a value but never 
+used.  @typescript-eslint/no-
+unused-vars
+
+info  - Need to disable some 
+ESLint rules? Learn more 
+here: https://nextjs.org/docs
+/basic-features/eslint#disabl
+ing-rules

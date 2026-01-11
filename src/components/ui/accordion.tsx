@@ -9,7 +9,8 @@ interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
     collapsible?: boolean;
 }
 
-const Accordion = ({ children, className, type, collapsible, ...props }: AccordionProps) => (
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Accordion = ({ children, className, type: _type, collapsible: _collapsible, ...props }: AccordionProps) => (
     <div className={cn("space-y-2", className)} {...props}>
         {children}
     </div>
@@ -18,9 +19,11 @@ const Accordion = ({ children, className, type, collapsible, ...props }: Accordi
 interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     className?: string;
+    value?: string;
 }
 
-const AccordionItem = ({ children, className, ...props }: AccordionItemProps) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const AccordionItem = ({ children, className, value: _value, ...props }: AccordionItemProps) => {
     const [isOpen, setIsOpen] = React.useState(false)
 
     return (

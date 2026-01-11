@@ -1,0 +1,69 @@
+﻿
+> orbii-clone@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+node.exe : Failed to compile.
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE $NPM_CLI_JS 
+$args
++   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (Failed   
+  to compile.:String) [],    
+ RemoteException
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+
+./src/components/calculators/
+ui/slider.tsx:4:11
+Type error: Interface 
+'SliderProps' incorrectly 
+extends interface 'InputHTMLA
+ttributes<HTMLInputElement>'.
+  Types of property 'value' 
+are incompatible.
+    Type 'number[]' is not 
+assignable to type 'string | 
+number | readonly string[] | 
+undefined'.
+      Type 'number[]' is not 
+assignable to type 'readonly 
+string[]'.
+        Type 'number' is not 
+assignable to type 'string'.
+
+[0m [90m 2 |[39m 
+[36mimport[39m { cn } 
+[36mfrom[39m 
+[32m"@/lib/utils"[39m[0m
+[0m [90m 3 |[39m[0m
+[0m[31m[1m>[22m[39m[90m
+ 4 |[39m 
+[36minterface[39m 
+[33mSliderProps[39m 
+[36mextends[39m [33mReact
+[39m[33m.[39m[33mInputHTML
+Attributes[39m[33m<[39m[3
+3mHTMLInputElement[39m[33m>
+[39m {[0m
+[0m [90m   |[39m          
+ [31m[1m^[22m[39m[0m
+[0m [90m 5 |[39m     
+value[33m:[39m number[][0m
+[0m [90m 6 |[39m     
+onValueChange[33m:[39m 
+(value[33m:[39m number[]) 
+[33m=>[39m 
+[36mvoid[39m[0m
+[0m [90m 7 |[39m }[0m
+Next.js build worker exited 
+with code: 1 and signal: null

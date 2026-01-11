@@ -1,0 +1,57 @@
+﻿
+> orbii-clone@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+node.exe : Failed to compile.
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE $NPM_CLI_JS 
+$args
++   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (Failed   
+  to compile.:String) [],    
+ RemoteException
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+
+./src/app/insurance/products/
+[id]/page.tsx:28:13
+Type error: Type '{ id: 
+string; name: string; slug: 
+string; description: string; 
+features?: string[] | 
+undefined; }' is missing the 
+following properties from 
+type 'InsuranceProduct': 
+title, category, subtitle, 
+icon, and 7 more.
+
+[0m [90m 26 |[39m     
+[36mreturn[39m ([0m
+[0m [90m 27 |[39m         
+[33m<[39m[33mInsuranceDeta
+ilPage[39m[0m
+[0m[31m[1m>[22m[39m[90m
+ 28 |[39m             produc
+t[33m=[39m{product}[0m
+[0m [90m    |[39m         
+    [31m[1m^[22m[39m[0m
+[0m [90m 29 |[39m         
+    onBack[33m=[39m{() 
+[33m=>[39m 
+router[33m.[39mback()}[0m
+[0m [90m 30 |[39m         
+[33m/[39m[33m>[39m[0m
+[0m [90m 31 |[39m     
+)[33m;[39m[0m
+Next.js build worker exited 
+with code: 1 and signal: null

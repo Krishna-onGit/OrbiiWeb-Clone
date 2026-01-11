@@ -1,4 +1,4 @@
-import { ArrowLeft, Zap, Clock, CheckCircle, TrendingUp, Shield, Sparkles, Timer, FileCheck, Award, Activity, BarChart3, Cpu, Bot, FileText, Smartphone, Globe, Lock } from 'lucide-react';
+import { ArrowLeft, Zap, CheckCircle, Sparkles, Timer, FileCheck, Award, Bot, FileText, Smartphone, Globe, Lock } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface InstantProcessingPageProps {

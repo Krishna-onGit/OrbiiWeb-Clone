@@ -1,4 +1,4 @@
-import { ArrowLeft, Shield, Brain, Zap, BarChart3, TrendingUp, Lock, CheckCircle, Users, Globe, Activity, FileText, Eye, Gauge, AlertCircle, Clock, DollarSign, Database, Cpu, LineChart, Settings, Target, Layers, GitBranch, RefreshCw, Award, Sparkles, Network, Boxes } from 'lucide-react';
+import { ArrowLeft, Shield, Brain, Zap, BarChart3, TrendingUp, Lock, CheckCircle, Users, Globe, FileText, Eye, Gauge, AlertCircle, Clock, DollarSign, Database, Cpu, Target, RefreshCw, Award, Sparkles, Network, Boxes } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface ForInsurersPageProps {

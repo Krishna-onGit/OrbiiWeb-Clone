@@ -1,7 +1,7 @@
-import { Upload, Users, Heart, Car, Briefcase, Home, MapPin, DollarSign, FileText, Phone, Mail, User, Calendar, Activity, Gauge, Shield, Clock, Sun, Moon, Navigation, Building, Wrench, Package, Award } from 'lucide-react';
+import { Upload, Heart, Car, Briefcase, MapPin, DollarSign, FileText, User, Calendar, Activity, Gauge, Shield } from 'lucide-react';
 import { Slider } from './ui/slider';
 import { Card } from './ui/card';
-import { Button } from './ui/button';
+
 import { Input } from './ui/input';
 import InteractiveButton from './InteractiveButton';
 import AnimatedCard from './animations/AnimatedCard';
@@ -11,7 +11,7 @@ import FloatingIcon from './animations/FloatingIcon';
 import GlowingBadge from './animations/GlowingBadge';
 import AnimatedUpload from './animations/AnimatedUpload';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer } from './animations/AnimationVariants';
+
 
 interface InputFormProps {
   // Personal

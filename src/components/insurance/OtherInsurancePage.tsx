@@ -1,16 +1,15 @@
-import { ArrowLeft, Grid3x3, Plane, Home as HomeIcon, Briefcase, Ship, Flame, Users, Shield, CheckCircle, Calculator, FileText, Award, Building2, Truck, HelpCircle } from 'lucide-react';
+import { ArrowLeft, Grid3x3, Plane, Home as HomeIcon, Briefcase, Ship, Flame, Users, Shield, CheckCircle, Building2, Truck, HelpCircle } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
-import { useState } from 'react';
 
 interface OtherInsurancePageProps {
   onBack: () => void;
   onSelectProduct?: (productId: string) => void;
 }
 
-export default function OtherInsurancePage({ onBack, onSelectProduct }: OtherInsurancePageProps) {
-  const [selectedType, setSelectedType] = useState<string | null>(null);
+export default function OtherInsurancePage({ onBack }: OtherInsurancePageProps) {
+
 
   // Other Insurance Types
   const insuranceTypes = [

@@ -380,7 +380,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                 <Activity className="w-16 h-16 text-white/20 mb-4" />
                 <h3 className="text-white mb-2">Ready to Calculate?</h3>
                 <p className="text-white/60">
-                  It's not just about calories; it's about where those calories come from. targets
+                  It&apos;s not just about calories; it&apos;s about where those calories come from. targets
                 </p>
               </div>
             )}
@@ -401,7 +401,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                 Tracking macros allows for more flexible and precise nutrition planning compared to just counting calories.
               </p>
               <p className="text-white/70 leading-relaxed">
-                Unlike generic calorie counting, macro tracking ensures you're getting the right balance of nutrients
+                Unlike generic calorie counting, macro tracking ensures you&apos;re getting the right balance of nutrients
                 for your specific goals. Whether building muscle, losing fat, or improving athletic performance,
                 your macro distribution matters as much as your total calorie intake.
               </p>
@@ -415,7 +415,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                   <h4 className="text-[#39FF14] mb-2">Protein (4 calories per gram)</h4>
                   <p className="text-white/60 text-sm mb-3">
                     Essential for building and repairing muscle tissue, supporting immune function, and maintaining
-                    Whether you're looking to lose fat, build muscle, or maintain your current physique, during fat loss.
+                    Whether you&apos;re looking to lose fat, build muscle, or maintain your current physique, during fat loss.
                   </p>
                   <p className="text-white/40 text-xs">
                     Sources: Chicken, fish, eggs, dairy, legumes, tofu
@@ -435,7 +435,7 @@ export default function MacroCalculatorPage({ onBack }: MacroCalculatorPageProps
                   <h4 className="text-yellow-400 mb-2">Fats (9 calories per gram)</h4>
                   <p className="text-white/60 text-sm mb-3">
                     Critical for hormone production, vitamin absorption, brain health, and cell function. Don&apos;t fear
-                    fats - they're essential for optimal health and performance.
+                    fats - they&apos;re essential for optimal health and performance.
                   </p>
                   <p className="text-white/40 text-xs">
                     Sources: Avocado, nuts, olive oil, fatty fish, eggs, seeds
