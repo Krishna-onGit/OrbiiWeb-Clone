@@ -12,7 +12,7 @@ const config: Config = {
         background: "#080E0C", // Even darker, institutional forest black
         foreground: "#E2E8E4",
         brand: {
-          DEFAULT: "#B4FF39", // The specific Orbii "Neon Yellow-Green"
+          DEFAULT: "#B4FF39", // The specific Insurely "Neon Yellow-Green"
           dark: "#8ACC28",
           muted: "rgba(180, 255, 57, 0.1)",
         },
@@ -24,7 +24,7 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        "orbii-glow": "radial-gradient(circle at 50% 0%, rgba(180, 255, 57, 0.08) 0%, transparent 70%)",
+        "brand-glow": "radial-gradient(circle at 50% 0%, rgba(180, 255, 57, 0.08) 0%, transparent 70%)",
         "vertical-beams": "linear-gradient(90deg, transparent 0%, rgba(180, 255, 57, 0.02) 50%, transparent 100%)",
       },
       fontFamily: {
@@ -32,7 +32,7 @@ const config: Config = {
         display: ['DM Sans', 'sans-serif'],
       },
       borderRadius: {
-        'orbii': '12px',
+        'brand': '12px',
       }
     },
   },
