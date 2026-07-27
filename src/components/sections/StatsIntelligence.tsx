@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TrendingUp, Users, ShieldCheck, Clock } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { initGsap, prefersReducedMotion, revealOnScroll } from "@/lib/animations";
 
 const stats = [
     { value: 99.1, suffix: "%", label: "Claim Settlement", icon: ShieldCheck },
@@ -14,80 +13,70 @@ const stats = [
     { value: 1, suffix: "Hr", label: "Avg. Approval", icon: Clock },
 ];
 
-// Counter component for animating numbers
+const DURATION_MS = 1500;
+
+/**
+ * Count-up driven by rAF timestamps rather than `Date.now()`, so it stays in
+ * step with the compositor and stops cleanly if the section unmounts mid-run.
+ */
 const AnimatedCounter = ({ value, suffix, inView }: { value: number; suffix: string; inView: boolean }) => {
     const [displayValue, setDisplayValue] = useState(0);
 
     useEffect(() => {
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
         if (!inView) return;
 
-        if (prefersReducedMotion) {
+        if (prefersReducedMotion()) {
             setDisplayValue(value);
             return;
         }
 
-        const duration = 1.5;
-        const startTime = Date.now();
-        const endTime = startTime + duration * 1000;
+        let frame = 0;
+        let start: number | null = null;
 
-        const tick = () => {
-            const now = Date.now();
-            const progress = Math.min((now - startTime) / (duration * 1000), 1);
-            const eased = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+        const tick = (now: number) => {
+            start ??= now;
+            const progress = Math.min((now - start) / DURATION_MS, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
             setDisplayValue(value * eased);
 
-            if (now < endTime) {
-                requestAnimationFrame(tick);
-            } else {
-                setDisplayValue(value);
-            }
+            if (progress < 1) frame = requestAnimationFrame(tick);
         };
 
-        requestAnimationFrame(tick);
+        frame = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(frame);
     }, [inView, value]);
 
-    const formattedValue = Number.isInteger(value)
-        ? Math.round(displayValue)
-        : displayValue.toFixed(1);
+    const formattedValue = Number.isInteger(value) ? Math.round(displayValue) : displayValue.toFixed(1);
 
     return (
-        <span className="text-5xl md:text-6xl font-black text-brand font-mono tracking-tighter">
-            {formattedValue}{suffix}
+        <span className="text-5xl md:text-6xl font-black text-brand font-mono tracking-tighter tabular-nums">
+            {formattedValue}
+            {suffix}
         </span>
     );
 };
 
 const StatsIntelligence = () => {
-    const sectionRef = useRef<HTMLDivElement>(null);
+    const sectionRef = useRef<HTMLElement>(null);
     const [inView, setInView] = useState(false);
 
     useEffect(() => {
+        initGsap();
+
         const ctx = gsap.context(() => {
-            // Heading animation
-            gsap.fromTo(".stats-heading",
-                { opacity: 0, y: 30 },
-                {
-                    opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
-                    scrollTrigger: { trigger: ".stats-heading", start: "top 85%", once: true }
-                }
-            );
+            revealOnScroll(".stats-heading", { y: 30, duration: 0.8 });
+            revealOnScroll(".stat-card", {
+                y: 25,
+                duration: 0.7,
+                stagger: 0.1,
+                trigger: ".stats-grid",
+                start: "top 85%",
+            });
+            revealOnScroll(".stats-quote", { y: 20, duration: 0.7, start: "top 92%" });
 
-            // Stats cards stagger
-            gsap.fromTo(".stat-card",
-                { opacity: 0, y: 25 },
-                {
-                    opacity: 1, y: 0, duration: 0.7, ease: "power2.out",
-                    stagger: 0.12,
-                    scrollTrigger: { trigger: ".stats-grid", start: "top 80%", once: true }
-                }
-            );
-
-            // Trigger counter animation
             ScrollTrigger.create({
                 trigger: ".stats-grid",
-                start: "top 75%",
+                start: "top 80%",
                 once: true,
                 onEnter: () => setInView(true),
             });
@@ -100,7 +89,7 @@ const StatsIntelligence = () => {
         <section ref={sectionRef} className="py-32 relative border-t border-white/[0.03]">
             <div className="section-container">
                 {/* Heading */}
-                <div className="stats-heading text-center mb-20">
+                <div className="stats-heading reveal text-center mb-20">
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand mb-4 block">Our Impact</span>
                     <h2 className="heading-hero text-4xl md:text-6xl max-w-4xl mx-auto text-white">
                         Trusted by millions for financial security
@@ -109,10 +98,10 @@ const StatsIntelligence = () => {
 
                 {/* Stats Grid */}
                 <div className="stats-grid grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-                    {stats.map((stat, i) => (
+                    {stats.map((stat) => (
                         <div
-                            key={i}
-                            className="stat-card glass-card p-8 bg-white/[0.01] border-white/5 hover:border-brand/20 transition-all duration-500 text-center"
+                            key={stat.label}
+                            className="stat-card reveal glass-card p-8 bg-white/[0.01] border-white/5 hover:border-brand/20 transition-colors duration-300 text-center"
                         >
                             <div className="w-10 h-10 rounded-xl bg-brand/5 flex items-center justify-center text-brand mx-auto mb-6">
                                 <stat.icon size={20} />
@@ -124,9 +113,10 @@ const StatsIntelligence = () => {
                 </div>
 
                 {/* Testimonial */}
-                <div className="mt-20 max-w-2xl mx-auto text-center">
+                <div className="stats-quote reveal mt-20 max-w-2xl mx-auto text-center">
                     <blockquote className="text-xl md:text-2xl text-secondary/80 leading-relaxed italic mb-6">
-                        &quot;Vioratech&apos;s instant policy issuance and transparent claim process gave our family the peace of mind we never had before.&quot;
+                        &quot;Insurely&apos;s instant policy issuance and transparent claim process gave our family the
+                        peace of mind we never had before.&quot;
                     </blockquote>
                     <p className="text-sm text-brand font-bold">— Rahul Sharma, Policyholder since 2022</p>
                 </div>
