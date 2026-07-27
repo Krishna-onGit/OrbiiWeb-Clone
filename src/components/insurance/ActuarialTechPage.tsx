@@ -31,7 +31,7 @@ export default function ActuarialTechPage({ onBack }: ActuarialTechPageProps) {
           <div className="max-w-5xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#39FF14]/10 border border-[#39FF14]/30 rounded-full mb-8">
               <Calculator className="w-4 h-4 text-[#39FF14]" />
-              <span className="text-[#39FF14] text-sm font-medium tracking-wide">VIORATECH ACTUARIAL OS</span>
+              <span className="text-[#39FF14] text-sm font-medium tracking-wide">INSURELY ACTUARIAL OS</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-white">
               The Operating System for
@@ -81,7 +81,7 @@ export default function ActuarialTechPage({ onBack }: ActuarialTechPageProps) {
 
             <div className="glass-card border-2 border-[#39FF14]/30 rounded-3xl p-12 text-center bg-gradient-to-br from-[#39FF14]/10 to-[#39FF14]/5">
               <p className="text-2xl md:text-3xl text-white leading-relaxed">
-                <span className="font-bold text-[#39FF14]">Vioratech Actuarial OS</span> transforms actuarial work from periodic analysis into continuous, system-level intelligence.
+                <span className="font-bold text-[#39FF14]">Insurely Actuarial OS</span> transforms actuarial work from periodic analysis into continuous, system-level intelligence.
               </p>
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function ActuarialTechPage({ onBack }: ActuarialTechPageProps) {
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold mb-6 text-white">What the Actuarial OS Is</h2>
               <p className="text-xl text-white/70 mb-8 max-w-4xl mx-auto leading-relaxed">
-                The Vioratech Actuarial OS is a production-grade actuarial intelligence engine embedded directly into insurance operations.
+                The Insurely Actuarial OS is a production-grade actuarial intelligence engine embedded directly into insurance operations.
               </p>
             </div>
 
@@ -1149,7 +1149,7 @@ export default function ActuarialTechPage({ onBack }: ActuarialTechPageProps) {
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">Actuarial intelligence should run the insurer — not sit on the side.</h2>
               <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Deploy the Vioratech Actuarial OS and turn actuarial science into operational control.
+                Deploy the Insurely Actuarial OS and turn actuarial science into operational control.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button className="bg-[#39FF14] hover:bg-[#32dd12] text-black font-semibold px-10 py-7 text-lg rounded-xl">

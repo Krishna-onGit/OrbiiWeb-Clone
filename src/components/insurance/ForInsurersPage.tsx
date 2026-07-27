@@ -31,7 +31,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
           <div className="max-w-5xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#39FF14]/10 border border-[#39FF14]/30 rounded-full mb-8">
               <Brain className="w-4 h-4 text-[#39FF14]" />
-              <span className="text-[#39FF14] text-sm font-medium tracking-wide">VIORATECH FOR INSURERS</span>
+              <span className="text-[#39FF14] text-sm font-medium tracking-wide">INSURELY FOR INSURERS</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-white">
               The Intelligence, Automation, and AI Layer for
@@ -41,7 +41,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
               Insurance today is not limited by risk capacity — it is limited by fragmented systems, slow decisions, and manual processes.
             </p>
             <p className="text-lg text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Vioratech is a full-stack, AI-native insurance operating platform built for insurers to automate operations, integrate intelligence across systems, and continuously improve underwriting, pricing, and claims outcomes.
+              Insurely is a full-stack, AI-native insurance operating platform built for insurers to automate operations, integrate intelligence across systems, and continuously improve underwriting, pricing, and claims outcomes.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button className="bg-[#39FF14] hover:bg-[#32dd12] text-black font-semibold px-10 py-7 text-lg rounded-xl">
@@ -124,21 +124,21 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
 
             <div className="glass-card border-2 border-[#39FF14]/30 rounded-3xl p-12 text-center bg-gradient-to-br from-[#39FF14]/10 to-[#39FF14]/5">
               <p className="text-2xl md:text-3xl text-white leading-relaxed">
-                <span className="font-bold text-[#39FF14]">Vioratech solves this</span> by unifying intelligence, automation, and AI into one operating layer.
+                <span className="font-bold text-[#39FF14]">Insurely solves this</span> by unifying intelligence, automation, and AI into one operating layer.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What Vioratech Is */}
+      {/* What Insurely Is */}
       <section className="py-32 bg-white/[0.02]">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold mb-6 text-white">What Vioratech Is</h2>
+              <h2 className="text-5xl font-bold mb-6 text-white">What Insurely Is</h2>
               <p className="text-2xl text-white/70 mb-4">
-                Vioratech is not a point solution.
+                Insurely is not a point solution.
               </p>
               <p className="text-lg text-white/60 max-w-4xl mx-auto leading-relaxed">
                 It is a central insurance intelligence and automation layer that sits across your entire insurance operation, converting insurance from a manual, static process into a self-learning, automated system.
@@ -205,7 +205,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
             <div className="text-center mb-16">
               <h2 className="text-5xl font-bold mb-6 text-white">Platform Architecture</h2>
               <p className="text-xl text-white/60 max-w-3xl mx-auto">
-                How Vioratech Works: A Layered System
+                How Insurely Works: A Layered System
               </p>
             </div>
 
@@ -350,7 +350,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
               </div>
               <h2 className="text-5xl font-bold mb-6 text-white">Actuary OS</h2>
               <p className="text-xl text-white/60 max-w-4xl mx-auto leading-relaxed">
-                The core engine of Vioratech that allows actuarial teams to operate on live insurance data, not offline spreadsheets.
+                The core engine of Insurely that allows actuarial teams to operate on live insurance data, not offline spreadsheets.
               </p>
             </div>
 
@@ -439,7 +439,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
                   <Shield className="w-8 h-8 text-[#39FF14]" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-white">AI-Driven Underwriting Automation</h3>
-                <p className="text-white/60 mb-8 text-lg">Vioratech automates underwriting while preserving control.</p>
+                <p className="text-white/60 mb-8 text-lg">Insurely automates underwriting while preserving control.</p>
 
                 <div className="space-y-8">
                   <div>
@@ -512,7 +512,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
                   <DollarSign className="w-8 h-8 text-[#39FF14]" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-white">Dynamic Pricing & Product Automation</h3>
-                <p className="text-white/60 mb-8 text-lg">Pricing in Vioratech is adaptive, not static.</p>
+                <p className="text-white/60 mb-8 text-lg">Pricing in Insurely is adaptive, not static.</p>
 
                 <div className="space-y-8">
                   <div>
@@ -569,7 +569,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
                   <Gauge className="w-8 h-8 text-[#39FF14]" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-white">Claims Automation & Intelligence</h3>
-                <p className="text-white/60 mb-8 text-lg">Vioratech treats claims as intelligence inputs, not just transactions.</p>
+                <p className="text-white/60 mb-8 text-lg">Insurely treats claims as intelligence inputs, not just transactions.</p>
 
                 <div className="space-y-8">
                   <div>
@@ -642,7 +642,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
                   <RefreshCw className="w-8 h-8 text-[#39FF14]" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-white">Closed-Loop Learning System</h3>
-                <p className="text-white/60 mb-8 text-lg">Traditional insurance systems stop at claims. Vioratech feeds claims outcomes back into the system.</p>
+                <p className="text-white/60 mb-8 text-lg">Traditional insurance systems stop at claims. Insurely feeds claims outcomes back into the system.</p>
 
                 <div className="space-y-6">
                   <p className="text-white/70 text-lg font-medium">Claims data continuously updates:</p>
@@ -722,7 +722,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
                   <Network className="w-8 h-8 text-[#39FF14]" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-white">AI Integrations & Extensibility</h3>
-                <p className="text-white/60 mb-8 text-lg">Vioratech is designed to integrate, not replace.</p>
+                <p className="text-white/60 mb-8 text-lg">Insurely is designed to integrate, not replace.</p>
 
                 <div className="space-y-8">
                   <div>
@@ -790,7 +790,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Automation with Control</h2>
               <p className="text-2xl text-white/70 mb-3">Not Blind Automation</p>
               <p className="text-white/60 mb-12 max-w-3xl mx-auto text-lg leading-relaxed">
-                Every automated decision in Vioratech is traceable, explainable, auditable, and overrideable.
+                Every automated decision in Insurely is traceable, explainable, auditable, and overrideable.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 <div className="glass-card border border-white/20 rounded-2xl p-6 hover:border-[#39FF14]/40 transition-all">
@@ -876,14 +876,14 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
         </div>
       </section>
 
-      {/* Who Uses Vioratech */}
+      {/* Who Uses Insurely */}
       <section className="py-32">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold mb-6 text-white">Who Uses Vioratech</h2>
+              <h2 className="text-5xl font-bold mb-6 text-white">Who Uses Insurely</h2>
               <p className="text-xl text-white/60">
-                Inside an insurer, Vioratech serves multiple teams
+                Inside an insurer, Insurely serves multiple teams
               </p>
             </div>
 
@@ -935,12 +935,12 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
         </div>
       </section>
 
-      {/* Why Choose Vioratech */}
+      {/* Why Choose Insurely */}
       <section className="py-32 bg-white/[0.02]">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold mb-6 text-white">Why Insurers Choose Vioratech</h2>
+              <h2 className="text-5xl font-bold mb-6 text-white">Why Insurers Choose Insurely</h2>
               <p className="text-xl text-white/60">
                 Measurable outcomes that transform insurance operations
               </p>
@@ -1027,7 +1027,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
             </div>
 
             <p className="text-3xl md:text-4xl text-white font-bold">
-              Vioratech is the system that enables this transformation.
+              Insurely is the system that enables this transformation.
             </p>
           </div>
         </div>
@@ -1046,7 +1046,7 @@ export default function ForInsurersPage({ onBack }: ForInsurersPageProps) {
                 Operate insurance as an intelligent, automated platform.
               </p>
               <p className="text-lg text-white/60 mb-12 max-w-2xl mx-auto">
-                Deploy Vioratech as your insurance intelligence and automation layer.
+                Deploy Insurely as your insurance intelligence and automation layer.
               </p>
               <div className="flex flex-wrap gap-4 justify-center mb-10">
                 <Button className="bg-[#39FF14] hover:bg-[#32dd12] text-black font-semibold px-10 py-7 text-lg rounded-xl">
