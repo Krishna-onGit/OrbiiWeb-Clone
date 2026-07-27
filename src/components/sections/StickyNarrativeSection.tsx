@@ -5,20 +5,16 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Check, Shield, TrendingUp, HeartPulse, ArrowRight, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-gsap.registerPlugin(ScrollTrigger);
-
-import Link from "next/link";
-import { ROUTES } from "@/config/routes";
+import { initGsap, prefersReducedMotion, revealOnScroll } from "@/lib/animations";
+import InertLink from "@/components/ui/InertLink";
 
 const narrativeSteps = [
     {
         tag: "Protection",
         title: "Comprehensive health coverage for every life stage",
-        description: "Vioratech provides modular insurance plans that adapt to your family's needs. From individual basic health to comprehensive multi-person floaters, we protect what matters most.",
+        description: "Insurely provides modular insurance plans that adapt to your family's needs. From individual basic health to comprehensive multi-person floaters, we protect what matters most.",
         points: ["10,000+ Network Hospitals", "Cashless Claim Processing", "Lifetime Renewability"],
         icon: Shield,
-        path: ROUTES.insurance.health
     },
     {
         tag: "Investment",
@@ -26,7 +22,6 @@ const narrativeSteps = [
         description: "Our investment-linked insurance plans offer the best of both worlds. Grow your capital with high-return fund options while ensuring financial security for your loved ones.",
         points: ["ULIP & Endowment Options", "Tax Benefits under Sec 80D", "Guaranteed Maturity Returns"],
         icon: TrendingUp,
-        path: ROUTES.insurance.investment
     },
     {
         tag: "Claims",
@@ -34,20 +29,24 @@ const narrativeSteps = [
         description: "Experience the industry's fastest claim settlement. Our AI-driven engine verifies documents in real-time, ensuring you get the support you need when you need it most.",
         points: ["99.1% Settlement Ratio", "Dedicated Claim Managers", "Instant Cashless Approval"],
         icon: HeartPulse,
-        path: ROUTES.insurance.health // Claims process is integrated here
     }
 ];
 
 const StickyNarrativeSection = () => {
-    const sectionRef = useRef<HTMLDivElement>(null);
+    const sectionRef = useRef<HTMLElement>(null);
     const [stepIndex, setStepIndex] = useState(0);
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            const blocks = gsap.utils.toArray(".narrative-block") as HTMLElement[];
+        initGsap();
+        const reduced = prefersReducedMotion();
 
-            // Sync visual steps with text scroll
-            blocks.forEach((block: HTMLElement, i: number) => {
+        const ctx = gsap.context(() => {
+            const blocks = gsap.utils.toArray<HTMLElement>(".narrative-block");
+
+            blocks.forEach((block, i) => {
+                // Drives which sticky visual is shown. A single `onToggle` covers
+                // entering from either direction, so the three redundant callbacks
+                // that used to fight each other are gone.
                 ScrollTrigger.create({
                     trigger: block,
                     start: "top center",
@@ -55,26 +54,32 @@ const StickyNarrativeSection = () => {
                     onToggle: (self) => {
                         if (self.isActive) setStepIndex(i);
                     },
-                    onEnter: () => setStepIndex(i),
-                    onEnterBack: () => setStepIndex(i),
                 });
 
-                // Simple fade animation - starts at 40% opacity, fades to 100%
-                gsap.fromTo(block,
-                    { opacity: 0.4 },
+                if (reduced) {
+                    gsap.set(block, { opacity: 1 });
+                    return;
+                }
+
+                // Scrubbed dim-to-full fade as each block reaches reading position.
+                gsap.fromTo(
+                    block,
+                    { opacity: 0.35 },
                     {
                         opacity: 1,
-                        duration: 0.8,
-                        ease: "power2.out",
+                        ease: "none",
                         scrollTrigger: {
                             trigger: block,
-                            start: "top 80%",
-                            end: "top 50%",
-                            scrub: true,
-                        }
+                            start: "top 85%",
+                            end: "top 45%",
+                            scrub: 0.5,
+                        },
                     }
                 );
             });
+
+            // Mobile cards are a separate DOM branch and use the standard reveal.
+            revealOnScroll(".mobile-step", { y: 24, duration: 0.6, stagger: 0.08 });
         }, sectionRef);
 
         return () => ctx.revert();
@@ -85,11 +90,13 @@ const StickyNarrativeSection = () => {
             <div className="section-container">
                 <div className="flex flex-col md:flex-row gap-12 md:gap-24 relative">
 
-                    {/* LEFT COLUMN: Narrative Steps */}
-                    <div className="w-full md:w-[45%] space-y-[40vh] pb-[20vh] relative z-30">
-                        {narrativeSteps.map((step, i) => (
+                    {/* LEFT COLUMN: Narrative Steps (desktop only — the compact
+                        stacked version below takes over on small screens, and
+                        rendering both was duplicating the whole section on mobile) */}
+                    <div className="hidden md:block w-full md:w-[45%] space-y-[40vh] pb-[20vh] relative z-30">
+                        {narrativeSteps.map((step) => (
                             <div
-                                key={i}
+                                key={step.tag}
                                 className="narrative-block min-h-[40vh] flex flex-col justify-center"
                             >
                                 {/* Badge / Section Label */}
@@ -125,10 +132,10 @@ const StickyNarrativeSection = () => {
                                 </ul>
 
                                 {/* Learn More Link */}
-                                <Link href={step.path || ROUTES.home} className="group inline-flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-brand hover:text-white transition-colors duration-300">
+                                <InertLink className="group inline-flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-brand hover:text-white transition-colors duration-300 cursor-pointer">
                                     Learn More
                                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                                </Link>
+                                </InertLink>
                             </div>
                         ))}
                     </div>
@@ -167,7 +174,7 @@ const StickyNarrativeSection = () => {
                                     )}>
                                         <div className="w-full max-w-sm glass-card bg-black/60 border-brand/10 p-10 shadow-2xl">
                                             <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/5">
-                                                <div className="text-[10px] font-black uppercase tracking-widest text-brand">Vioratech Growth v2</div>
+                                                <div className="text-[10px] font-black uppercase tracking-widest text-brand">Insurely Growth v2</div>
                                                 <div className="flex items-center gap-2">
                                                     <div className="w-2 h-2 rounded-full bg-brand animate-ping" />
                                                     <span className="text-[10px] font-black text-brand tracking-widest">FUND LIVE</span>
@@ -230,15 +237,25 @@ const StickyNarrativeSection = () => {
             </div>
 
             {/* Mobile View */}
-            <div className="md:hidden section-container flex flex-col space-y-16 pb-20">
-                {narrativeSteps.map((step, i) => (
-                    <div key={i} className="space-y-8 p-8 glass-card border-white/5">
+            <div className="md:hidden section-container flex flex-col space-y-8">
+                {narrativeSteps.map((step) => (
+                    <div key={step.tag} className="mobile-step reveal space-y-6 p-8 glass-card border-white/5">
                         <div className="flex items-center gap-3 text-brand">
                             <step.icon size={20} />
                             <span className="text-[10px] font-black uppercase tracking-widest">{step.tag}</span>
                         </div>
                         <h3 className="text-2xl font-bold text-white">{step.title}</h3>
-                        <p className="text-white/60 text-sm">{step.description}</p>
+                        <p className="text-white/60 text-sm leading-relaxed">{step.description}</p>
+                        <ul className="space-y-3 pt-2">
+                            {step.points.map((point) => (
+                                <li key={point} className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-white/60">
+                                    <span className="w-4 h-4 rounded-full flex items-center justify-center bg-brand/20 shrink-0">
+                                        <Check size={10} className="text-brand" strokeWidth={4} />
+                                    </span>
+                                    {point}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 ))}
             </div>
