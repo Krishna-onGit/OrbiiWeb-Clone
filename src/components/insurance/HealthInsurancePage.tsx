@@ -1915,14 +1915,14 @@ export default function HealthInsurancePage({ onBack }: HealthInsurancePageProps
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4" strokeWidth={1.5} />
-                  support@vioratech.com
+                  support@insurely.com
                 </li>
               </ul>
             </div>
           </div>
           <div className="pt-8 border-t border-white/10 text-center">
             <p className="text-white/60 font-thin text-sm">
-              © 2024 Vioratech. All rights reserved. | IRDAI Registration No: IRDAI/XXX/XXXX/XXXX
+              © 2024 Insurely. All rights reserved. | IRDAI Registration No: IRDAI/XXX/XXXX/XXXX
             </p>
           </div>
         </div>
