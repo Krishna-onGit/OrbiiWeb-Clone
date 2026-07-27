@@ -1,11 +1,11 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════════
- * ORBII DESIGN SYSTEM
+ * INSURELY DESIGN SYSTEM
  * Enterprise Fintech SaaS Design Specification
  * ═══════════════════════════════════════════════════════════════════════════════
  * 
  * This file serves as the single source of truth for all design decisions,
- * tokens, and guidelines for the Orbii platform.
+ * tokens, and guidelines for the Insurely platform.
  * 
  * Last Updated: January 2026
  * Version: 1.0.0
@@ -23,7 +23,7 @@
 export const colors = {
     // Primary Brand Colors
     brand: {
-        primary: '#B4FF39',      // Neon Yellow-Green (Orbii signature)
+        primary: '#B4FF39',      // Neon Yellow-Green (Insurely signature)
         dark: '#8ACC28',         // Darker variant for hover states
         light: '#CDFF73',        // Lighter variant for highlights
         muted: 'rgba(180, 255, 57, 0.1)', // Background tints
@@ -42,7 +42,7 @@ export const colors = {
         800: '#262626',
         900: '#171717',
         950: '#0A0A0A',
-        black: '#080E0C',        // Orbii institutional black
+        black: '#080E0C',        // Insurely institutional black
     },
 
     // Semantic Colors
@@ -253,7 +253,7 @@ export const layout = {
         sm: '640px',
         md: '768px',
         lg: '1024px',
-        xl: '1100px',      // Orbii standard container
+        xl: '1100px',      // Insurely standard container
         '2xl': '1280px',
         full: '100%',
     },

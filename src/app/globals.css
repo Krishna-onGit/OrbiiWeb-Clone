@@ -30,9 +30,99 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* `hidden` turns body into a scroll container, which silently kills every
+     `position: sticky` descendant. `clip` suppresses the same overflow without
+     creating one; the `hidden` above it is the fallback for older engines. */
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/*
+ * Scroll-reveal initial state.
+ *
+ * Hidden in CSS rather than by GSAP so content never paints at full opacity and
+ * then snaps back once hydration runs. `html.js` is set by an inline script
+ * before first paint, so with JS disabled (or if the bundle fails) everything
+ * stays visible instead of being permanently blank.
+ */
+.js .reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .js .reveal,
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fixed page backdrop — transform-only, so it never triggers a repaint. */
+.bg-drift {
+  background:
+    radial-gradient(ellipse 45% 40% at 12% 18%, rgba(180, 255, 57, 0.055) 0%, transparent 100%),
+    radial-gradient(ellipse 45% 40% at 88% 82%, rgba(180, 255, 57, 0.04) 0%, transparent 100%),
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(180, 255, 57, 0.015) 0%, transparent 100%);
+  animation: bg-drift 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.bg-dots {
+  background-image: radial-gradient(circle, #B4FF39 1px, transparent 1px);
+  background-size: 100px 100px;
+  animation: bg-dots 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes bg-drift {
+  from {
+    transform: translate3d(-1.5%, -1.5%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(1.5%, 1.5%, 0) scale(1.06);
+  }
+}
+
+@keyframes bg-dots {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(15px, -30px, 0);
+  }
+}
+
+/* Lightweight hero backdrop shown instantly while the 3D scene is deferred. */
+.hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(180, 255, 57, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 100%, rgba(180, 255, 57, 0.05) 0%, transparent 60%),
+    #080E0C;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(180, 255, 57, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 255, 57, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
 }
 
 /* Vertical Beams / Aurora Effect */
@@ -86,6 +176,222 @@ body {
 
   .glass-card {
     @apply bg-black/40 border border-white/[0.08] rounded-2xl backdrop-blur-xl;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Isometric stack (AI Hub section)
+ * Transform/opacity only — no layout or paint work per frame.
+ * ------------------------------------------------------------------------- */
+.iso-scene {
+  perspective: 1200px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iso-paused * {
+  animation-play-state: paused !important;
+}
+
+.iso-stage {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateZ(45deg) translateZ(-45px);
+}
+
+.iso-plate {
+  position: absolute;
+  inset: 0;
+  transform: translateZ(var(--depth, 0px));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.iso-grid {
+  --depth: -78px;
+  border-radius: 28px;
+  border: 1px solid rgba(180, 255, 57, 0.08);
+  background-image:
+    linear-gradient(rgba(180, 255, 57, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 255, 57, 0.09) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(circle at 50% 50%, #000 25%, transparent 74%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 25%, transparent 74%);
+  will-change: auto;
+}
+
+.iso-card {
+  border-radius: 20px;
+  border: 1px solid rgba(180, 255, 57, 0.2);
+  background:
+    linear-gradient(135deg, rgba(180, 255, 57, 0.11) 0%, rgba(180, 255, 57, 0.02) 45%, rgba(255, 255, 255, 0.02) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 30px 60px -24px rgba(0, 0, 0, 0.9);
+  animation: iso-float 6.5s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.iso-card-face {
+  position: absolute;
+  inset: 20px;
+}
+
+.iso-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(180, 255, 57, 0.65);
+}
+
+.iso-dot--muted {
+  left: 16px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.iso-bars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.iso-bars i {
+  display: block;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.iso-bars i:first-child {
+  background: rgba(180, 255, 57, 0.4);
+}
+
+.iso-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 22px 5px rgba(180, 255, 57, 0.45);
+  animation: iso-rise 4s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.iso-pulse--lag {
+  animation-delay: 2s;
+}
+
+.iso-shield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  /* Counter-rotates the stage so the mark faces the viewer head-on. */
+  transform: translateZ(var(--depth)) rotateZ(-45deg) rotateX(-60deg);
+  animation: iso-float-billboard 6.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.iso-shield-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 22px;
+  border: 1px solid rgba(180, 255, 57, 0.28);
+  background: rgba(8, 14, 12, 0.85);
+  box-shadow: 0 0 40px rgba(180, 255, 57, 0.18);
+}
+
+.iso-labels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 14px;
+  margin-top: -8px;
+}
+
+.iso-labels li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@keyframes iso-float {
+
+  0%,
+  100% {
+    transform: translateZ(var(--depth));
+  }
+
+  50% {
+    transform: translateZ(calc(var(--depth) + 14px));
+  }
+}
+
+@keyframes iso-float-billboard {
+
+  0%,
+  100% {
+    transform: translateZ(var(--depth)) rotateZ(-45deg) rotateX(-60deg);
+  }
+
+  50% {
+    transform: translateZ(calc(var(--depth) + 16px)) rotateZ(-45deg) rotateX(-60deg);
+  }
+}
+
+@keyframes iso-rise {
+  0% {
+    transform: translateZ(-60px) scale(0.35);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateZ(215px) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .iso-scene {
+    height: 460px;
+  }
+
+  .iso-stage {
+    width: 300px;
+    height: 300px;
   }
 }
 
