@@ -3,32 +3,31 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { MoveRight, ShieldCheck } from "lucide-react";
-import Spline from "@splinetool/react-spline";
-import Link from "next/link";
-import { ROUTES } from "@/config/routes";
+import HeroSpline from "./HeroSpline";
+import InertLink from "@/components/ui/InertLink";
+import { initGsap, prefersReducedMotion } from "@/lib/animations";
 
 const Hero = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const badgeRef = useRef<HTMLDivElement>(null);
-    const titleRef = useRef<HTMLHeadingElement>(null);
-    const subRef = useRef<HTMLParagraphElement>(null);
-    const ctaRef = useRef<HTMLDivElement>(null);
-    const navRef = useRef<HTMLDivElement>(null);
-    const visualRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (prefersReducedMotion) return;
+        initGsap();
 
         const ctx = gsap.context(() => {
-            const tl = gsap.timeline({ defaults: { ease: "power2.out", duration: 0.9 } });
+            // `.reveal` hides these in CSS, so reduced motion still has to
+            // explicitly put them back rather than simply skipping the tween.
+            if (prefersReducedMotion()) {
+                gsap.set(".reveal", { opacity: 1, y: 0 });
+                return;
+            }
 
-            tl.fromTo(badgeRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, delay: 0.3 })
-                .fromTo(titleRef.current, { y: 30, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8")
-                .fromTo(subRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.9")
-                .fromTo(ctaRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1 }, "-=1")
-                .fromTo(navRef.current, { opacity: 0 }, { opacity: 1, duration: 1 }, "-=0.5")
-                .fromTo(visualRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8");
+            gsap.timeline({ defaults: { ease: "power2.out", duration: 0.9 } })
+                .fromTo(".hero-badge", { y: 20, opacity: 0 }, { y: 0, opacity: 1, delay: 0.15 })
+                .fromTo(".hero-title", { y: 30, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8")
+                .fromTo(".hero-sub", { y: 20, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.85")
+                .fromTo(".hero-cta", { y: 20, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.85")
+                .fromTo(".hero-nav", { opacity: 0 }, { opacity: 1, duration: 0.9 }, "-=0.6")
+                .fromTo(".hero-visual", { y: 40, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.8");
         }, containerRef);
 
         return () => ctx.revert();
@@ -36,19 +35,13 @@ const Hero = () => {
 
     return (
         <section ref={containerRef} className="relative h-screen min-h-[600px] overflow-hidden flex flex-col items-center justify-center pt-16 pb-8">
-            {/* 3D Spline Background */}
-            <div className="absolute inset-0 -z-10 h-full w-full">
-                <Spline
-                    scene="https://prod.spline.design/Qh7B3uJXfzvTIqol/scene.splinecode"
-                    className="w-full h-full"
-                />
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-            </div>
+            {/* 3D background — code-split and loaded only when the browser is idle */}
+            <HeroSpline />
 
 
             <div className="section-container text-center relative z-10 w-full flex flex-col items-center">
                 {/* Badge */}
-                <div ref={badgeRef} className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand/10 border border-brand/20 text-brand text-[11px] font-bold tracking-wide mb-4">
+                <div className="hero-badge reveal inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand/10 border border-brand/20 text-brand text-[11px] font-bold tracking-wide mb-4">
                     <span>Life</span>
                     <span className="opacity-30">·</span>
                     <span>Health</span>
@@ -57,32 +50,33 @@ const Hero = () => {
                 </div>
 
                 {/* Title */}
-                <h1 ref={titleRef} className="text-3xl md:text-5xl lg:text-6xl font-black mb-3 max-w-4xl mx-auto !leading-[1.1] text-white">
+                <h1 className="hero-title reveal text-3xl md:text-5xl lg:text-6xl font-black mb-3 max-w-4xl mx-auto !leading-[1.1] text-white">
                     The future of <br /> Intelligent Insurance
                 </h1>
 
                 {/* Subheading */}
-                <p ref={subRef} className="text-sub max-w-2xl mx-auto mb-6 text-xs md:text-sm opacity-80">
+                <p className="hero-sub reveal text-sub max-w-2xl mx-auto mb-6 text-xs md:text-sm opacity-80">
                     AI-powered technology for modern risk management. <br className="hidden md:block" />
                     Protect your future with data-driven insights and smart coverage.
                 </p>
 
-                <div ref={ctaRef} className="flex justify-center mb-8">
-                    <Link href={ROUTES.insurance.index} className="btn-primary flex items-center gap-3 !px-6 !py-3 text-sm uppercase">
+                <div className="hero-cta reveal flex justify-center mb-8">
+                    <InertLink className="btn-primary inline-flex items-center gap-3 !px-6 !py-3 text-sm uppercase cursor-pointer">
                         Explore all Insurance <MoveRight size={16} />
-                    </Link>
+                    </InertLink>
                 </div>
 
                 {/* Hero Sub-nav */}
-                <div ref={navRef} className="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mb-8 text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-secondary/60">
-                    <Link href={ROUTES.insurance.term} className="hover:text-brand cursor-pointer transition-colors">Digital Life</Link>
-                    <Link href={ROUTES.insurance.health} className="hover:text-brand cursor-pointer transition-colors">Health Care</Link>
-                    <Link href={ROUTES.insurance.car} className="hover:text-brand cursor-pointer transition-colors">Motor Protection</Link>
-                    <Link href={ROUTES.insurance.investment} className="hover:text-brand cursor-pointer transition-colors">Investments</Link>
+                <div className="hero-nav reveal flex flex-wrap justify-center items-center gap-x-8 gap-y-3 mb-8 text-[9px] md:text-[11px] font-bold uppercase tracking-widest text-secondary/60">
+                    {["Digital Life", "Health Care", "Motor Protection", "Investments"].map((item) => (
+                        <InertLink key={item} className="hover:text-brand cursor-pointer transition-colors">
+                            {item}
+                        </InertLink>
+                    ))}
                 </div>
 
                 {/* Abstract Dashboard Visual */}
-                <div ref={visualRef} className="max-w-3xl mx-auto w-full group relative mb-2">
+                <div className="hero-visual reveal max-w-3xl mx-auto w-full group relative mb-2">
                     <div className="absolute -inset-1 bg-gradient-to-r from-brand/20 to-transparent blur opacity-25 group-hover:opacity-40 transition" />
                     <div className="relative glass-card bg-black/60 h-40 md:h-56 p-4 md:p-6 flex border-white/[0.08]">
                         {/* Left Side: Claim Settlement */}
