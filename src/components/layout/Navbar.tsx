@@ -2,55 +2,27 @@
 
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { ArrowRight, ShieldCheck, Calculator, LifeBuoy, HeartPulse, Car, Banknote, Globe } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
-
-import { ROUTES } from "@/config/routes";
-import { useRouter } from "next/navigation";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import InertLink from "@/components/ui/InertLink";
 
 const navLinks = [
     {
         title: "INSURANCE",
-        items: [
-            { label: "Health Insurance", icon: HeartPulse, path: ROUTES.insurance.health },
-            { label: "Life Insurance", icon: LifeBuoy, path: ROUTES.insurance.term },
-            { label: "Car Insurance", icon: Car, path: ROUTES.insurance.car },
-            { label: "Other Insurance", icon: Globe, path: ROUTES.insurance.other },
-        ]
+        items: ["Health Insurance", "Life Insurance", "Car Insurance", "Other Insurance"],
     },
     {
         title: "INVESTMENT",
-        items: [
-            { label: "Investment Plans", icon: Banknote, path: ROUTES.insurance.investment },
-            { label: "Goal Based", icon: Banknote, path: ROUTES.insurance.investment },
-            { label: "Tax Saving", icon: Banknote, path: ROUTES.insurance.investment },
-            { label: "Retirement", icon: Banknote, path: ROUTES.insurance.investment },
-        ]
+        items: ["Investment Plans", "Goal Based", "Tax Saving", "Retirement"],
     },
     {
         title: "UTILITIES",
-        items: [
-            { label: "Calculators Hub", icon: Calculator, path: ROUTES.calculators.hub },
-            { label: "Premium Calculator", icon: Calculator, path: ROUTES.calculators.premium },
-            { label: "Term Selection", icon: Calculator, path: ROUTES.insurance.oneCroreTerm },
-            { label: "Dynamic Pricing", icon: Calculator, path: ROUTES.tools.dynamicPricing },
-            { label: "Claims Process", icon: ShieldCheck, path: ROUTES.insurance.health },
-        ]
+        items: ["Calculators Hub", "Premium Calculator", "Term Selection", "Dynamic Pricing", "Claims Process"],
     },
     {
         title: "FOR PARTNERS",
-        items: [
-            { label: "For Insurers", icon: ShieldCheck, path: ROUTES.business.insurers },
-            { label: "Actuarial Tech", icon: ShieldCheck, path: ROUTES.tech.actuarial },
-            { label: "API Docs", icon: ShieldCheck, path: ROUTES.business.insurers },
-            { label: "Resources", icon: Globe, path: ROUTES.home },
-            { label: "Contact Us", icon: ShieldCheck, path: ROUTES.home },
-        ]
-    }
+        items: ["For Insurers", "Actuarial Tech", "API Docs", "Resources", "Contact Us"],
+    },
 ];
 
 const Navbar = () => {
@@ -60,17 +32,23 @@ const Navbar = () => {
     const menuRef = useRef<HTMLDivElement>(null);
     const lastScrollY = useRef(0);
 
-    const router = useRouter();
-
     useEffect(() => {
-        const handleScroll = () => {
+        let ticking = false;
+
+        // Reads are batched into a single rAF so fast scrolling never triggers
+        // layout reads (and React re-renders) more than once per frame.
+        const update = () => {
+            ticking = false;
             const currentScrollY = window.scrollY;
             const delta = currentScrollY - lastScrollY.current;
 
             // Sensitivity threshold
             if (Math.abs(delta) < 5) return;
+            lastScrollY.current = currentScrollY;
 
-            if (delta > 0 && currentScrollY > 100) {
+            if (currentScrollY < 10) {
+                setIsVisible(true);
+            } else if (delta > 0 && currentScrollY > 100) {
                 // Scrolling Down -> Hide by sliding up
                 setIsVisible(false);
                 setIsOpen(false);
@@ -78,13 +56,12 @@ const Navbar = () => {
                 // Scrolling Up -> Show by sliding down
                 setIsVisible(true);
             }
+        };
 
-            // Always show at the very top
-            if (currentScrollY < 10) {
-                setIsVisible(true);
-            }
-
-            lastScrollY.current = currentScrollY;
+        const handleScroll = () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
@@ -101,23 +78,6 @@ const Navbar = () => {
         });
     }, [isVisible]);
 
-    useEffect(() => {
-        if (!menuRef.current) return;
-        if (isOpen) {
-            gsap.fromTo(menuRef.current,
-                { opacity: 0, scale: 0.96, y: -8 },
-                { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "power2.out" }
-            );
-        } else {
-            gsap.to(menuRef.current, {
-                opacity: 0,
-                scale: 0.96,
-                y: -8,
-                duration: 0.25,
-                ease: "power2.out",
-            });
-        }
-    }, [isOpen]);
 
     return (
         <nav
@@ -129,15 +89,15 @@ const Navbar = () => {
                 isOpen ? "rounded-3xl" : "rounded-full"
             )}>
                 <div className="flex items-center justify-between px-6 py-3">
-                    <Link href={ROUTES.home} onClick={() => setIsOpen(false)} className="flex items-center gap-2 group">
+                    <div className="flex items-center gap-2 group select-none">
                         <div className="w-8 h-8 rounded-lg bg-brand/10 flex items-center justify-center group-hover:bg-brand/20 transition-colors">
                             <ShieldCheck size={16} className="text-brand" />
                         </div>
-                        <span className="text-white font-bold text-lg tracking-tight">Vioratech</span>
-                    </Link>
+                        <span className="text-white font-bold text-lg tracking-tight">Insurely</span>
+                    </div>
 
                     <div className="flex items-center gap-4">
-                        <button className="hidden sm:flex btn-primary !py-1 !px-3 text-[10px]" onClick={() => { router.push(ROUTES.calculators.hub); setIsOpen(false); }}>
+                        <button type="button" className="hidden sm:flex btn-primary !py-1 !px-3 text-[10px]">
                             Calculator Premiums
                         </button>
 
@@ -157,28 +117,26 @@ const Navbar = () => {
 
                 <div
                     ref={menuRef}
+                    aria-hidden={!isOpen}
                     className={cn(
-                        "overflow-hidden transition-all duration-300",
-                        isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                        "overflow-hidden transition-[max-height,opacity] duration-300 ease-out will-change-[max-height]",
+                        isOpen ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
                     )}
                 >
                     <div className="px-6 pb-6 pt-4 border-t border-white/[0.06]">
                         <div className="grid grid-cols-4 gap-4">
                             {navLinks.map((section, i) => (
                                 <div key={i} className="space-y-3">
-                                    <h4 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand">
+                                    {/* `!` beats the global `h1-h6 { font-weight: 100 !important }` */}
+                                    <h4 className="text-[10px] !font-bold uppercase tracking-[0.2em] text-brand/90">
                                         {section.title}
                                     </h4>
                                     <ul className="space-y-2">
-                                        {section.items.map((item, j) => (
-                                            <li key={j}>
-                                                <Link
-                                                    href={item.path}
-                                                    onClick={() => setIsOpen(false)}
-                                                    className="flex items-center gap-1.5 text-left text-xs text-secondary/70 hover:text-white font-normal transition-colors duration-200"
-                                                >
-                                                    {item.label}
-                                                </Link>
+                                        {section.items.map((item) => (
+                                            <li key={item}>
+                                                <InertLink className="flex items-center gap-1.5 text-left text-xs text-white/75 hover:text-white font-normal transition-colors duration-200 cursor-pointer">
+                                                    {item}
+                                                </InertLink>
                                             </li>
                                         ))}
                                     </ul>
@@ -187,10 +145,10 @@ const Navbar = () => {
                         </div>
 
                         <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
-                            <span className="text-[10px] text-secondary/50 uppercase tracking-widest">Secure your future?</span>
-                            <Link href={ROUTES.insurance.health} onClick={() => setIsOpen(false)} className="group flex items-center gap-2 text-xs font-semibold text-brand hover:text-white transition-colors">
+                            <span className="text-[10px] text-white/55 uppercase tracking-widest">Secure your future?</span>
+                            <InertLink className="group flex items-center gap-2 text-xs font-semibold text-brand hover:text-white transition-colors cursor-pointer">
                                 Get Started <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
-                            </Link>
+                            </InertLink>
                         </div>
                     </div>
                 </div>
