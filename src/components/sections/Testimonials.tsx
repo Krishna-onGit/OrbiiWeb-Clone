@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
     {
-        quote: "Orbii has completely transformed how our engineering team handles observability. The AI insights are scary accurate.",
+        quote: "Insurely has completely transformed how our engineering team handles observability. The AI insights are scary accurate.",
         author: "Sarah Chen",
         role: "CTO at NexusFlow",
     },
