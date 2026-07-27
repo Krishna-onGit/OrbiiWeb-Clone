@@ -2,10 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Search, Scale, FileCheck, CheckCircle2 } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { initGsap, revealOnScroll } from "@/lib/animations";
 
 const steps = [
     { icon: Search, title: "Select Product", description: "Choose from Health, Life, Car, or Investment plans tailored to your needs." },
@@ -14,31 +12,21 @@ const steps = [
 ];
 
 const LaunchTimeline = () => {
-    const sectionRef = useRef<HTMLDivElement>(null);
+    const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (prefersReducedMotion) return;
+        initGsap();
 
         const ctx = gsap.context(() => {
-            // Heading animation
-            gsap.fromTo(".launch-heading",
-                { opacity: 0, y: 30 },
-                {
-                    opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
-                    scrollTrigger: { trigger: ".launch-heading", start: "top 85%", once: true }
-                }
-            );
-
-            // Timeline steps stagger
-            gsap.fromTo(".timeline-step",
-                { opacity: 0, y: 25 },
-                {
-                    opacity: 1, y: 0, duration: 0.7, ease: "power2.out",
-                    stagger: 0.15,
-                    scrollTrigger: { trigger: ".timeline-steps", start: "top 80%", once: true }
-                }
-            );
+            revealOnScroll(".launch-heading", { y: 30, duration: 0.8 });
+            revealOnScroll(".timeline-step", {
+                y: 25,
+                duration: 0.7,
+                stagger: 0.12,
+                trigger: ".timeline-steps",
+                start: "top 85%",
+            });
+            revealOnScroll(".launch-note", { y: 12, duration: 0.6, start: "top 95%" });
         }, sectionRef);
 
         return () => ctx.revert();
@@ -48,7 +36,7 @@ const LaunchTimeline = () => {
         <section ref={sectionRef} className="py-32 relative border-t border-white/[0.03]">
             <div className="section-container">
                 {/* Heading */}
-                <div className="launch-heading text-center mb-20">
+                <div className="launch-heading reveal text-center mb-20">
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand mb-4 block">Process</span>
                     <h2 className="heading-hero text-4xl md:text-6xl max-w-4xl mx-auto text-white">
                         Get insured in three simple steps
@@ -58,7 +46,7 @@ const LaunchTimeline = () => {
                 {/* Timeline Steps */}
                 <div className="timeline-steps grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                     {steps.map((step, i) => (
-                        <div key={i} className="timeline-step relative">
+                        <div key={step.title} className="timeline-step reveal relative">
                             {/* Connector Line */}
                             {i < steps.length - 1 && (
                                 <div className="hidden md:block absolute top-8 left-1/2 w-full h-px bg-gradient-to-r from-brand/30 to-transparent" />
@@ -81,7 +69,7 @@ const LaunchTimeline = () => {
                 </div>
 
                 {/* Bottom Check */}
-                <div className="mt-16 flex justify-center items-center gap-3 text-white/20">
+                <div className="launch-note reveal mt-16 flex justify-center items-center gap-3 text-white/20">
                     <CheckCircle2 size={18} className="text-brand" />
                     <span className="text-sm font-medium text-brand">Average issuance time: 58 seconds</span>
                 </div>
